@@ -25,7 +25,7 @@ import {
   getDownloadURL
 } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-storage.js";
 
-//Firebase-config
+
 const firebaseConfig = {
   apiKey: "AIzaSyDAtBbDusZ6MFNsNPJuYmmQDZ-7GMP0sDY",
   authDomain: "travel-planner-c2b70.firebaseapp.com",
