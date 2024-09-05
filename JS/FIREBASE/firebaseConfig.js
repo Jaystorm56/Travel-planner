@@ -1,6 +1,31 @@
-import { initializeApp } from "firebase/app";
-import { getAuth } from "firebase/auth"
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.4/firebase-app.js";
+import {
+  getAuth,
+  signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
+  signOut,
+  onAuthStateChanged
+} from "https://www.gstatic.com/firebasejs/10.12.4/firebase-auth.js";
 
+import {
+  getFirestore,
+  doc,
+  setDoc,
+  getDoc,
+  collection,
+  getDocs,
+  addDoc,
+  updateDoc
+} from "https://www.gstatic.com/firebasejs/10.12.4/firebase-firestore.js";
+
+import {
+  getStorage,
+  ref,
+  uploadBytes,
+  getDownloadURL
+} from "https://www.gstatic.com/firebasejs/10.12.4/firebase-storage.js";
+
+//Firebase-config
 const firebaseConfig = {
   apiKey: "AIzaSyDAtBbDusZ6MFNsNPJuYmmQDZ-7GMP0sDY",
   authDomain: "travel-planner-c2b70.firebaseapp.com",
@@ -12,8 +37,13 @@ const firebaseConfig = {
 };
 
 
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
 
-export { auth };
-export default app;
+const app = initializeApp(firebaseConfig);
+
+
+const auth = getAuth(app);
+const db = getFirestore(app);
+const storage = getStorage(app);
+
+
+export { auth, db, storage, signInWithEmailAndPassword, createUserWithEmailAndPassword, signOut, onAuthStateChanged, doc, setDoc, getDoc, collection, getDocs, addDoc, updateDoc, ref, uploadBytes, getDownloadURL };

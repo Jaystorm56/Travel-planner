@@ -1,16 +1,11 @@
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from '../firebase/firebaseConfig';
+import { auth, onAuthStateChanged } from '../FIREBASE/firebaseConfig';
 
-const handleAuthStateChange = (callback) => {
-  onAuthStateChanged(auth, (user) => {
+onAuthStateChanged(auth, user => {
     if (user) {
-      console.log("User is signed in:", user);
-      callback(user); 
+        console.log('User is signed in:', user);
+        
     } else {
-      console.log("No user is signed in.");
-      callback(null); 
+        console.log('No user is signed in.');
+     
     }
-  });
-};
-
-export default handleAuthStateChange;
+});
