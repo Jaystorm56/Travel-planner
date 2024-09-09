@@ -1,0 +1,88 @@
+@media screen and (max-width:375px) {
+    .sign-up-main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column-reverse;
+        gap: 80px;
+        height: 165vh;
+        width: 80%;
+    }
+
+    .form-grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 10px;   
+    }
+
+    .sign-up-form{
+        display: flex;
+        align-items:flex-start;
+        justify-content: space-around;
+        width: 80%;
+    }
+
+    .first-input{
+        height:53px;
+        width: 330px;
+        display: inline;
+        font-size: 25px;
+    }
+    .button-con{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;   
+    }
+
+    .button-con > button{
+        text-align: center;
+        width: 330px;
+        height: 40px;
+        background-color: #68C6C8;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+    }
+
+    .sign-up-img > img{
+       display: none;
+    }
+
+    .google-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 95%;
+        height: 50px;
+    }
+
+    .divider {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+    }
+    
+    .divider::before, .divider::after {
+        content: "";
+        width: 110px;
+        border-top: 1px solid #ccc;
+        
+    }
+    
+    .divider::before {
+        margin-right: 10px;
+    }
+    
+    .divider::after {
+        margin-left: 10px;
+    }
+    
+    .divider span {
+        white-space: nowrap;
+        font-size: 14px;
+        color: #555;
+    }
+}
