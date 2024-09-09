@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up</title>
+    <link rel="stylesheet" href="/AUTHENTICATION/CSS/signup.css"> 
+    <link rel="stylesheet" href="/AUTHENTICATION/CSS/responsive.css">
+</head>
+<body>
+
+    <main class="sign-up-main">
+        
+        <div class="sign-up-img">
+            <img src="./IMAGES/new-signup-img.jpeg" alt="">
+        </div>
+    
+        <div class="sign-up-form">
+            <div class="travel-logo">
+                <img src="./IMAGES/travel.logo.jpeg" alt="">
+            </div>
+            
+            
+        <form id="sign-up-form">
+            <div class="sign-up-txt">
+                <h1>Sign Up</h1>
+                
+                <p>Lets get you all setup</p>
+            </div>
+            <div class="form-grid">
+                <div class="first-con conn">
+                    <label class="firstname" for="first-name">First Name</label>
+                    <input class="first-input" type="text" id="first-name" required>
+                </div>
+               
+                <div class="first-con conn">
+                    <label class="firstname" for="last-name">Last Name</label>
+                    <input class="first-input" type="text" id="last-name" required>
+                </div>
+    
+                <div class="first-con">
+                    <label class="firstname" for="phone">Phone Number</label>
+                    <input class="first-input" type="tel" id="phone" required>
+                </div>
+        
+                <div class="first-con">
+                    <label class="firstname" for="email">Email</label>
+                <input class="first-input" type="email" id="email" required>
+                
+                </div>
+            </div>
+
+            <div class="first-con">
+                <label class="firstname" for="password">Password</label>
+                <input class="first-input pass" type="password" id="password" required>
+            </div>
+           
+            <div class="first-con">
+                <label class="firstname" for="confirm-password">Confirm Password</label>
+                <input class="first-input pass" type="password" id="confirm-password" required>
+            </div>
+          
+            <br>
+
+            <label>
+                <input type="checkbox" id="terms-checkbox" required>
+                I agree to all the <a href="#">terms</a> and <a href="#">privacy policies</a>.
+            </label>
+            <br>
+            <br>
+    
+           <div class="button-con">
+            <button type="submit">Create account</button>
+            <br>
+            
+    
+            <p>Already have an account? <a href="./signin.html">Sign In</a></p>
+           </div>
+    
+            <div class="divider">
+                <span>Or sign up with</span>
+            </div>
+            
+            <!-- Google Sign-Up Option -->
+            <div class="google-btn">
+                <div class="border">
+                    <button type="button" id="google-signup"><img src="./IMAGES/google.svg" alt=""></button>
+                </div>
+               
+            </div>
+           
+        </form>
+        </div>
+    </main>
+   
+    <script type="module" src="../../firebaseConfig.js"></script>
+    <script type="module" src="/AUTHENTICATION/SIGN-UP/signup.js"></script>
+</body>
+</html>
+
+
+
