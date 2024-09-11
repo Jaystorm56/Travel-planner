@@ -87,6 +87,14 @@
     background-color: white;
     font-size: 1.1rem;
 }
+.button-con{
+    text-align: center;
+}
+
+.button-con a{
+    text-decoration: none;
+    color: #ff8682;
+}
 
 .button-con > button{
     text-align: center;
@@ -115,6 +123,16 @@
 .sign-up-txt > h1{
     margin-bottom: 7px;
 }
+
+.remember-mee{
+display: flex;
+ gap: 90px; 
+align-items: center;
+}
+.remember-mee > a{
+   text-decoration: none;
+   color: #ff8682;
+    }
 
 #toggle-password{
      position: absolute; 

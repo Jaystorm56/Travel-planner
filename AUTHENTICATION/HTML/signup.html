@@ -6,6 +6,7 @@
     <title>Sign Up</title>
     <link rel="stylesheet" href="/AUTHENTICATION/CSS/signup.css"> 
     <link rel="stylesheet" href="/AUTHENTICATION/CSS/responsive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
 
@@ -53,16 +54,18 @@
             <div class="first-con">
                 <label class="firstname" for="password">Password</label>
                 <input class="first-input pass" type="password" id="password" required>
+                <span id="toggle-password"> <i id="eye-icon" class="fa fa-eye"></i></span>
             </div>
            
             <div class="first-con">
                 <label class="firstname" for="confirm-password">Confirm Password</label>
                 <input class="first-input pass" type="password" id="confirm-password" required>
+                <span id="toggle-password"> <i id="eye-icon" class="fa fa-eye"></i></span>
             </div>
           
             <br>
 
-            <label>
+            <label class="chekboxx">
                 <input type="checkbox" id="terms-checkbox" required>
                 I agree to all the <a href="#">terms</a> and <a href="#">privacy policies</a>.
             </label>

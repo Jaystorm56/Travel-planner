@@ -1,0 +1,121 @@
+@media screen and (max-width:375px) {
+    .sign-up-main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 110vh;
+        width: 100%;
+   
+    }
+    .sign-up-img {
+       display: none;
+    }
+
+    .sign-up-form{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            height: 100vh;
+            width: 99%;   
+    }
+    #sign-in-form{
+        height: 90vh;
+        width: 100%;
+       
+    }
+
+    .sign-up-txt > p{
+        font-size: 1.3rem;
+    }
+
+.first-input{
+    height:53px ;
+    width: 98%;
+    display: inline;
+    font-size: 1.3rem;
+    outline: none;
+}
+.firstname{
+    color: black ;
+    position: absolute;
+    top: -11px;
+    left: 10px;
+    background-color: white;
+    font-size: 1.2rem;
+}
+
+.button-con{
+    text-align: center;
+}
+
+.button-con > p{
+    font-size: 20px;
+}
+
+.button-con > button{
+    text-align: center;
+    width: 380px;
+    height: 40px;
+    background-color: #68C6C8;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 1.5rem;
+}
+
+.remember-mee{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 380px;
+    }
+.remember-mee  label{
+        font-size: 18px;
+        width: 150px;   
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+        
+        .divider::before, .divider::after {
+            content: "";
+            width: 135px;
+            border-top: 1px solid #ccc;
+            
+        }
+        
+        .divider::before {
+            margin-right: 10px;
+        }
+        
+        .divider::after {
+            margin-left: 10px;
+        }
+        
+        .divider span {
+            white-space: nowrap;
+            font-size: 18px;
+            color: #555;
+        }
+
+.remember-mee > a{
+        text-decoration: none;
+        color: #ff8682;
+        font-size: 18px;
+        width: 150px;
+        text-align: end;
+         }
+
+#toggle-password{
+    position: absolute; 
+    right: 60px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+
+    
+}

@@ -52,6 +52,21 @@ const signUpUser = async (email, password, firstName, lastName, phone) => {
     }
 };
 
+// toggle password
+
+const togglePasswordVisibility = () => {
+    const passwordField = document.getElementById('password');
+    const eyeIcon = document.getElementById('eye-icon');
+    
+    if (passwordField.type === 'password') {
+        passwordField.type = 'text'; // Show password
+        eyeIcon.classList.replace('fa-eye', 'fa-eye-slash'); // Change icon to "eye-slash"
+    } else {
+        passwordField.type = 'password'; // Hide password
+        eyeIcon.classList.replace('fa-eye-slash', 'fa-eye'); // Change icon back to "eye"
+    }
+};
+
 // Function to sign up the user using Google authentication
 const signUpWithGoogle = async () => {
     try {
@@ -113,3 +128,6 @@ signUpForm.addEventListener('submit', async (e) => {
 // Event listener for Google sign-up button
 const googleSignupBtn = document.getElementById('google-signup');
 googleSignupBtn.addEventListener('click', signUpWithGoogle);
+
+// event listener for toggle
+document.getElementById('eye-icon').addEventListener('click', togglePasswordVisibility);

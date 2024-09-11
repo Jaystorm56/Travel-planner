@@ -1,0 +1,39 @@
+@media screen and (max-width:375px) {
+    .sign-up-main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column-reverse;
+        gap: 80px;
+        height: 165vh;
+        width: 430px;
+        border: 1px solid red;
+    }
+
+    .sign-up-img{
+        display: none;
+    }
+
+    .first-input{
+        height:40px ;
+        width: 350px;
+        display: inline;
+        padding-left: 20px;
+        font-size: 15px;
+        outline: none;
+      
+    }
+
+    .button-con > button{
+        text-align: center;
+        width: 350px;
+        height: 40px;
+        background-color: #68C6C8;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        font-size: 1rem;
+        margin-top: 26px;
+    }
+    
+}

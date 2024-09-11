@@ -14,6 +14,7 @@
     justify-content: center;
     gap: 80px;
     height: 96vh;
+    
 }
 .sign-up-img > img{
     width: 400px;
@@ -116,6 +117,10 @@
     outline: none;
     font-size: 1rem;
 }
+.button-con a{
+    text-decoration: none;
+    color: #ff8682;
+}
 
 .google-btn{
     display: flex;
@@ -132,4 +137,23 @@
 
 .sign-up-txt > h1{
     margin-bottom: 7px;
+}
+
+.chekboxx{
+    width: 500px;
+}
+
+.chekboxx a{  
+        text-decoration: none;
+        color: #ff8682;
+        /* font-size: 18px; */
+         
+}
+
+#toggle-password{
+    position: absolute; 
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
 }
