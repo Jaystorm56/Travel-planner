@@ -14,7 +14,7 @@
     justify-content: center;
     gap: 80px;
     height: 96vh;
-    
+    background-color: #011c1d;
 }
 .sign-up-img > img{
     width: 400px;
@@ -35,8 +35,9 @@
 }
 
 .travel-logo > img{
-    width: 100px;
-    height: 70px;
+    /* width: 100px; */
+    /* height: 50px; */
+    /* border: 1px solid red; */
     margin-bottom: 20px;
 }
 
@@ -64,7 +65,7 @@
 .divider span {
     white-space: nowrap;
     font-size: 14px;
-    color: #555;
+    color: rgb(230, 224, 224);
 }
 
 .first-con{
@@ -81,18 +82,25 @@
     height:40px ;
     width: 250px;
     display: inline;
-    padding-left: 15px;
+    padding-left: 20px;
     font-size: 15px;
     outline: none;
+    background-color: transparent;
+    border: 1px solid #68C6C8;
+    color: white;
 }
 
 .firstname{
     color: black ;
     position: absolute;
-    top: -11px;
-    left: 10px;
-    background-color: white;
-    font-size: 1.1rem;
+    top: -10px;
+    left: 15px;
+    background-color: #011c1d;
+    padding-left: 9px;
+    padding-right: 9px;
+    color: #68C6C8;
+    font-size: 0.9rem;
+
 }
 
 .form-grid{
@@ -116,10 +124,18 @@
     border: none;
     outline: none;
     font-size: 1rem;
+    font-weight: 600;
 }
 .button-con a{
     text-decoration: none;
     color: #ff8682;
+}
+
+.button-con p{
+    text-decoration: none;
+    color: white;
+    font-size: 0.8rem;
+    margin-top: 10px;
 }
 
 .google-btn{
@@ -131,16 +147,38 @@
 }
 .border{
     width: 167px;
+    /* height: 30px; */
     text-align: center;
-    border: 2px solid #68C6C8;
+    border: 5px solid #68C6C8;
+    background-color: transparent;
+}
+
+.border img {
+    /* background-color: #011c1d; */
+    /* height: 10px; */
 }
 
 .sign-up-txt > h1{
     margin-bottom: 7px;
+    font-weight: 500;
+}
+.sign-up-txt{
+    
+    color: white;
+}
+
+.sign-up-txt > p{
+    /* margin-bottom: 7px; */
+    font-weight: 500;
+    font-size: 0.8rem;
 }
 
 .chekboxx{
+    display: flex;
+    align-items: center;
     width: 500px;
+    color: white;
+    font-size: 0.8rem;
 }
 
 .chekboxx a{  
@@ -151,6 +189,14 @@
 }
 
 #toggle-password{
+    position: absolute; 
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    /* color: white; */
+}
+#toggle-confirm-password{
     position: absolute; 
     right: 13px;
     top: 50%;

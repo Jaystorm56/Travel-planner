@@ -1,39 +1,199 @@
+/* TAB SCREEN */
+@media screen and (max-width:834px) and (min-width: 376px) {
+    .sign-up-main {
+        display: flex;
+        align-items: center;
+        height: 105vh;
+    }
+
+    .sign-up-img {
+        display: none;
+    }
+
+
+    .forgotten-passwor {
+        height: 100vh;
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        width: 99%;
+    }
+
+    #forgotten-password-form {
+        display: flex;
+        justify-content: start;
+        flex-direction: column;
+        height: 90vh;
+        width: 100%;
+    }
+
+    .forgor-pass-a {
+        text-decoration: none;
+        color: white;
+        font-size: 2.2rem;
+        font-weight: 400;
+    }
+
+    .first-input {
+        height: 73px;
+        width: 810px;
+        display: inline;
+        font-size: 1.8rem;
+        padding-left: 33px;
+    }
+
+    .firstname {
+        position: absolute;
+        top: -23px;
+        left: 35px;
+        background-color: #011c1d;
+        padding-left: 15px;
+        padding-right: 15px;
+        color: #68C6C8;
+        font-size: 1.8rem;
+    }
+
+    .travel-logo {
+        width: 200px;
+        margin-bottom: 50px;
+    }
+
+    .travel-logo>img {
+        width: 180px;
+        height: 80px;
+        margin-bottom: 20px;
+    }
+
+    .forgot-h1 {
+        margin-top: 50px;
+        margin-bottom: 7px;
+        font-weight: 400;
+        font-size: 3.6rem;
+    }
+
+    .sign-up-txt>p {
+        margin-bottom: 40px;
+        font-size: 1.9rem;
+    }
+
+    .button-con {
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+
+    .button-con>button {
+        text-align: center;
+        width: 99%;
+        height: 60px;
+        background-color: #68C6C8;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        font-size: 2.2rem;
+    }
+
+}
+
+
+/* MOBILE SCREEN */
 @media screen and (max-width:375px) {
-    .sign-up-main{
+    .sign-up-main {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column-reverse;
         gap: 80px;
-        height: 165vh;
-        width: 430px;
-        border: 1px solid red;
+        height: 115vh;
+        width: 100%;
     }
 
-    .sign-up-img{
+    .forgotten-passwor {
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        height: 109vh;
+        width: 99%;
+    }
+
+    .forgor-pass-a {
+        text-decoration: none;
+        color: white;
+        font-size: 1.2rem;
+        font-weight: 600;
+    }
+
+    .forgot-h1 {
+        margin-top: 50px;
+        margin-bottom: 7px;
+        font-weight: 500;
+    }
+
+    #forgotten-password-form {
+        display: flex;
+        justify-content: start;
+        height: 90vh;
+        width: 100%;
+    }
+
+    .travel-logo {
+        height: 70px;
+        margin-bottom: 50px;
+    }
+
+    .sign-up-img {
         display: none;
     }
 
-    .first-input{
-        height:40px ;
-        width: 350px;
+    .sign-up-txt>h1 {
+        margin-bottom: 7px;
+
+    }
+
+    .sign-up-txt>p {
+        font-size: 1.1rem;
+        font-weight: 500;
+        width: 100%;
+    }
+
+
+    .first-input {
+        height: 60px;
+        width: 410px;
         display: inline;
         padding-left: 20px;
         font-size: 15px;
         outline: none;
-      
+
     }
 
-    .button-con > button{
+    .firstname {
+        color: black;
+        position: absolute;
+        top: -15px;
+        left: 25px;
+        background-color: #011c1d;
+        padding-left: 12px;
+        padding-right: 12px;
+        color: #68C6C8;
+        font-size: 1.5rem;
+    }
+
+
+    .button-con>button {
         text-align: center;
-        width: 350px;
-        height: 40px;
+        width: 410px;
+        height: 45px;
         background-color: #68C6C8;
         border-radius: 6px;
         border: none;
         outline: none;
-        font-size: 1rem;
+        font-size: 1.5rem;
+        font-weight: 550;
         margin-top: 26px;
     }
-    
+
 }
