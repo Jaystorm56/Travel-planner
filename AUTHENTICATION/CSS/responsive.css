@@ -1,36 +1,99 @@
-@media screen and (max-width:375px) {
+/* TAB SCREEN */
+@media screen and (max-width:834px)  and (min-width: 376px) {
+    
     .sign-up-main{
         display: flex;
         align-items: center;
+        height: 115vh;
+    }
+    
+    .sign-up-img{
+        display: none;
+    }
+    
+    
+    .sign-up-form{
+        height: 112vh;
+        display: flex;
         justify-content: center;
-        height: 140vh;
+        flex-direction: column;
+        width: 99%;
+    }
+    
+    #sign-up-form{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        height: 112vh;
         width: 100%;
     }
+    
+    .first-input{
+        height:63px;
+        width: 99%;
+        display: inline;
+        font-size: 1.8rem;
+        padding-left: 33px;
+    }
 
-    .sign-up-img {
-        display: none;
-     }
-
+    .firstname{
+        position: absolute;
+        top: -23px;
+        left: 35px;
+        background-color: #011c1d;
+        padding-left: 15px;
+        padding-right: 15px;
+        color: #68C6C8;
+        font-size: 1.8rem;
+    
+    }
+    .pass{
+        margin-bottom: 20px;
+    }
+    .travel-logo{
+        width: 200px;
+        
+    }
+    .travel-logo > img{
+        width: 180px;
+        height: 80px;
+        margin-bottom: 20px;
+    }
+    
     .form-grid{
         display: grid;
         grid-template-columns: 1fr;
-        row-gap: 10px;   
+        row-gap: 30px; 
+        margin-bottom: 30px;  
+    }
+    
+    .sign-up-txt > h1{
+        margin-bottom: 10px;
+        font-size: 3.6rem;
+    }
+    .sign-up-txt > p{
+        margin-bottom: 40px;
+        font-size: 1.9rem;
     }
 
-    .sign-up-form{
-        display: flex;
-        flex-direction: column;
-        min-height: 125vh;
-        justify-content: space-between;
-        width: 87%;
-        
+    input[type="checkbox"]{
+        width: 30px;
+        height: 30px;
+        margin-right: 13px;
     }
-
-    .first-input{
-        height:53px;
-        width: 340px;
-        display: inline;
-        font-size: 25px;
+    
+    .chekboxx {
+        font-size: 1.9rem;
+        width: 850px;
+    }
+    
+    .chekboxx a{  
+        text-decoration: none;
+        color: #ff8682;
+        font-size: 1.9rem;
+        margin-left: 6px;
+        margin-right: 6px;
+         
     }
     .button-con{
         display: flex;
@@ -40,39 +103,40 @@
         width: 100%;  
          
     }
-
+    
     .button-con > button{
         text-align: center;
-        width: 330px;
-        height: 40px;
+        width: 99%;
+        height: 50px;
         background-color: #68C6C8;
         border-radius: 6px;
         border: none;
         outline: none;
-        font-size: 1.3rem;
+        font-size: 2.2rem;
     }
-    .button-con a{
-        font-size: 20px;
-        
-    }
-
-    .google-btn{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: 95%;
-        height: 50px;
+    
+    .button-con  p{
+        font-size: 1.9rem;
     }
 
+    .border{
+        width: 199px;
+        height: 70px;
+        text-align: center;
+        border: 5px solid #68C6C8;
+        background-color: transparent;
+    }
+    
     .divider {
         display: flex;
         align-items: center;
+        justify-content: center;
         margin: 20px 0;
     }
     
     .divider::before, .divider::after {
         content: "";
-        width: 100px;
+        width: 250px;
         border-top: 1px solid #ccc;
         
     }
@@ -87,8 +151,191 @@
     
     .divider span {
         white-space: nowrap;
-        font-size: 18px;
-        color: #555;
+        font-size: 1.7rem;
+        color: #ccc;
+    }
+    .google-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 99%;
+        height: 50px;
+    }
+    .google-btn img{
+        width: 4.3em;
+    }
+
+    #toggle-password{
+        position: absolute; 
+        right: 40px;
+        top: 40%;
+        transform: translateY(-50%);
+        cursor: pointer;
+        font-size: 1.9rem;
+   }
+
+   #toggle-confirm-password{
+    position: absolute; 
+    right: 40px;
+    top: 40%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.9rem;
+}
+        
+    }
+
+
+
+
+
+/* mobile screen */
+@media screen and (max-width:375px){
+    .sign-up-main{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 195vh;
+        width: 100%;
+    }
+
+    .sign-up-img {
+        display: none;
+     }
+
+     .sign-up-txt > h1{
+        margin-bottom: 10px;
+        font-size: 2.3rem;
+    }
+    .sign-up-txt > p{
+        margin-bottom: 30px;
+        font-size: 1.5rem;
+    }
+
+    .form-grid{
+        display: grid;
+        grid-template-columns: 1fr;
+        row-gap: 30px; 
+        margin-bottom: 40px;  
+    }
+    
+
+    .sign-up-form{
+        display: flex;
+        flex-direction: column;
+        height: 178vh;
+        justify-content: space-between;
+        width: 100%;
+        
+    }
+    #sign-up-form{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .first-input{
+        height:66px;
+        width: 99%;
+        display: inline;
+        font-size: 1.1rem;
+    }
+
+    .firstname{
+        color: black ;
+        position: absolute;
+        top: -20px;
+        left: 25px;
+        background-color: #011c1d;
+        padding-left: 12px;
+        padding-right: 12px;
+        color: #68C6C8;
+        font-size: 1.7rem;
+    
+    }
+
+    .pass{
+        margin-bottom: 20px;
+    }
+    .button-con{
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        width: 100%;  
+         
+    }
+
+    .button-con > button{
+        text-align: center;
+        width: 99%;
+        height: 45px;
+        background-color: #68C6C8;
+        border-radius: 6px;
+        border: none;
+        outline: none;
+        font-size: 1.6rem;
+    }
+    .button-con a{
+        font-size: 1.6rem;
+        
+    }
+    .button-con  p{
+        font-size: 1.6rem;
+    }
+
+    .google-btn{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 95%;
+        height: 50px;
+    }
+    .google-btn img{
+        width: 4.3em;
+    }
+    .border{
+        width: 180px;
+        height: 70px;
+        text-align: center;
+        border: 5px solid #68C6C8;
+        background-color: transparent;
+    }
+
+    .divider {
+        display: flex;
+        align-items: center;
+        margin: 20px 0;
+    }
+    
+    .divider::before, .divider::after {
+        content: "";
+        width: 148px;
+        border-top: 1px solid #ccc;
+        
+    }
+    
+    .divider::before {
+        margin-right: 10px;
+    }
+    
+    .divider::after {
+        margin-left: 10px;
+    }
+    
+    .divider span {
+        white-space: nowrap;
+        font-size: 1.5rem;
+        color: #ccc;
+    }
+
+    .chekboxx {
+        font-size: 1.5rem;
+    }
+
+    input[type="checkbox"]{
+        width: 30px;
+        height: 20px;
+        margin-right: 10px;
     }
 
     
@@ -96,16 +343,38 @@
     .chekboxx a{  
         text-decoration: none;
         color: #ff8682;
-        font-size: 17px;
+        font-size: 1.5rem;
+        margin-left: 3px;
+        margin-right: 3px;
          
 }
 
     #toggle-password{
         position: absolute; 
         right: 30px;
-        top: 50%;
+        top: 40%;
         transform: translateY(-50%);
         cursor: pointer;
+        font-size: 1.6rem;
+   }
+
+   #toggle-confirm-password{
+    position: absolute; 
+    right: 30px;
+    top: 40%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 1.6rem;
+}
+
+   .travel-logo{
+       margin-bottom: 30px;
+       width: 200px;
+   }
+   .travel-logo img {
+       width: 130px;
    }
  
 }
+
+

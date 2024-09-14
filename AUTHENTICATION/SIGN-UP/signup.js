@@ -67,6 +67,19 @@ const togglePasswordVisibility = () => {
     }
 };
 
+const toggleConfirmPasswordVisibility = () => {
+    const confirmPasswordField = document.getElementById('confirm-password');
+    const eyeIconConfirm = document.getElementById('eye-icon-confirm-password');
+    
+    if (confirmPasswordField.type === 'password') {
+        confirmPasswordField.type = 'text'; // Show confirm password
+        eyeIconConfirm.classList.replace('fa-eye', 'fa-eye-slash'); // Change icon to "eye-slash"
+    } else {
+        confirmPasswordField.type = 'password'; // Hide confirm password
+        eyeIconConfirm.classList.replace('fa-eye-slash', 'fa-eye'); // Change icon back to "eye"
+    }
+};
+
 // Function to sign up the user using Google authentication
 const signUpWithGoogle = async () => {
     try {
@@ -131,3 +144,4 @@ googleSignupBtn.addEventListener('click', signUpWithGoogle);
 
 // event listener for toggle
 document.getElementById('eye-icon').addEventListener('click', togglePasswordVisibility);
+document.getElementById('eye-icon-confirm-password').addEventListener('click', toggleConfirmPasswordVisibility);
