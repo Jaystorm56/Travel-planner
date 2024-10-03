@@ -323,12 +323,12 @@ document.addEventListener('DOMContentLoaded', () => {
     async function saveBookingDetails(paymentReference, hotelName, hotelPrice, checkInDate, checkOutDate, user) {
         const bookingDetails = {
             userId: user.uid,
-            firstName: user.displayName.split(" ")[0], // Assuming displayName contains the full name
+            firstName: user.displayName.split(" ")[0], 
             email: user.email,
             hotelName: hotelName,
             amount: hotelPrice,
-            checkInDate: checkInDate, // Use the captured check-in date
-            checkOutDate: checkOutDate, // Use the captured check-out date
+            checkInDate: checkInDate, 
+            checkOutDate: checkOutDate, 
             paymentReference: paymentReference,
             bookingDate: new Date().toISOString() // Store the booking date
         };
@@ -348,7 +348,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-        // Save booking details to Firestore
       
 
 // Expose initAutocomplete globally

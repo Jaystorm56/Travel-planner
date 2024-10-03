@@ -1,5 +1,3 @@
-
-// Import necessary Firebase modules
 import { auth, onAuthStateChanged, getStorage, ref, uploadBytes,addDoc,collection,getFirestore ,db} from '../firebaseConfig.js';
 
 // DOM Elements
@@ -11,12 +9,10 @@ const signInButton = document.getElementById('signInButton');
 const fromSelect = document.getElementById('from');
 const toSelect = document.getElementById('to');
 
-// Airports Data (Your provided airport list)
+// Airports Data 
 const airports = [
-    // ... [Your complete list of airports]
-    // For brevity, I'm not repeating the entire list here.
-    // Ensure all airport objects are included as in your original code.
-    { name: "London Heathrow (LHR)", skyId: "LOND", entityId: "27544008" },
+
+{ name: "London Heathrow (LHR)", skyId: "LOND", entityId: "27544008" },
 { name: "New York John F. Kennedy (JFK)", skyId: "NYCA", entityId: "27537542" },
 { name: "Los Angeles International (LAX)", skyId: "LAXA", entityId: "27539633" },
 { name: "Dubai International (DXB)", skyId: "DXBA", entityId: "27543461" },
@@ -88,7 +84,7 @@ const airports = [
 { name: "Hamburg (HAM)", skyId: "HAMA", entityId: "27539744" }
 ];
 
-// Populate the "From" and "To" select inputs
+// Populating the "From" and "To" select inputs
 function populateAirports(selectElement) {
     airports.forEach(airport => {
         const option = document.createElement('option');
@@ -98,26 +94,26 @@ function populateAirports(selectElement) {
     });
 }
 
-// Populate both the From and To select elements
+// Populating both the From and To select elements
 populateAirports(fromSelect);
 populateAirports(toSelect);
 
 
-// Close the modal when the close button is clicked
+//  to Close the modal when the close button is clicked
 closeModalButton.onclick = function() {
     modal.style.display = 'none';
 };
 
 // Redirect to sign-in page on button click
 signInButton.addEventListener('click', () => {
-    window.location.href = 'login.html'; // Update this link based on your login page path
+    window.location.href = 'login.html'; 
 });
 
 // Flight Search Form Submission
 flightSearchForm.addEventListener('submit', async (e) => {
-    e.preventDefault(); // Prevent form from submitting
+    e.preventDefault(); 
 
-    // Get flight search parameters
+    // flight search parameters
     const from = document.getElementById('from').value.split('-');
     const to = document.getElementById('to').value.split('-');
     const departDate = document.getElementById('departDate').value;
@@ -125,7 +121,7 @@ flightSearchForm.addEventListener('submit', async (e) => {
     const passengers = document.getElementById('passengers').value;
     const cabinClass = document.getElementById('cabinClass').value;
 
-    // Construct the API URL
+    //API URL
     const flightUrl = `https://sky-scrapper.p.rapidapi.com/api/v2/flights/searchFlightsWebComplete?originSkyId=${from[0]}&destinationSkyId=${to[0]}&originEntityId=${from[1]}&destinationEntityId=${to[1]}&date=${departDate}&returnDate=${returnDate}&cabinClass=${cabinClass}&adults=${passengers}&sortBy=best&currency=USD&market=en-US&countryCode=US`;
 
     const flightOptions = {
@@ -136,7 +132,7 @@ flightSearchForm.addEventListener('submit', async (e) => {
         }
     };
 
-    // Fetch flight data
+    // flight data
     async function GetResults(){
         try {
             let response = await fetch(flightUrl, flightOptions);
@@ -161,7 +157,7 @@ flightSearchForm.addEventListener('submit', async (e) => {
 
 // Function to display flight results
 function displayFlightResults(itineraries) {
-    resultsDiv.innerHTML = ''; // Clear previous results
+    resultsDiv.innerHTML = ''; 
 
     // Check if itineraries is an array and has elements
     if (Array.isArray(itineraries) && itineraries.length > 0) {
@@ -169,7 +165,7 @@ function displayFlightResults(itineraries) {
             const flightDiv = document.createElement('div');
             flightDiv.classList.add('flight-result');
 
-            // Remove dollar sign and commas, then convert to integer
+            // Removing dollar sign and commas, then convert to integer
             const amount = parseInt(itinerary.price.formatted.replace(/[$,]/g, '')) || 0;
             const flightLogo = itinerary.legs[0]?.carriers?.marketing[0]?.logoUrl || ''; // Safe access for logo
 

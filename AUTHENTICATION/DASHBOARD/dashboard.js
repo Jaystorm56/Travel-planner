@@ -12,23 +12,23 @@ document.addEventListener('DOMContentLoaded', () => {
     // Fetch the current logged-in user's details
     auth.onAuthStateChanged(async (user) => {
         if (user) {
-            // Assuming you saved the user's first name in Firestore
+            // user's first name in Firestore
             const userDocRef = doc(db, 'users', user.uid); // Change 'users' to your collection name
             const userDoc = await getDoc(userDocRef);
 
             if (userDoc.exists()) {
                 const userData = userDoc.data();
-                const userFirstName = userData.firstName || "Guest"; // Adjust to your field name
-                const userProfilePic = userData.profilePicture || null; // Assuming this is where you store the profile picture URL
+                const userFirstName = userData.firstName || "Guest"; 
+                const userProfilePic = userData.profilePicture || null; 
 
-                // **CHANGE MADE HERE**: Update the #userNameDisplay element to show the user's first name
+                // Update the #userNameDisplay element to show the user's first name
                 const userNameDisplay = document.getElementById('userNameDisplay');
                 userNameDisplay.textContent = userFirstName; // Set the text to the user's first name
 
                 const welcomeMessage = document.getElementById('welcomeMessage');
                 const fullMessage = `Welcome, ${userFirstName}`;
 
-                welcomeMessage.textContent = ''; // Clear the initial text
+                welcomeMessage.textContent = ''; 
 
                 // Type the message one character at a time
                 let index = 0;
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // If the user has uploaded a profile picture, display it
                     profilePicContainer.innerHTML = `
                         <img src="${userProfilePic}" alt="Profile Picture" class="profile-pic">
-                        <span class="user-first-name">${userFirstName}</span>
+                        
                     `;
                 } else {
                     // If no profile picture, display placeholder
@@ -70,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     uploadPopup.style.display = 'none';
                 });
 
-                // **CHANGE MADE HERE**: Logout logic
+                //  Logout logic
                 document.getElementById('userNameDisplay').addEventListener('click', function() {
                     const dropdown = document.getElementById('dropdown');
                     dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
@@ -79,13 +79,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 document.getElementById('logoutButton').addEventListener('click', function(e) {
                     e.preventDefault();
                     auth.signOut().then(() => {
-                        window.location.href = 'signin.html'; // Redirect to sign-in page
+                        window.location.href = 'signin.html'; 
                     }).catch((error) => {
                         console.error('Error logging out:', error);
                     });
                 });
                 
-                // Optionally, hide the dropdown when clicking outside of it
+                //hiding the dropdown when clicking outside of it
                 window.addEventListener('click', function(event) {
                     const dropdown = document.getElementById('dropdown');
                     if (!event.target.matches('#userNameDisplay')) {
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 console.error('No user data found');
             }
         } else {
-            // **CHANGE MADE HERE**: Optional - if no user is logged in, set guest display
+            // if no user is logged in, set guest display
             const userNameDisplay = document.getElementById('userNameDisplay');
             userNameDisplay.textContent = "Guest"; // Show "Guest" if no user is logged in
         }
