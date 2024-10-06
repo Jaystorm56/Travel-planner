@@ -1,4 +1,4 @@
-import { auth, db, doc, getDoc, uploadBytes, ref, getDownloadURL, setDoc, storage, getStorage } from '../firebaseConfig.js'; // Add getStorage here
+import { auth, db, doc, getDoc,addDoc,limit,getDocs,orderBy,deleteDoc,collection,query, uploadBytes, ref, getDownloadURL, setDoc, storage, getStorage } from '../firebaseConfig.js'; // Add getStorage here
 
 let autocomplete;
 let lat, lon;
@@ -58,8 +58,17 @@ function initAutocomplete() {
 }
 
 
+// New section loading logic (assuming you have an init function for the new section)
+function loadNewSection() {
+    // Initialization logic for your new section
+    console.log("New section loaded");
+    // Example: Fetch new section data or set up listeners for new section
+}
+
+
 document.addEventListener('DOMContentLoaded', () => {
     initAutocomplete();
+    loadNewSection();
 
     // Hotel search functionality
     document.querySelector("#Search").addEventListener("click", (e) => {
@@ -127,6 +136,109 @@ document.addEventListener('DOMContentLoaded', () => {
                 } else {
                     console.error("Unexpected response structure", fetchs);
                 }
+
+                const firstHotel = fetchs.data.data[0]; // Get the first hotel from the response
+
+                if (firstHotel) {
+                    // Store the first hotel in Firestore under 'hotelSearches' collection
+                    await saveHotelToFirestore(firstHotel);
+                }
+
+                async function saveHotelToFirestore(hotel) {
+                    try {
+                        const user = getCurrentUser(); // Assuming you have a function that gets the logged-in user
+                        
+                        if (!user) {
+                            alert("You must be logged in to perform this action.");
+                            return;
+                        }
+                
+                        const hotelSearchData = {
+                            userId: user.uid,
+                            hotelName: hotel.title,
+                            city: hotel.location ? hotel.location.name : 'Unknown City',
+                            imageUrl: hotel.cardPhotos[0]?.sizes?.urlTemplate.replace('{width}', '400').replace('{height}', '300') || 'placeholder.jpg',
+                            searchDate: new Date().toISOString(), // Date of the search
+                        };
+                
+                        // Save to Firestore
+                        const docRef = await addDoc(collection(db, "hotelsearch"), hotelSearchData);
+                        console.log("Hotel search saved with ID:", docRef.id);
+                
+                        // Call function to limit recent searches to 50
+                        await limitHotelSearches();
+
+                        // Fetch recent searches to update the UI
+        await fetchRecentSearches();
+                
+                    } catch (error) {
+                        console.error("Error saving hotel search:", error);
+                    }
+                }
+
+                async function fetchRecentSearches() {
+                    const recentSearchesContainer = document.querySelector("#recent-searches");
+                
+                    try {
+                        const user = getCurrentUser();
+                        if (!user) {
+                            console.error("User not logged in.");
+                            return;
+                        }
+                
+                        const hotelSearchRef = collection(db, "hotelsearch");
+                        const q = query(hotelSearchRef, orderBy("searchDate", "desc"), limit(4)); // Fetch the last 4 searches
+                
+                        const querySnapshot = await getDocs(q);
+                
+                        // Clear the container first
+                        while (recentSearchesContainer.firstChild) {
+                            recentSearchesContainer.removeChild(recentSearchesContainer.firstChild);
+                        }
+                
+                        querySnapshot.forEach((doc) => {
+                            const searchData = doc.data();
+                            const searchDiv = document.createElement('div');
+                            searchDiv.classList.add('recent-search-box');
+                
+                            // Create a styled card for each recent search
+                            searchDiv.innerHTML = `
+                                <div class="recent-search-card">
+                                    <img src="${searchData.imageUrl}" alt="${searchData.hotelName}" class="recent-search-image"/>
+                                    <div class="recent-search-details">
+                                        <h5>${searchData.hotelName}</h5>
+                                        <p>${searchData.city}</p>
+                                    </div>
+                                </div>
+                            `;
+                
+                            recentSearchesContainer.appendChild(searchDiv);
+                        });
+                    } catch (error) {
+                        console.error("Error fetching recent searches:", error);
+                    }
+                }
+                // Call fetchRecentSearches to display the recent searches when the page loads
+document.addEventListener('DOMContentLoaded', fetchRecentSearches);
+
+                 // Function to limit hotel searches to 50 and delete old ones
+async function limitHotelSearches() {
+    try {
+        const hotelSearchRef = collection(db, "hotelsearch");
+        const q = query(hotelSearchRef, orderBy("searchDate", "desc"), limit(51)); // Get the 51st record
+
+        const querySnapshot = await getDocs(q);
+        if (querySnapshot.size > 50) {
+            // Delete the oldest record
+            const docToDelete = querySnapshot.docs[50];
+            await deleteDoc(doc(db, "hotelsearch", docToDelete.id));
+            console.log("Old hotel search deleted:", docToDelete.id);
+        }
+    } catch (error) {
+        console.error("Error limiting hotel searches:", error);
+    }
+}
+                
 
             } catch (error) {
                 console.error("Fetch error:", error);

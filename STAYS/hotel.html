@@ -86,18 +86,29 @@
     </div>
     
   </form>
+  <div id="recent-searches-container">
+    <h2>Your recent searches</h2>
+    <div id="recent-searches"></div>
+</div>
+
+<section>
+  <div class="vacation-head">
+      <h2>Vacation Ideas</h2>
+      <button id="see-all-btn">See All</button>
+      <button id="close-btn" style="display:none;">Close</button> <!-- Close button hidden by default -->
+  </div>
+  
+  <div id="destinations-container" class="destinations-container"></div>
+</section>
 
   <!-- Hotel Results -->
   <div id="hotel-results">
     <!-- Hotel results display -->
   </div>
 
-  <section class="section2" style="height: 100vh;">
-    <div>
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vero saepe blanditiis dolor id reprehenderit iste explicabo cumque repellat rerum odio.</p>
-    </div>
-  </section>
+  
   <script type="module" src="../firebaseConfig.js"></script>
   <script type="module" src="./hotelapi.js"></script>
+  <script type="module" src="./destination.js"></script>
 </body>
 </html>

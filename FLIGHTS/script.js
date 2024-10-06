@@ -1,4 +1,4 @@
-import { auth, onAuthStateChanged, getStorage, ref, uploadBytes,addDoc,collection,getFirestore ,db} from '../firebaseConfig.js';
+import { auth, onAuthStateChanged,getDocs,query,where,orderBy,limit, getStorage, ref, uploadBytes,addDoc,collection,getFirestore ,db} from '../firebaseConfig.js';
 
 // DOM Elements
 const flightSearchForm = document.getElementById('flightSearchForm');
@@ -8,7 +8,8 @@ const closeModalButton = document.getElementById('closeModalButton');
 const signInButton = document.getElementById('signInButton');
 const fromSelect = document.getElementById('from');
 const toSelect = document.getElementById('to');
-
+// Initialize the Firestore database
+// const db = getFirestore();
 // Airports Data 
 const airports = [
 
@@ -109,6 +110,79 @@ signInButton.addEventListener('click', () => {
     window.location.href = 'login.html'; 
 });
 
+// Function to fetch a random image for the destination
+async function getRandomImage(destination) {
+    const imageUrl = `https://api.unsplash.com/search/photos?query=${destination}&client_id=VbrZbEwWE6Jkcy8HlYhTpU0vFHNDmY72JXUeFuXGVmU`;
+    try {
+        const response = await fetch(imageUrl);
+        const data = await response.json();
+        if (data.results.length > 0) {
+            return data.results[Math.floor(Math.random() * data.results.length)].urls.small;
+        }
+    } catch (error) {
+        console.error('Error fetching destination image:', error);
+    }
+    return null;  // Return null if no image is found
+}
+
+// Function to save flight search to Firestore
+async function saveFlightSearch(userId, searchDetails) {
+    const flightSearchCollection = collection(db, 'flightsbooking');
+    try {
+        const docRef = await addDoc(flightSearchCollection, {
+            userId: userId,
+            from: searchDetails.from,
+            to: searchDetails.to,
+            departDate: searchDetails.departDate,
+            returnDate: searchDetails.returnDate,
+            passengers: searchDetails.passengers,
+            cabinClass: searchDetails.cabinClass,
+            timestamp: new Date()
+        });
+        return docRef.id;  // Return document ID after successful saving
+    } catch (error) {
+        console.error('Error saving flight search:', error);
+    }
+    return null;
+}
+
+
+// Function to display recent searches
+async function displayRecentSearches(userId) {
+    const flightSearchCollection = collection(db, 'flightsbooking');
+    const querySnapshot = await getDocs(query(flightSearchCollection, where("userId", "==", userId), orderBy("timestamp", "desc"), limit(4)));
+    
+    // Clear the flightsearchcontainer instead of resultsDiv
+    const flightSearchContainer = document.querySelector('.flightsearchcontainer');
+    flightSearchContainer.innerHTML = '';  
+
+    for (const doc of querySnapshot.docs) {
+        const data = doc.data();
+        const card = document.createElement('div');
+        card.className = 'flight-search-card';  // Apply your CSS styles here
+        card.innerHTML = `
+            <div class="details">
+                <h3>Flight from ${data.from} to ${data.to}</h3>
+                <p>Depart Date: ${data.departDate}</p>
+                <p>Return Date: ${data.returnDate}</p>
+                <p>Passengers: ${data.passengers}</p>
+                <p>Cabin Class: ${data.cabinClass}</p>
+            </div>
+            <img src="" alt="Destination image">  <!-- Placeholder for image -->
+        `;
+
+        // Append the card to flightsearchcontainer
+        flightSearchContainer.appendChild(card);  
+
+        // Fetch the random image for the destination
+        const imageUrl = await getRandomImage(data.to);
+        if (imageUrl) {
+            card.querySelector('img').src = imageUrl;  // Update the image src after it's fetched
+        }
+    }
+}
+
+
 // Flight Search Form Submission
 flightSearchForm.addEventListener('submit', async (e) => {
     e.preventDefault(); 
@@ -120,6 +194,35 @@ flightSearchForm.addEventListener('submit', async (e) => {
     const returnDate = document.getElementById('returnDate').value;
     const passengers = document.getElementById('passengers').value;
     const cabinClass = document.getElementById('cabinClass').value;
+
+    // Check if user is authenticated
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            // Fetch a random image of the destination
+            const destinationImage = await getRandomImage(to[0]);
+
+             // Prepare the search details
+        const searchDetails = {
+            from: from[0],  // Use the correct values from the split
+            to: to[0],
+            departDate,
+            returnDate,
+            passengers,
+            cabinClass,
+        };
+
+            // Save flight search details to Firestore
+            // const searchDetails = { from, to, departDate, returnDate, passengers, cabinClass };
+            const docId = await saveFlightSearch(user.uid, searchDetails);
+
+           // Display recent searches after saving
+           await displayRecentSearches(user.uid);
+        } else {
+            resultsDiv.innerHTML = '<p>Please sign in to save your flight search.</p>';
+        }
+    });
+
+    
 
     //API URL
     const flightUrl = `https://sky-scrapper.p.rapidapi.com/api/v2/flights/searchFlightsWebComplete?originSkyId=${from[0]}&destinationSkyId=${to[0]}&originEntityId=${from[1]}&destinationEntityId=${to[1]}&date=${departDate}&returnDate=${returnDate}&cabinClass=${cabinClass}&adults=${passengers}&sortBy=best&currency=USD&market=en-US&countryCode=US`;
