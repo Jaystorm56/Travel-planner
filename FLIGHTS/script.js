@@ -257,11 +257,12 @@ flightSearchForm.addEventListener('submit', async (e) => {
     }
     GetResults();
 });
+// console.log(itineraries);
 
 // Function to display flight results
 function displayFlightResults(itineraries) {
     resultsDiv.innerHTML = ''; 
-
+    console.log(itineraries);
     // Check if itineraries is an array and has elements
     if (Array.isArray(itineraries) && itineraries.length > 0) {
         itineraries.forEach((itinerary, index) => {
@@ -269,7 +270,7 @@ function displayFlightResults(itineraries) {
             flightDiv.classList.add('flight-result');
 
             // Removing dollar sign and commas, then convert to integer
-            const amount = parseInt(itinerary.price.formatted.replace(/[$,]/g, '')) || 0;
+            const amountInUsd = parseInt(itinerary.price.formatted.replace(/[$,]/g, '')) || 0;
             const flightLogo = itinerary.legs[0]?.carriers?.marketing[0]?.logoUrl || ''; // Safe access for logo
 
             flightDiv.innerHTML = `
@@ -322,7 +323,7 @@ function displayFlightResults(itineraries) {
             
             // Book Flight Button Click
             flightBook.addEventListener('click', () => {
-                bookFlight(itinerary, amount, flightLogo);
+                bookFlight(itinerary, amountInUsd, flightLogo);
             });
 
             resultsDiv.appendChild(flightDiv);
@@ -356,7 +357,7 @@ onAuthStateChanged(auth, (user) => {
 });
 
 // Function to handle flight booking
-function bookFlight(itinerary, amount, flightLogo) {
+function bookFlight(itinerary, amountInUsd, flightLogo, amountInNaira) {
     const user = auth.currentUser;
     if (!user) {
         alert('You must be logged in to book a flight.');
@@ -371,27 +372,39 @@ function bookFlight(itinerary, amount, flightLogo) {
     const flightDetails = {
         flightId: itinerary.id || `flight_${Date.now()}`,
         origin: itinerary.legs[0].origin.displayCode,
-        destination: itinerary.legs[0].destination.displayCode,
+        destination: itinerary.legs[0].destination.city,
         departureDate: itinerary.legs[0].departure,
         arrivalDate: itinerary.legs[0].arrival,
         passengers: document.getElementById('passengers').value,
         cabinClass: document.getElementById('cabinClass').value,
-        price: amount,
-        flightLogo: flightLogo
+        price: amountInUsd,
+        flightLogo: flightLogo,
+        flightCarrier: itinerary.legs[0].carriers.marketing[0].name,
+        flightNumber: itinerary.legs[0].segments[0].flightNumber,
+       
     };
 
 
     // Trigger Paystack payment
-    processPayment(userFirstName, userEmail, amount, flightLogo, flightDetails);
+    processPayment(userFirstName, userEmail, amountInUsd, flightLogo, flightDetails);
 }
 
 // Function to process payment using Paystack
-function processPayment(name, email, amount, logo, flightDetails) {
+function processPayment(name, email, amountInUsd, logo, flightDetails) {
+    let conversionRate = 1500; // Define conversion rate as an integer
+    console.log('conv rate',conversionRate)
+    // Ensure the conversion rate is read as an integer, not a floating-point
+    conversionRate = parseInt(conversionRate, 10); // Force it to be treated as an integer
+    const amountInNaira = amountInUsd * conversionRate; // Convert the amount to Naira
+    // const amountInKobo = amountInNaira * 100; // Convert Naira to Kobo (for Paystack)
+    // Add converted price to flightDetails
+    flightDetails.convertPrice = amountInNaira;
+
     return new Promise((resolve, reject) => {
         const handler = PaystackPop.setup({
             key: 'pk_test_82c8d74a7f3be5328a4ed349caaa2344f376a7b0', // Replace with your Paystack public key
             email: email,
-            amount: amount * 100, // Convert to kobo
+            amount: amountInNaira, // Convert to kobo
             currency: 'NGN',
             ref: '' + Math.floor((Math.random() * 1000000000) + 1), // Generate unique reference
             metadata: {
@@ -412,7 +425,8 @@ function processPayment(name, email, amount, logo, flightDetails) {
             callback: function(response) {
                 alert('Payment successful! Transaction reference: ' + response.reference);
                 // Save booking details to Firebase after successful payment
-                saveBookingDetailsToFirebase(auth.currentUser, flightDetails, response.reference, amount)
+                saveBookingDetailsToFirebase(auth.currentUser, flightDetails, response.reference, amountInNaira
+                    )
                     .then(() => {
                         resolve(response);
                     })
@@ -431,11 +445,13 @@ function processPayment(name, email, amount, logo, flightDetails) {
     });
 }
 
-// Function to save booking details to Firebase Storage
-// Function to save booking details to Firebase Storage and Firestore
+// Import the captureAndUploadReceipt function from receipt.js
+import { captureAndUploadReceipt } from '../PAYMENTRECEIPT/receipt.js';
 // Function to save booking details to Firebase
-async function saveBookingDetailsToFirebase(user, flightDetails, transactionReference, amount) {
+async function saveBookingDetailsToFirebase(user, flightDetails, transactionReference, amountInNaira) {
+    let receiptDownloadUrl; // Declare the variable here
 
+    try {
         // Define the booking data
         const bookingData = {
             userId: user.uid, // User ID from Firebase authentication
@@ -451,19 +467,22 @@ async function saveBookingDetailsToFirebase(user, flightDetails, transactionRefe
             price: flightDetails.price, // Price of the flight
             flightLogo: flightDetails.flightLogo, // Flight logo
             transactionReference: transactionReference, // Transaction reference from Paystack
-            bookingDate: new Date().toISOString(), // Current date and time of booking
+            bookingDate: new Date().toISOString() // Current date and time of booking
         };
 
+        // Capture and upload the receipt first to get the receipt download URL
+        receiptDownloadUrl = await captureAndUploadReceipt(user, flightDetails); // Assign to the variable
+
+        // Include the receipt download URL in the booking data
+        bookingData.receiptDownloadUrl = receiptDownloadUrl; // Update the booking data
+
         // Save the booking data to Firestore
-        // Initialize Firestore
-        try {
-            // Use Firestore's addDoc to add the booking data to the 'bookings' collection
-            const docRef = await addDoc(collection(db, 'bookings'), bookingData);
-            console.log('Booking details saved successfully with ID:', docRef.id);
-            
-        } catch (error) {
-            console.error('Error saving booking details:', error);
-            throw(error);
-        }
-    
+        const docRef = await addDoc(collection(db, 'bookings'), bookingData);
+
+        console.log('Booking details saved successfully with ID:', docRef.id);
+
+    } catch (error) {
+        console.error('Error saving booking details:', error);
+        throw(error);
+    }
 }
