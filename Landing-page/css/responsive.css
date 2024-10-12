@@ -1,0 +1,271 @@
+/* @media screen and (max-width: 576px){
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :root {
+        --BGCOLOR: #fff;
+        --WHITE: #fff;
+        --GREENBG: #2aab0d50;
+        --BGMARGIN: 0 1em 0 1em;
+        --BLACK: #000000b0;
+    }
+
+    header {
+        height: 61.8vh;
+    }
+
+    :is(.laptop-view, .header-texts, .header-bottom, .section-one, .section-two, .footer-head, .footer-bottom) {
+        display: none;
+    }
+
+    .mobile-view-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        background: #000000c8;
+        backdrop-filter: blur(2px);
+        padding: 1em 1.3em 1em 1.3em;
+    }
+
+    .mobile-view-flight-stay, .mobile-view-login-signup {
+        display: flex;
+        align-items: center;
+        gap: 1.2em;
+    }
+
+    .mobile-view-login-signup-anchor {
+        text-decoration: none;
+        color: var(--WHITE);
+        font-weight: 900;
+    }
+
+    .mobile-view-login-signup-anchor2 {
+        color: #000;
+        background-color: var(--BGCOLOR);
+        padding: 0.3em 0.8em 0.3em 0.8em;
+        border-radius: 0.5em;
+    }
+
+    .mobile-view-header-texts {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 61.8vh;
+        background: #00000094;
+    }
+
+    h1 {
+        font-size: 2em;
+        text-align: center;
+    }
+    
+    .mobile-view-header-paragraph {
+        text-align: center;
+        font-size: 1em;
+        color: var(--WHITE);
+    }
+} */
+
+/* Base Styles for Larger Screens (1920px and above) */
+@media (min-width: 1920px) {
+    header {
+        height: 80vh;
+    }
+
+    h1 {
+        font-size: 5em;
+    }
+
+    .header-paragraph {
+        font-size: 2em;
+    }
+
+    form {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* For screens 1440px and above */
+@media (max-width: 1440px) {
+    header {
+        height: 75vh;
+    }
+
+    h1 {
+        font-size: 4.5em;
+    }
+
+    .header-paragraph {
+        font-size: 1.8em;
+    }
+
+    form {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+/* For screens 1280px and above */
+@media (max-width: 1280px) {
+    header {
+        height: 70vh;
+    }
+
+    h1 {
+        font-size: 4em;
+    }
+
+    .header-paragraph {
+        font-size: 1.6em;
+    }
+
+    form {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* For screens 1024px and above */
+@media (max-width: 1024px) {
+    header {
+        height: 65vh;
+    }
+
+    .laptop-view {
+        padding: 1em;
+    }
+
+    h1 {
+        font-size: 3.5em;
+    }
+
+    .header-paragraph {
+        font-size: 1.4em;
+    }
+
+    form {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* For tablets (768px and below) */
+@media (max-width: 768px) {
+    header {
+        height: 60vh;
+    }
+
+    .laptop-view {
+        display: none;
+    }
+
+    h1 {
+        font-size: 3em;
+    }
+
+    .header-paragraph {
+        font-size: 1.2em;
+    }
+
+    .header-bottom {
+        margin: 0 2em;
+        padding: 1.2em;
+    }
+
+    form {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .show-btn {
+        padding: 0.6em 1em;
+    }
+}
+
+/* For screens 480px and above */
+@media (max-width: 480px) {
+    header {
+        height: 55vh;
+    }
+
+    h1 {
+        font-size: 2.5em;
+    }
+
+    .header-paragraph {
+        font-size: 1em;
+    }
+
+    .header-bottom {
+        margin: 0 1.5em;
+        padding: 0.8em;
+    }
+
+    form {
+        gap: 0.6em;
+    }
+
+    .show-btn {
+        padding: 0.5em 0.9em;
+        font-size: 0.9em;
+    }
+}
+
+/* For screens 375px and above */
+@media (max-width: 375px) {
+    header {
+        height: 50vh;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .header-paragraph {
+        font-size: 0.9em;
+    }
+
+    .header-bottom {
+        margin: 0 1em;
+        padding: 0.6em;
+    }
+
+    form {
+        gap: 0.5em;
+    }
+
+    .show-btn {
+        padding: 0.4em 0.7em;
+        font-size: 0.85em;
+    }
+}
+
+/* For screens 320px and above */
+@media (max-width: 320px) {
+    header {
+        height: 45vh;
+    }
+
+    h1 {
+        font-size: 1.8em;
+    }
+
+    .header-paragraph {
+        font-size: 0.8em;
+    }
+
+    .header-bottom {
+        margin: 0 0.5em;
+        padding: 0.5em;
+    }
+
+    form {
+        gap: 0.4em;
+    }
+
+    .show-btn {
+        padding: 0.3em 0.6em;
+        font-size: 0.75em;
+    }
+}
+
