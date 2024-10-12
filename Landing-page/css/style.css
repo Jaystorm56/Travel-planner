@@ -85,6 +85,19 @@ header {
     color: var(--WHITE);
 }
 
+.login-signup-anchor1 {
+    margin-right: 15px; /* Adds space between Login and Sign up */
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .login-signup-anchor2 {
+    padding: 5px 15px;
+    background-color: #fff;
+    color: #000;
+    border-radius: 20px; /* Rounded Sign up button */
+    text-decoration: none;
+  }
 .login-signup-anchor1::before {
     content: '';
     position: absolute;
@@ -113,12 +126,6 @@ header {
     transform: scale(0.9);
 }
 
-.login-signup-anchor2::after {
-    content: '';
-    position: absolute;
-    width: 0;
-}
-
 .login-signup-anchor2:hover::after, .login-signup-anchor2:focus::after {
     padding: 1em 3.2em 0.5em 1.5em;
     margin-top: -0.5em;
@@ -139,18 +146,15 @@ header {
     background: #00000094;
 }
 
-@keyframes fadeInOut {
-    0%, 100% {
-      opacity: 0;
-    }
-    50% {
-      opacity: 1;
-    }
+@keyframes wave {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  .trip-title {
+    display: inline-block;
+    animation: wave 2s infinite;
   }
   
-  .trip-title {
-    animation: fadeInOut 5s ease-in-out infinite;
-  }
   
 
 :is(h1, .header-paragraph) {
@@ -333,33 +337,13 @@ fieldset {
     cursor: pointer;
     transition: background-color 0.3s ease;
     transform: scale(1);
+    border: none;
 }
 
 .show-btn:hover {
     background-color: #db8b14;
     color: #fff;
 }
-
-
-/* Modal styling
-.modal-content {
-    background-color: #fff;
-    padding: 1.5em;
-    border-radius: 1em;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-}
-
-.modal .close {
-    cursor: pointer;
-    font-size: 1.5em;
-    position: absolute;
-    right: 1em;
-    top: 1em;
-}
-
-#modalResults {
-    padding: 1em;
-} */
 
 main {
     padding-top: 11em;
@@ -448,9 +432,9 @@ main {
 }
 
 .flights-hotels {
-    background-image: radial-gradient(#000000a6, #00000050), url(/img/airplane.jpeg);
+    background-image: radial-gradient(#000000a6, #00000050), url(/img/airplane.jpg);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     height: 53.1vh;
     display: flex;
     align-items: center;
@@ -464,9 +448,9 @@ main {
 }
 
 .flights-hotels2 {
-    background-image: radial-gradient(#000000a6, #00000050), url(/img/hotel3.jpeg);
+    background-image: radial-gradient(#000000a6, #00000050), url(/img/hotel.jpg);
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     height: 53.1vh;
     display: flex;
     align-items: center;
@@ -682,18 +666,6 @@ main {
     padding: 25px;
 }
 
-/* .content-page{
-    background-color: #fff;
-    padding-left: 30px;
-    padding-right: 30px;
-    padding-top: 30px;
-    height: 100vh; 
-}
-.content-page2{
-    background-color: #fff;
-    margin-bottom: 150px;
-} */
-
 .trip-type-container {
     position: relative;
     width: 100%;
@@ -761,6 +733,14 @@ main {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 90%;
     max-width: 800px;
+}
+
+.modal-content h1{
+    color: #000;
+    font-size: 35px;
+    display: flex;
+    justify-content: center;
+    padding-bottom: 25px;
 }
 
 .close {
