@@ -9,7 +9,7 @@ async function fetchTravelDestinations() {
         // Fetch country details from Vacation Details API
         const response = await fetch(vacationDetailsUrl, {
             headers: {
-                'x-rapidapi-key': '698c363322msh2bf9dce2d4c737ap1f8ffajsn7ee19051a165',
+                'x-rapidapi-key': 'fc319603d2msh239c6e8d8323b58p1f8e91jsn8363451e80e8',
                 'x-rapidapi-host': 'vacations-details-your-ultimate-guide.p.rapidapi.com'
             }
         });
