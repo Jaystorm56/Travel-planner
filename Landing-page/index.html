@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TRAVEL</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="icon" href="./favicon/plane.svg">
+    <link rel="stylesheet" href="./css/responsive.css">
+</head>
+<body>
+    <div class="main-container">
+        <header>
+            <nav>
+                <div class="laptop-view">
+                    <div class="flight-stay">
+                        <a href="" class="flight-stay-anchor">
+                            <img src="/favicon/plane.svg" alt="" class="flight-stay-img">
+                            Flights
+                        </a>
+        
+                        <a href="" class="flight-stay-anchor2">
+                            <img src="/favicon/stay.svg" alt="" class="flight-stay-img">
+                            Stays
+                        </a>
+                    </div>
+        
+                    <div class="login-signup">
+                        <a href="../AUTHENTICATION/HTML/signin.html" class="login-signup-anchor1">
+                            Login
+                        </a>
+        
+                        <a href="../AUTHENTICATION/HTML/signup.html" class="login-signup-anchor2">
+                            Sign up
+                        </a>
+                    </div>
+                </div>
+
+                <!-- MOBILE VIEW
+                <div class="mobile-view-nav">
+                    <div class="mobile-view-flight-stay">
+                        <a href="" class="mobile-view-flight-stay-anchor">
+                            <img src="/favicon/plane3.svg" alt="" class="mobile-view-flight-stay-img">
+                        </a>
+        
+                        <a href="" class="mobile-view-flight-stay-anchor">
+                            <img src="/favicon/stay3.svg" alt="" class="mobile-view-flight-stay-img">
+                        </a>
+                    </div>
+        
+                    <div class="mobile-view-login-signup">
+                        <a href="" class="mobile-view-login-signup-anchor">
+                            Login
+                        </a>
+        
+                        <a href="" class="mobile-view-login-signup-anchor mobile-view-login-signup-anchor2">
+                            Sign up
+                        </a>
+                    </div>
+                </div> -->
+            </nav>
+
+            <div class="header-texts">
+                <h1 class="trip-title">YOUR TRIP STARTS HERE</h1>
+                <p class="header-paragraph">
+                    Book cheap flights other sites simply can't find.
+                </p>
+            </div>
+            
+            
+            <!-- MOBILE-VIEW -->
+            <!-- <div class="mobile-view-header-texts">
+                <h1> YOUR TRIP STARTS HERE</h1>
+                <p class="mobile-view-header-paragraph">
+                    Book cheap flights other sites simply can't find.
+                </p>
+            </div> -->
+
+            <!-- <div class="header-bottom">
+                <div class="flight-stay-bottom">
+                    <p class="flight-stay-bottom-paragraph flight-stay-bottom-paragraph2">
+                        <img src="/favicon/plane2.svg" alt="" class="flight-stay-img">
+                        Flights
+                    </p>
+                    <hr style="height: 1.8em;">
+                    <p class="flight-stay-bottom-paragraph">
+                        <img src="/favicon/stay2.svg" alt="" class="flight-stay-img">
+                        Stays
+                    </p>
+                </div> -->
+                <div class="header-bottom">
+                    <div class="flight-stay-bottom">
+                        <a id="flightsTab" class="flight-stay-bottom-paragraph active">
+                            <img src="/favicon/plane2.svg" alt="" class="flight-stay-img">
+                            Flights
+                        </a>
+                        <hr style="height: 1.8em;">
+                        <a id="staysTab" class="flight-stay-bottom-paragraph">
+                            <img src="/favicon/stay2.svg" alt="" class="flight-stay-img">
+                            Stays
+                        </a>
+                    </div>
+                
+                    <div id="flightsContent" class="content-section">
+                        <form id="flightSearchForm">
+                            <!-- From - To Section -->
+                            <fieldset>
+                                <legend>From - To</legend>
+                                <p class="fieldset-paragraph">
+                                    <input type="search" id="fromCity" placeholder="From" required />
+                                    <img src="/favicon/arrows.svg" alt="Swap" class="swap-icon" />
+                                    <input type="search" id="toCity" placeholder="To" required />
+                                </p>
+                            </fieldset>
+                
+                            <!-- Trip Section -->
+                            <fieldset>
+                                <legend>Trip</legend>
+                                <p class="fieldset-paragraph">
+                                    <div class="trip-type-container">
+                                        <select class="trip-type" id="tripType" required>
+                                            <option value="oneway">One Way</option>
+                                            <option value="return">Return</option>
+                                        </select>
+                                        <ul class="dropdown-menu">
+                                            <li>One Way</li>
+                                            <li>Return</li>
+                                        </ul>
+                                    </div>
+                                </p>
+                            </fieldset>
+
+                
+                            <!-- Depart - Return Section -->
+                            <fieldset>
+                                <legend>Depart - Return</legend>
+                                <p class="fieldset-paragraph">
+                                    <input type="date" id="departDate" placeholder="Depart Date" required />
+                                    <input type="date" id="returnDate" placeholder="Return Date" />
+                                </p>
+                            </fieldset>
+                
+                            <!-- Passengers - Class Section -->
+                            <fieldset>
+                                <legend>Passengers - Class</legend>
+                                <p class="fieldset-paragraph">
+                                    <input type="number" id="passengers" placeholder="Number of Passengers" min="1" max="9" required />
+                                    <select id="cabinClass" required>
+                                        <option value="economy">Economy</option>
+                                        <option value="business">Business</option>
+                                        <option value="first">First Class</option>
+                                    </select>
+                                </p>
+                            </fieldset>
+                
+                            <!-- Show Flights Button -->
+                            <div class="header-bottom-more-info">
+                                <button class="show-btn" type="button" id="showFlightsBtn">
+                                    <img src="/favicon/message.svg" alt="">
+                                    Show Flights
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Modal Structure -->
+                <div id="flightModal" class="modal">
+                    <span class="close">&times;</span>
+                    <div class="modal-content">
+                        <h1>Flight Results</h1>
+                        <div id="modalResults"></div>
+                    </div>
+                </div>
+                
+                
+                    <div id="staysContent" class="content-section" style="display: none;">
+                        <!-- Stays content (hotel search form) -->
+                        <form id="staySearchForm">
+                            <!-- Stays form elements -->
+                        </form>
+                    </div>
+                </div>                        
+                
+                
+
+                
+                
+                
+        </header>
+        <main>
+                <section class="section-one">
+                    <h2 class="section-one-heading">Plan your perfect trip</h2>
+                    <div class="section-one-child">
+                        <p class="section-one-child-paragraph">Search Flights & Places Hire to our most popular destinations</p>
+                        <a href="" class="section-one-child-anchor">See more places</a>
+                    </div>
+
+                    <div class="section-one-child2">
+                        <div class="section-one-child2-contents">
+                            <div class="country-img">
+                                <img src="/img/paris.jpeg" alt="">
+                            </div>
+                            
+                            <div class="country-texts">
+                                <p class="country-paragraph">Paris, France</p>
+                                <ul class="country-ulist">
+                                    <li class="country-list"><a href="" class="country-anchor">Flights</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Hotels</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Resorts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <div class="section-one-child2-contents">
+                            <div class="country-img">
+                                <img src="/img/sydney.jpeg" alt="">
+                            </div>
+
+                            <div class="country-texts">
+                                <p class="country-paragraph">Sydney, Australia</p>
+                                <ul class="country-ulist">
+                                    <li class="country-list"><a href="" class="country-anchor">Flights</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Hotels</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Resorts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="section-one-child2-contents">
+                            <div class="country-img">
+                                <img src="/img/baku.jpeg" alt="">
+                            </div>
+
+                            <div class="country-texts">
+                                <p class="country-paragraph">Baku, Azerbaijan</p>
+                                <ul class="country-ulist">
+                                    <li class="country-list"><a href="" class="country-anchor">Flights</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Hotels</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Resorts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="section-one-child2-contents">
+                            <div class="country-img">
+                                <img src="/img/maldives.jpeg" alt="">
+                            </div>
+
+                            <div class="country-texts">
+                                <p class="country-paragraph">Malé, Maldives</p>
+                                <ul class="country-ulist">
+                                    <li class="country-list"><a href="" class="country-anchor">Flights</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Hotels</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Resorts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="section-one-child2-contents">
+                            <div class="country-img">
+                                <img src="/img/canada.jpeg" alt="">
+                            </div>
+
+                            <div class="country-texts">
+                                <p class="country-paragraph">Ottawa, Canada</p>
+                                <ul class="country-ulist">
+                                    <li class="country-list"><a href="" class="country-anchor">Flights</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Hotels</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Resorts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="section-one-child2-contents">
+                            <div class="country-img">
+                                <img src="/img/america.jpeg" alt="">
+                            </div>
+
+                            <div class="country-texts">
+                                <p class="country-paragraph">New york, US</p>
+                                <ul class="country-ulist">
+                                    <li class="country-list"><a href="" class="country-anchor">Flights</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Hotels</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Resorts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="section-one-child2-contents">
+                            <div class="country-img">
+                                <img src="/img/london.jpeg" alt="">
+                            </div>
+
+                            <div class="country-texts">
+                                <p class="country-paragraph">London, UK</p>
+                                <ul class="country-ulist">
+                                    <li class="country-list"><a href="" class="country-anchor">Flights</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Hotels</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Resorts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="section-one-child2-contents">
+                            <div class="country-img">
+                                <img src="/img/japan.jpeg" alt="">
+                            </div>
+
+                            <div class="country-texts">
+                                <p class="country-paragraph">Tokyo, Japan</p>
+                                <ul class="country-ulist">
+                                    <li class="country-list"><a href="" class="country-anchor">Flights</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Hotels</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Resorts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="section-one-child2-contents">
+                            <div class="country-img">
+                                <img src="/img/dubai.jpeg" alt="">
+                            </div>
+
+                            <div class="country-texts">
+                                <p class="country-paragraph">Dubai, UAE</p>
+                                <ul class="country-ulist">
+                                    <li class="country-list"><a href="" class="country-anchor">Flights</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Hotels</a></li>
+                                    <li class="country-list"><a href="" class="country-anchor">Resorts</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-one-child3">
+                        <div class="flights-hotels">
+                            <h3 class="flights-hotels-heading">Flights</h3>
+                            <p class="flights-hotels-paragraph">Search Flights & Places Hire to our most popular destinations</p>
+                            <a href="" class="flights-hotels-anchor promo-show2">
+                                <img src="/favicon/message2.svg" alt="">
+                                Show Flights
+                            </a>
+                        </div>
+
+                        <div class="flights-hotels2">
+                            <h3 class="flights-hotels-heading">Hotels</h3>
+                            <p class="flights-hotels-paragraph">Search hotels & Places Hire to our most popular destinations</p>
+                            <a href="" class="flights-hotels-anchor promo-show2">
+                                <img src="/favicon/message2.svg" alt="">
+                                Show Hotels
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="section-two">
+                    <h2 class="section-two-heading">Reviews</h2>
+                    <div class="section-one-child">
+                        <p class="section-one-child-paragraph">What people says about Golobe facilities</p>
+                        <a href="" class="section-one-child-anchor">See All</a>
+                    </div>
+
+                    <div class="whole-section-two-descendants">
+                        <div class="section-two-child">
+                            <h3 class="section-two-child-heading">
+                                <q>A wonderful place to live and work</q>
+                            </h3>
+            
+                            <p class="section-two-child-paragraph">I'm really greatful for the support and help from the team, especially during these challenging times. A...</p>
+                            
+                            <p class="section-two-paragraph-anchor">
+                                <a href="" class="section-two-child-anchor">View more</a>
+                            </p>
+            
+                            <p class="section-two-icons">
+                                <img src="/favicon/star.svg" alt="">
+                                <img src="/favicon/star.svg" alt="">
+                                <img src="/favicon/star.svg" alt="">
+                                <img src="/favicon/star.svg" alt="">
+                                <img src="/favicon/star.svg" alt="">
+                            </p>
+            
+                            <p class="section-two-name">
+                                <a href="" class="section-two-name-anchor">
+                                    Maria
+                                    <img src="/img/googleicon.png" alt="">
+                                </a>
+                            </p>
+            
+                            <img src="/img/livein1.jpg" alt="">
+                        </div>
+
+                        <div class="section-two-child">
+                            <h3 class="section-two-child-heading">
+                                <q>Cozy space and friendly atmosphere</q>
+                            </h3>
+            
+                            <p class="section-two-child-paragraph">Spacious and clean rooms, and the staff is always ready to help. They truely care about the residents h...</p>
+                            
+                            <p class="section-two-paragraph-anchor">
+                                <a href="" class="section-two-child-anchor">View more</a>
+                            </p>
+            
+                            <p class="section-two-icons">
+                                <img src="/favicon/star.svg" alt="">
+                                <img src="/favicon/star.svg" alt="">
+                                <img src="/favicon/star.svg" alt="">
+                                <img src="/favicon/star.svg" alt="">
+                                <img src="/favicon/star.svg" alt="">
+                            </p>
+            
+                            <p class="section-two-name">
+                                <a href="" class="section-two-name-anchor">
+                                    Ivan
+                                    <img src="/img/googleicon.png" alt="">
+                                </a>
+                            </p>
+            
+                            <img src="/img/livein22.jpg" alt="">
+                        </div>
+
+                        <div class="section-two-child">
+                            <h3 class="section-two-child-heading">
+                                <q>Excellent facilities and attention to detail</q>
+                            </h3>
+            
+                            <p class="section-two-child-paragraph">I feel at home thanks to the friendly atmosphere and great conditions. Huge thanks to Ekaterina for...</p>
+                            
+                            <p class="section-two-paragraph-anchor">
+                                <a href="" class="section-two-child-anchor">View more</a>
+                            </p>
+            
+                            <p class="section-two-icons">
+                                <img src="/favicon/star.svg" alt="">
+                                <img src="/favicon/star.svg" alt="">
+                                <img src="/favicon/star.svg" alt="">
+                                <img src="/favicon/star.svg" alt="">
+                                <img src="/favicon/star.svg" alt="">
+                            </p>
+            
+                            <p class="section-two-name">
+                                <a href="" class="section-two-name-anchor">
+                                    Olga
+                                    <img src="/img/googleicon.png" alt="">
+                                </a>
+                            </p>
+            
+                            <img src="/img/livein4.jpg" alt="">
+                        </div>
+                    </div>
+                </section>
+            </main> 
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <footer>
+        <div class="footer-head">
+            <div class="suscribe-parent">
+                <h2 class="suscribe-heading">Suscribe <br> Newsletter</h2>
+                <p class="suscribe-paragraph">
+                    The Travel
+                    <a href="" class="suscribe-anchor">
+                        Get inspired! Receive travel discounts, tips and behind the scenes stories.
+                    </a>
+                </p>
+                <p class="subscibe-input">
+                    <input type="email" placeholder="Your email address" autocomplete="on" required>
+                    <a href="" class="subcribe-input-anchor">Suscribe</a>
+                </p>
+            </div>
+
+            <div class="bell-message">
+                <img src="/favicon/bell.svg" alt="" class="bell">
+                <img src="/img/email2.png" alt="" style="transform: rotate(10deg); width: calc(395px - 50px); height: calc(295px - 50px);" class="email">
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-child">
+                <div class="footer-bottom-heading">
+                    <h2>TRAVEL</h2>
+                </div>
+    
+                <div class="footer-bottom-anchor1">
+                    <a href="" class="all-footer-img-link footer-facebook">
+                        <img src="/favicon/facebook.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-twitter">
+                        <img src="/favicon/x.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-youtube">
+                        <img src="/favicon/youtube.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-instagram">
+                        <img src="/favicon/instagram.svg" alt="">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom-child2">
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Our Destinations</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Canada</a>
+                        <a href="" class="footer-links">Alaska</a>
+                        <a href="" class="footer-links">France</a>
+                        <a href="" class="footer-links">Iceland</a>
+                    </div>
+                </div>
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Our Activities</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Northern Lights</a>
+                        <a href="" class="footer-links">Cruising & sailing</a>
+                        <a href="" class="footer-links">Multi-activities</a>
+                        <a href="" class="footer-links">Kayaing</a>
+                    </div>
+                </div>
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Travel Blogs</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Bali Travel guide</a>
+                        <a href="" class="footer-links">Sri lanks Travel guide</a>
+                        <a href="" class="footer-links">Peru Travel guide</a>
+                        <a href="" class="footer-links">Eco Travel guide</a>
+                    </div>
+                </div>    
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>About Us</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Our story</a>
+                        <a href="" class="footer-links">Work with us</a>
+                    </div>
+                </div>
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Contact Us</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Our story</a>
+                        <a href="" class="footer-links">Work with us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> 
+
+    <!-- <script src="./functions.js"></script> -->
+     <script src="script.js"></script>
+</body>
+</html>
