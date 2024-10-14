@@ -2,11 +2,184 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TRAVEL</title>
+    <link rel="stylesheet" href="/AUTHENTICATION/CSS/dashboard.css">
+    <link rel="icon" href="/favicon/plane.svg">
+    <link rel="stylesheet" href="/AUTHENTICATION/CSS/dashresponsive.css">
 </head>
 <body>
-    <h1>welcomw to homepage</h1>
+    <div class="content-page">
+        <div class="content-page2">
+            <header>
+                <nav>
+                    <div class="laptop-view">
+                        <div class="flight-stay">
+                            <a href="/FLIGHTS/flight.html" class="flight-stay-anchor">
+                                <img src="/favicon/plane.svg" alt="" class="flight-stay-img">
+                                Flights
+                            </a>
+
+                            <a href="/STAYS/hotel.html" class="flight-stay-anchor2">
+                                <img src="/favicon/stay.svg" alt="" class="flight-stay-img">
+                                Stays
+                            </a>
+                        </div>
+
+                        <div class="login-signup">
+                            <div class="user-info">
+                                <div id="profilePicContainer">
+                                    <img id="userProfilePicture" src="" alt="User Profile Picture" class="profile-pic" style="display: none;">
+                                    <div class="placeholder-pic" style="display: none;">
+                                        <img src="./IMAGES/profile-pic.svg" alt="">
+                                    </div>
+                                </div>
+                        
+                                <div id="userNameContainer">
+                                    <span id="userNameDisplay" class="user-first-name">Guest</span>
+                                    <!-- Dropdown for logout -->
+                                    <div id="dropdown" class="dropdown" style="display: none;">
+                                        <a href="#" id="logoutButton">Logout</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </nav>
+
+                <div class="header-texts">
+                    <h1 id="welcomeMessage" class="typing-effect"></h1>
+                    <p class="header-paragraph">Book cheap flights other sites simply can't find.</p>
+                </div>
+            </header>
+        </div>
+    </div>
+    <footer>
+        <div class="footer-head">
+            <div class="suscribe-parent">
+                <h2 class="suscribe-heading">Suscribe <br> Newsletter</h2>
+                <p class="suscribe-paragraph">
+                    The Travel
+                    <a href="" class="suscribe-anchor">
+                        Get inspired! Receive travel discounts, tips and behind the scenes stories.
+                    </a>
+                </p>
+                <p class="subscibe-input">
+                    <input type="email" placeholder="Your email address" autocomplete="on" required>
+                    <a href="" class="subcribe-input-anchor">Suscribe</a>
+                </p>
+            </div>
+
+            <div class="bell-message">
+                <img src="/favicon/bell.svg" alt="" class="bell">
+                <img src="/img/email2.png" alt="" style="transform: rotate(10deg); width: calc(395px - 50px); height: calc(295px - 50px);" class="email">
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-child">
+                <div class="footer-bottom-heading">
+                    <h2>TRAVEL</h2>
+                </div>
+
+                <div class="footer-bottom-anchor1">
+                    <a href="" class="all-footer-img-link footer-facebook">
+                        <img src="/favicon/facebook.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-twitter">
+                        <img src="/favicon/x.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-youtube">
+                        <img src="/favicon/youtube.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-instagram">
+                        <img src="/favicon/instagram.svg" alt="">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom-child2">
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Our Destinations</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Canada</a>
+                        <a href="" class="footer-links">Alaska</a>
+                        <a href="" class="footer-links">France</a>
+                        <a href="" class="footer-links">Iceland</a>
+                    </div>
+                </div>
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Our Activities</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Northern Lights</a>
+                        <a href="" class="footer-links">Cruising & sailing</a>
+                        <a href="" class="footer-links">Multi-activities</a>
+                        <a href="" class="footer-links">Kayaing</a>
+                    </div>
+                </div>
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Travel Blogs</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Bali Travel guide</a>
+                        <a href="" class="footer-links">Sri lanka Travel guide</a>
+                        <a href="" class="footer-links">Peru Travel guide</a>
+                        <a href="" class="footer-links">Eco Travel guide</a>
+                    </div>
+                </div>    
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>About Us</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Our story</a>
+                        <a href="" class="footer-links">Work with us</a>
+                    </div>
+                </div>
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Contact Us</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Our story</a>
+                        <a href="" class="footer-links">Work with us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> 
+
+    <!-- Profile Picture Upload Popup -->
+    <div id="uploadPopup" class="popup" style="display: none;">
+        <div class="popup-content">
+            <span id="closePopup" class="close">&times;</span>
+            <h2>Upload Profile Picture</h2>
+            <label for="profilePictureInput" class="custom-file-upload">Choose File</label>
+
+            <input type="file" id="profilePictureInput" accept="image/*">
+            <button id="uploadButton">Upload</button>
+        </div>
+    </div>
+
+    <script type="module" src="../../firebaseConfig.js"></script>
+    <script type="module" src="/AUTHENTICATION/DASHBOARD/dashboard.js"></script>
 </body>
 </html>

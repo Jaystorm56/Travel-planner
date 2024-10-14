@@ -9,7 +9,8 @@ import {
     uploadBytes, 
     db, 
     setDoc, 
-    doc 
+    doc ,
+    updateProfile
 } from '../../firebaseConfig.js';
 
 // Function to sign up the user using email and password
@@ -19,6 +20,12 @@ const signUpUser = async (email, password, firstName, lastName, phone) => {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
         console.log('User signed up:', user);
+
+        await updateProfile(user, {
+            displayName: firstName // Set the display name to the user's first name
+        });
+        console.log('User profile updated with display name:', firstName);
+
 
         // Example user data to save
         const userData = {

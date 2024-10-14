@@ -10,7 +10,10 @@ import {
   setPersistence,
   browserLocalPersistence,
   browserSessionPersistence,
-  sendPasswordResetEmail
+  sendPasswordResetEmail,
+
+
+  updateProfile
 } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-auth.js";
 
 import {
@@ -21,7 +24,12 @@ import {
   collection,
   getDocs,
   addDoc,
-  updateDoc
+  updateDoc,
+  orderBy,
+  deleteDoc,
+  query,
+  limit,
+  where
 } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-firestore.js";
 
 import {
@@ -70,5 +78,13 @@ export {
   updateDoc, 
   ref, 
   uploadBytes, 
-  getDownloadURL 
+  getDownloadURL,
+  getStorage,
+  getFirestore ,
+  updateProfile,
+  orderBy,
+  deleteDoc,
+  query,
+  limit,
+  where
 };

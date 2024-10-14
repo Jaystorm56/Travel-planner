@@ -11,7 +11,10 @@ import {
     signInWithPopup
 } from '../../firebaseConfig.js';
 
+let currentUser;
 const signInUser = async (email, password, rememberMe) => {
+    // console.log('Current user first name:', currentUser.displayName);
+
     try {
         // Set persistence based on "Remember me" checkbox
         const persistence = rememberMe ? browserLocalPersistence : browserSessionPersistence;
@@ -19,11 +22,11 @@ const signInUser = async (email, password, rememberMe) => {
 
         // Sign in the user
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        const user = userCredential.user;
-        console.log('User signed in:', user);
+        currentUser = userCredential.user;
+        console.log('User signed in:', currentUser.displayName || currentUser.email);
 
         // Firebase Storage reference for user data
-        const storageRef = ref(storage, 'user_data/' + user.uid + '/profile.json');
+        const storageRef = ref(storage, 'user_data/' + currentUser.uid + '/profile.json');
 
         // Retrieve the download URL for profile.json
         const downloadURL = await getDownloadURL(storageRef);
@@ -32,7 +35,7 @@ const signInUser = async (email, password, rememberMe) => {
         const userData = JSON.parse(await userDataBlob.text());
 
         // Check if the email matches the user data
-        if (userData.email === user.email) {
+        if (userData.email === currentUser.email) {
             console.log('User information matches, signed in successfully!');
             window.location.href = 'dashboard.html'; // Redirect to dashboard
         } else {

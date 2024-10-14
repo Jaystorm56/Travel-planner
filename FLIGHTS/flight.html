@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js"> -->
+    <script defer src="https://js.paystack.co/v2/inline.js"></script>
+    <title>Flight Search</title>
+    <link rel="stylesheet" href="flight.css">
+    <link rel="stylesheet" href="../PAYMENTRECEIPT/style.css">
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    rel="stylesheet"
+  />
+</head>
+<body>
+    <h1>Flight Search</h1>
+
+    <form id="flightSearchForm">
+        <!-- From-To Select Fields -->
+        <label for="from">From</label>
+        <select id="from" required></select>
+
+        <label for="to">To</label>
+        <select id="to" required></select>
+
+        <!-- Depart-Return Date Fields -->
+        <label for="departDate">Departure Date</label>
+        <input type="date" id="departDate" required>
+
+        <label for="returnDate">Return Date</label>
+        <input type="date" id="returnDate">
+
+        <!-- Passengers and Class -->
+        <label for="passengers">Passengers</label>
+        <select id="passengers" required>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+
+        <label for="cabinClass">Cabin Class</label>
+        <select id="cabinClass" required>
+            <option value="economy">Economy</option>
+            <option value="business">Business</option>
+            <option value="first">First Class</option>
+        </select>
+
+        <button type="submit">Search Flights</button>
+    </form>
+
+    <div class="flightsearchh">
+        <h1>Your recent search</h1>
+
+        <div class="flightsearchcontainer"></div>
+    </div>
+
+    <!-- flight Results -->
+    <div id="results">
+
+    </div>
+
+    
+
+    <div id="signInModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModalButton" class="close">&times;</span>
+            <h2>Sign In</h2>
+            <p>Please sign in to continue booking your flight.</p>
+            <button id="signInButton">Sign In</button>
+        </div>
+    </div>
+
+    <div class="container" id="cont" >
+        <div class="ticket" id="ticket-container" style="display: none;">
+          <div class="ticket-header">
+            <div class="left-section">
+              <h2 id="flight-name"></h2>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> <span id="airport"></span>,
+                Terminal <span id="terminal"></span>
+              </p>
+            </div>
+            <div class="right-section">
+              <span class="price" id="price"></span>
+              <div class="sharee">
+                <button class="share-btn" id="shareBtn">
+                    <i class="fas fa-share-alt"></i>
+                  </button>
+                  <button class="download-btn" id="downloadBtn">Download</button>
+              </div>
+              
+            </div>
+          </div>
+  
+          <div class="ticket-body">
+            <div class="flight-time">
+              <div class="departure">
+                <p class="time" id="departure-time"></p>
+                <p class="location" id="departure-location"></p>
+              </div>
+              <div class="plane-icon">
+                <i class="fas fa-plane"></i>
+              </div>
+              <div class="arrival">
+                <p class="time" id="arrival-time"></p>
+                <p class="location" id="arrival-location"></p>
+              </div>
+            </div>
+            <div class="flight-con">
+              <div class="passenger-details">
+                <div class="profile">
+                  <img src="https://via.placeholder.com/50" alt="Profile Image" id="profile-img" />
+                  <div class="passenger-info">
+                    <p class="name" id="passenger-name"></p>
+                    <p id="boarding-pass-number"></p>
+                  </div>
+                </div>
+                <p class="class" id="class"></p>
+              </div>
+  
+              <div class="flight-detailss">
+                <div class="detail">
+                  <p><i class="fa-regular fa-calendar-days" style="color: #68c6c8;"></i>Date</p>
+                  <p id="flight-date"></p>
+                </div>
+                <div class="detail">
+                  <p><i class="fa-solid fa-clock" style="color: #68c6c8;"></i>Flight Time</p>
+                  <p id="flight-time"></p>
+                </div>
+                <div class="detail">
+                  <p><i class="fa-solid fa-dungeon" style="color: #68c6c8;"></i>Gate</p>
+                  <p id="gate"></p>
+                </div>
+                <div class="detail">
+                  <p><i class="fa-solid fa-chair" style="color: #68c6c8;"></i>Seat</p>
+                  <p id="seat"></p>
+                </div>
+                <div class="barcode">
+                  <div class="codec">
+                    <p id="airline"></p>
+                    <span id="flight-number"></span>
+                  </div>
+                  <div class="barcode-img">
+                    <img src="../PAYMENTRECEIPT/barcode.avif" alt="Barcode" id="barcode-img" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <script type="module" src="../firebaseConfig.js"></script>
+    <script type="module" src="../PAYMENTRECEIPT/receipt.js"></script>
+    <script type="module" src="./script.js"></script>
+    
+</body>
+</html>
