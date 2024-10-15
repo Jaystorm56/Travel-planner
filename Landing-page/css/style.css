@@ -35,6 +35,20 @@ header {
     border-radius: 20px;
 }
 
+.logo{
+    font-size: 1.5em;
+    font-family: Arial, Helvetica, sans-serif;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    padding: 3px 9px;
+}
+.logo:hover{
+    color: #db8b14;
+    transition: all 0.5s 0.1s linear;
+    transform: scale(0.99);
+    border: 1px solid #db8b14;
+}
+
 .flight-stay, .login-up {
     display: flex;
     align-items: center;
@@ -58,9 +72,9 @@ header {
     transition: all 0.4s 0.1s linear;
 }
 
-.flight-stay-anchor:hover::before, .flight-stay-anchor:focus::before {
+/* .flight-stay-anchor:hover::before, .flight-stay-anchor:focus::before {
     width: 3.5%;
-}
+} */
 
 .flight-stay-anchor2::before {
     content: '';
@@ -86,10 +100,39 @@ header {
 }
 
 .login-signup-anchor1 {
-    margin-right: 15px; /* Adds space between Login and Sign up */
-    text-decoration: none;
+    padding: 9px 19px;
     color: #fff;
+    border-radius: 20px; /* Rounded Sign up button */
+    text-decoration: none;
+    font-weight: 900;
+    margin-right: 10px; /* Add space between login and sign up */
   }
+
+  .login-signup-anchor1:hover{
+    border: 1px solid #db8b14;
+    background-color: transparent;
+    border-radius: 20px;
+    /* padding: 5px 15px; */
+  }
+
+  .login-signup-anchor1:hover, .login-signup-anchor2:focus {
+    color: #db8b14;
+    transition: all 0.5s 0.1s linear;
+    transform: scale(0.9);
+    background-color: transparent;
+    border: 1px solid #db8b14;
+}
+
+.login-signup-anchor1:hover::after, .login-signup-anchor2:focus::after {
+    padding: 1em 3.2em 0.5em 1.5em;
+    margin-top: -0.5em;
+    margin-left: -1.9em;
+    border-radius: 0.8em;
+    height: 10px;
+    left: 114em;
+    width: 10px;
+    transition: all 0.5s 0.1s linear;
+}
   
   .login-signup-anchor2 {
     padding: 5px 15px;
@@ -97,8 +140,9 @@ header {
     color: #000;
     border-radius: 20px; /* Rounded Sign up button */
     text-decoration: none;
+    font-weight: 900;
   }
-.login-signup-anchor1::before {
+/* .login-signup-anchor1::before {
     content: '';
     position: absolute;
     width: 0;
@@ -106,17 +150,17 @@ header {
     bottom: 1em;
     background-color: var(--BGCOLOR);
     transition: all 0.4s 0.1s linear;
-}
+} */
 
-.login-signup-anchor1:hover::before, .login-signup-anchor1:focus::before{
+/* .login-signup-anchor1:hover::before, .login-signup-anchor1:focus::before{
     width: 2.2%;
-}
+} */
 
 .login-signup-anchor2 {
     color: #000;
     background-color: var(--BGCOLOR);
     padding: 0.5em 1em 0.5em 1em;
-    border-radius: 0.8em;
+    /* border-radius: 0.8em; */
     font-weight: 900;
 }
 
@@ -124,6 +168,8 @@ header {
     color: #db8b14;
     transition: all 0.5s 0.1s linear;
     transform: scale(0.9);
+    background-color: transparent;
+    border: 1px solid #db8b14;
 }
 
 .login-signup-anchor2:hover::after, .login-signup-anchor2:focus::after {
@@ -198,7 +244,7 @@ h1 {
 }
 
 .flight-stay-bottom-paragraph:hover {
-    color: #db8b14;
+    color: #68c6c8;
     transform: scale(0.9);
 }
 
@@ -373,6 +419,12 @@ main {
     color: #000;
     border: 1px solid var(--GREENBG);
     padding: 0.5em 1em 0.5em 1em;
+}
+
+.section-one-child-anchor:hover{
+    background-color: #68c6c8;
+    color: #fff;
+    transition: all 0.5s 0.1s linear;
 }
 
 .section-one-child2-contents {
