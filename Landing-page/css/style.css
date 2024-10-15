@@ -72,10 +72,6 @@ header {
     transition: all 0.4s 0.1s linear;
 }
 
-/* .flight-stay-anchor:hover::before, .flight-stay-anchor:focus::before {
-    width: 3.5%;
-} */
-
 .flight-stay-anchor2::before {
     content: '';
     position: absolute;
@@ -142,19 +138,6 @@ header {
     text-decoration: none;
     font-weight: 900;
   }
-/* .login-signup-anchor1::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 0.15em;
-    bottom: 1em;
-    background-color: var(--BGCOLOR);
-    transition: all 0.4s 0.1s linear;
-} */
-
-/* .login-signup-anchor1:hover::before, .login-signup-anchor1:focus::before{
-    width: 2.2%;
-} */
 
 .login-signup-anchor2 {
     color: #000;
