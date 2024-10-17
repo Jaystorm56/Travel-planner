@@ -144,6 +144,29 @@ function searchAirportsByCountry(country) {
     return airports.filter(airport => airport.name.toLowerCase().includes(country.toLowerCase()));
 }
 
+
+// Switch Between Forms When Either Flight or Stay Tab is clicked! 
+document.getElementById("flightsTab").addEventListener("click", function() {
+    // Show flights form and hide stays form
+    document.getElementById("flightsContent").style.display = "block";
+    document.getElementById("staysContent").style.display = "none";
+    
+    // Update active tab styling
+    document.getElementById("flightsTab").classList.add("active");
+    document.getElementById("staysTab").classList.remove("active");
+});
+
+document.getElementById("staysTab").addEventListener("click", function() {
+    // Show stays form and hide flights form
+    document.getElementById("flightsContent").style.display = "none";
+    document.getElementById("staysContent").style.display = "block";
+    
+    // Update active tab styling
+    document.getElementById("staysTab").classList.add("active");
+    document.getElementById("flightsTab").classList.remove("active");
+});
+
+
 // Add event listener to "Show Flights" button
 document.getElementById('showFlightsBtn').addEventListener('click', async () => {
     const fromCountry = document.getElementById('fromCity').value;

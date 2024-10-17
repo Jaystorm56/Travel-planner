@@ -35,19 +35,22 @@ header {
     border-radius: 20px;
 }
 
-.logo{
-    font-size: 1.5em;
-    font-family: Arial, Helvetica, sans-serif;
-    border: 1px solid #fff;
-    border-radius: 5px;
-    padding: 3px 9px;
+.logo img {
+    width: 130px; 
+    height: auto;
+    padding: 10px; 
+    background-color: white; 
+    border: 1px solid white; 
+    border-radius: 5px; 
+    transition: background-color 0.3s ease, border 0.3s ease; 
 }
-.logo:hover{
-    color: #db8b14;
-    transition: all 0.5s 0.1s linear;
-    transform: scale(0.99);
-    border: 1px solid #db8b14;
+
+/* Hover Effect */
+.logo img:hover {
+    background-color: #db8b14; 
+    border: 1px solid #db8b14; 
 }
+
 
 .flight-stay, .login-up {
     display: flex;
@@ -198,15 +201,25 @@ h1 {
     font-size: 1.5em;
 }
 
+/* General Layout Styling */
 .header-bottom {
     margin: 0 7em;
     margin-top: -6.5em;
     background: var(--BGCOLOR);
-    padding: 0 1.5em 2em;
+    padding: 1.5em;
     border-radius: 1em;
     box-shadow: 0 8px 9px rgba(141, 214, 234, 0.435);
 }
 
+/* Adjust the container for the button to place it at the right */
+.header-bottom-more-info {
+    grid-column: span 4; /* Spans the entire width of the form */
+    display: flex;
+    justify-content: flex-end; /* Pushes the button to the right */
+    padding-top: 1em;
+}
+
+/* Tabs Section */
 .flight-stay-bottom {
     display: flex;
     align-items: center;
@@ -223,156 +236,183 @@ h1 {
     cursor: pointer;
     border: 2px solid transparent;
     transition: all 0.3s ease;
-    transform: scale(1);
-}
-
-.flight-stay-bottom-paragraph:hover {
-    color: #68c6c8;
-    transform: scale(0.9);
-}
-
-.flight-stay-bottom-paragraph img {
-    margin-right: 10px;
-    transition: transform 0.3s ease;
-}
-
-.flight-stay-bottom-paragraph:hover img {
-    transform: scale(1.2);
 }
 
 .flight-stay-bottom-paragraph.active {
-    color: #68c6c8; /* Active tab color */
-    border-bottom: 2px solid #68c6c8; /* Active tab indicator */
-    transform: translateY(5px); /* Moves the active tab downward by 5px */
-    padding-bottom: 10px; /* Adds extra space between the text and the border */
-    padding-right: 20px;
+    color: #68c6c8;
+    border-bottom: 2px solid #68c6c8;
+    padding-bottom: 10px;
 }
 
-
+/* Hide the #staysContent initially */
 .content-section {
-    display: none;
-    margin-top: 1em;
+    display: none; /* Hide all sections by default */
 }
 
-#flightsContent.active-content {
-    display: block;
+#flightsContent {
+    display: block; /* Show flights form by default */
 }
 
+.flight-stay-bottom-paragraph.active {
+    color: #0e91ac; /* Highlight active tab */
+    border-bottom: 2px solid #0e91ac; /* Add bottom border to active tab */
+}
+
+.flight-stay-bottom-paragraph {
+    cursor: pointer; /* Indicate clickable tabs */
+}
+
+
+/* Flight Form Layout */
 form {
     display: grid;
-    grid-template-columns: repeat(2, 1fr); /* Adjust grid to fit the form fields */
-    gap: 1.5em;
-}
-
-.flight-form {
+    grid-template-columns: repeat(4, 1fr); /* 4 columns for each input field */
+    gap: 1em;
     padding: 1em 0 2em;
+    align-items: center;
 }
 
-fieldset {
-    padding: 0.5em 1em;
-    border: 1px solid var(--BLACK);
-    border-radius: 0.5em;
+/* Input Fields */
+input, select {
+    width: 100%;
+    padding: 0.75em;
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    outline: none;
+    border-radius: 0.25em;
 }
 
-:is(legend, .fieldset-paragraph) {
-    color: var(--BLACK);
+/* Remove border for the specific fields */
+#fromCity, #toCity, #departDate, #returnDate, #passengers, #cabinClass {
+    border: none;
+    outline: none;
+    padding: 0.75em;
+    width: 100%;
+    border-radius: 0.25em;
 }
 
+/* Ensure From-To fields appear as one unit */
 .fieldset-paragraph {
     display: flex;
     align-items: center;
     gap: 10px;
-    justify-content: space-between;
-}
-
-#fromCity, #toCity {
-    padding: 0.75em;
-    box-sizing: border-box;
-    border: none;
-}
-
-#toCity {
-    padding-left: 1em;
 }
 
 .swap-icon {
     width: 24px;
     height: auto;
-    margin: 0 10px;
+    margin-left: 10px;
 }
 
-.fieldset-paragraph input {
-    height: 35px;
-    width: 100%;
-    /* border: 1px solid var(--BLACK); */
-    outline: none;
-    border-radius: 0.25em;
-    padding-left: 0.5em;
-}
-
-.fieldset-paragraph select {
-    height: 35px;
-    width: 100%;
-    /* border: 1px solid var(--BLACK); */
-    border-radius: 0.25em;
-    padding-left: 0.5em;
-    outline: none;
-}
-
-/* Remove border from the Depart - Return inputs */
-#departDate, #returnDate {
-    border: none; /* Removes the border */
-    outline: none; /* Removes the focus outline */
-    padding: 0.75em; /* Adds padding for a better look */
-    width: 100%; /* Ensures it takes up full width */
-    border-radius: 0.25em; /* Optional: Adds a slight round corner */
-}
-
-/* Remove border from the Passengers input */
-#passengers {
-    border: none; /* Removes the border */
-    outline: none; /* Removes the focus outline */
-    padding: 0.75em; /* Adds padding for a better look */
-    width: 100%; /* Ensures it takes up full width */
-    border-radius: 0.25em; /* Optional: Adds a slight round corner */
-}
-
-/* Also, for consistency, apply this to the cabin class select */
-#cabinClass {
-    border: none; /* Removes the border */
-    outline: none; /* Removes the focus outline */
-    padding: 0.75em; /* Adds padding for a better look */
-    width: 100%; /* Ensures it takes up full width */
-    border-radius: 0.25em; /* Optional: Adds a slight round corner */
-}
-
-.header-bottom-more-info {
-    display: flex;
-    justify-content: flex-end; /* Aligns the button to the far right */
-    align-items: flex-end; /* Aligns the button to the bottom of the container */
-    width: 420%;
-    position: relative; /* Ensures the container can adjust its position */
-    margin-top: 1em; /* Pushes the button towards the bottom */
-    padding-right: 1em; /* Adds space from the right edge */
-    padding-bottom: 1em; /* Adds space from the bottom edge */
-    /* border: 1px solid red; */
-}
-
+/* Button Styling */
 .show-btn {
     background-color: #68c6c8;
-    padding: 0.65em 1em;
+    padding: 0.75em 2em;
     border-radius: 0.5em;
-    font-weight: 900;
+    font-weight: bold;
     cursor: pointer;
     transition: background-color 0.3s ease;
-    transform: scale(1);
     border: none;
+    display: flex;
+    align-items: center;
+    gap: 0.5em; /* Adds space between the icon and text */
 }
 
 .show-btn:hover {
     background-color: #db8b14;
     color: #fff;
 }
+
+.show-btn img {
+    width: 18px; /* Adjust icon size */
+    height: auto;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    form {
+        grid-template-columns: 1fr; /* Stack inputs on smaller screens */
+    }
+
+    .show-btn {
+        width: 100%;
+    }
+}
+
+
+/* Hotel Search Form */
+#hotel-search-form {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Ensure 4 equal columns for input fields */
+    gap: 1em; /* Space between input fields */
+    align-items: center;
+    padding: 1.5em;
+    background-color: #fff; /* Background matching the flights form */
+    border-radius: 0.5em;
+    box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Each input field styling */
+#hotel-search-form .formbox-label {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+/* Input field design to match flight form */
+#hotel-search-form .formbox-input {
+    height: 45px; /* Uniform height */
+    padding: 0.75em 1em;
+    border: 1px solid #ccc;
+    border-radius: 0.5em;
+    font-size: 16px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+/* Ensure all form fields maintain equal height */
+#hotel-search-form input, 
+#hotel-search-form select {
+    height: 45px; /* Uniform height */
+    width: 100%;
+    padding: 0.75em 1em;
+    border-radius: 0.5em;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+/* Button styling similar to the flight form button */
+.formbox-btn button {
+    background-color: #68c6c8;
+    padding: 0.75em 2em;
+    border-radius: 0.5em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hover effect for the button */
+.formbox-btn button:hover {
+    background-color: #db8b14;
+    color: #fff;
+}
+
+/* Button span styling to ensure icon is aligned */
+.formbox-btn button .btn-span {
+    margin-right: 0.5em; /* Space between icon and text */
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    #hotel-search-form {
+        grid-template-columns: 1fr; /* Stack the inputs vertically on smaller screens */
+    }
+}
+
 
 main {
     padding-top: 11em;
