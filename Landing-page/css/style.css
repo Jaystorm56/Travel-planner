@@ -51,6 +51,11 @@ header {
     border: 1px solid #db8b14; 
 }
 
+.footer-logo{
+    width: 60px;
+    height: auto;
+}
+
 
 .flight-stay, .login-up {
     display: flex;
