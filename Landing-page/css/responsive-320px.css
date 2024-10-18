@@ -1,0 +1,242 @@
+/* Base styles (assume desktop or larger screen styles are set above) */
+
+/* Media query for 320px screen */
+@media (max-width: 320px) {
+
+    /* Main container */
+    .main-container {
+        padding: 0 1em; /* Add padding to ensure content isn't flush against edges */
+    }
+
+    /* Header Texts */
+    .header-texts h1 {
+        font-size: 1.2em; /* Reduce the font size */
+        text-align: center;
+    }
+    .header-paragraph {
+        font-size: 0.8em;
+        text-align: center;
+    }
+
+    /* Flight-Stay section */
+    .header-bottom {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .flight-stay-bottom {
+        display: flex;
+        justify-content: space-around;
+        width: 100%; /* Make sure it spans the width of the screen */
+    }
+
+    .flight-stay-bottom-paragraph {
+        font-size: 0.8em;
+        padding: 0.5em 0;
+    }
+
+    /* Forms */
+    fieldset {
+        margin-bottom: 1em;
+        border: none; /* Keep form fields simple */
+    }
+
+    input, select {
+        width: 100%; /* Make input fields take full width of screen */
+        padding: 0.5em; /* Ensure input fields have enough padding for comfort */
+    }
+
+    .swap-icon {
+        display: none; /* Optionally hide the swap icon on small screens if space is tight */
+    }
+
+    /* Buttons */
+    .show-btn {
+        font-size: 0.8em;
+        padding: 0.5em 1em;
+        width: 100%;
+    }
+
+    /* Hotel Search Form */
+    .formbox-label {
+        display: block;
+        margin-bottom: 1em;
+    }
+
+    .formbox-input {
+        width: 100%;
+        padding: 0.5em;
+    }
+
+    /* Modal */
+    .modal-content {
+        padding: 1em; /* Adjust padding inside the modal */
+        font-size: 0.9em; /* Ensure text inside modal is readable on small screens */
+    }
+
+    /* Hide desktop view on mobile */
+    .laptop-view {
+        display: none;
+    }
+
+    /* Show mobile view */
+    .mobile-view-nav {
+        display: block;
+    }
+
+    /* Mobile view header */
+    .mobile-view-header-texts h1 {
+        font-size: 1em;
+        text-align: center;
+    }
+
+    .mobile-view-header-paragraph {
+        font-size: 0.8em;
+        text-align: center;
+    }
+}
+/* General styles for the whole layout */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding: 10px;
+}
+
+/* Section one styles */
+.section-one {
+    padding: 10px;
+}
+
+.section-one-heading {
+    font-size: 24px;
+    text-align: center;
+}
+
+.section-one-child, .section-one-child2, .section-one-child3 {
+    margin-bottom: 20px;
+}
+
+/* Responsive layout for section-one-child2 */
+.section-one-child2-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.country-img img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.country-paragraph {
+    font-size: 18px;
+    text-align: center;
+}
+
+.country-ulist {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+.country-list {
+    font-size: 14px;
+}
+
+/* Flights and hotels section */
+.flights-hotels, .flights-hotels2 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.flights-hotels-heading {
+    font-size: 20px;
+}
+
+.flights-hotels-paragraph {
+    font-size: 14px;
+}
+
+.flights-hotels-anchor img {
+    width: 20px;
+    margin-right: 5px;
+}
+
+/* Section two (Reviews) */
+.section-two-heading {
+    font-size: 24px;
+    text-align: center;
+}
+
+.section-one-child-paragraph {
+    text-align: center;
+    font-size: 14px;
+}
+
+.section-two-child {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.section-two-child img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.section-two-child-heading q {
+    font-size: 16px;
+    display: block;
+}
+
+.section-two-child-paragraph {
+    font-size: 14px;
+}
+
+/* Media query for 320px screens */
+@media (max-width: 320px) {
+    .section-one-heading, .section-two-heading {
+        font-size: 20px;
+    }
+
+    .section-one-child2-contents {
+        flex-direction: column;
+    }
+
+    .country-img img {
+        width: 90%;
+    }
+
+    .country-paragraph {
+        font-size: 16px;
+    }
+
+    .country-list {
+        font-size: 12px;
+    }
+
+    .flights-hotels-heading {
+        font-size: 18px;
+    }
+
+    .flights-hotels-paragraph {
+        font-size: 12px;
+    }
+
+    .section-two-child-heading q {
+        font-size: 14px;
+    }
+
+    .section-two-child-paragraph {
+        font-size: 12px;
+    }
+}

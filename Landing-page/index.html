@@ -13,25 +13,19 @@
         <header>
             <nav>
                 <div class="laptop-view">
-                    <div class="flight-stay">
-                        <a href="" class="flight-stay-anchor">
-                            <img src="/favicon/plane.svg" alt="" class="flight-stay-img">
-                            Flights
-                        </a>
-        
-                        <a href="" class="flight-stay-anchor2">
-                            <img src="/favicon/stay.svg" alt="" class="flight-stay-img">
-                            Stays
+                    <div>
+                        <a href="" class="logo">
+                        <img src="../Landing-page/favicon/Travel-logo.svg" alt="">
                         </a>
                     </div>
         
                     <div class="login-signup">
                         <a href="../AUTHENTICATION/HTML/signin.html" class="login-signup-anchor1">
-                            Login
+                            LOGIN
                         </a>
         
                         <a href="../AUTHENTICATION/HTML/signup.html" class="login-signup-anchor2">
-                            Sign up
+                            SIGN UP
                         </a>
                     </div>
                 </div>
@@ -88,6 +82,12 @@
                         Stays
                     </p>
                 </div> -->
+                <!-- Flight and Stay Tabs -->
+                <!-- <div class="tab-bar">
+                    <button class="tab-btn active" id="flightsTab" onclick="showFlightForm()">Flights</button>
+                    <button class="tab-btn" id="staysTab" onclick="showHotelForm()">Stays</button>
+                </div>
+                 -->
                 <div class="header-bottom">
                     <div class="flight-stay-bottom">
                         <a id="flightsTab" class="flight-stay-bottom-paragraph active">
@@ -162,6 +162,38 @@
                             </div>
                         </form>
                     </div>
+
+                    <div id="staysContent" class="content-section">
+                        <!-- Hotel Search Form -->
+                        <form id="hotel-search-form">
+                            <div class="formbox-label desti">
+                                <label class="formbox-pos" for="destination">Destination:</label>
+                                <input class="formbox-input" type="text" id="destination" placeholder="Search for a city...">
+                            </div>
+
+                            <div class="formbox-label">
+                                <label class="formbox-pos" for="checkin">Check-in Date:</label>
+                                <input class="formbox-input" type="date" id="checkin">
+                            </div>
+
+                            <div class="formbox-label">
+                                <label class="formbox-pos" for="checkout">Check-out Date:</label>
+                                <input class="formbox-input" type="date" id="checkout">
+                            </div>
+
+                            <div class="formbox-label">
+                                <label class="formbox-pos" for="adults">Number of Adults:</label>
+                                <input class="formbox-input" type="number" id="adults" min="1" value="1">
+                            </div>
+
+                            <!-- Button -->
+                            <div class="formbox-btn">
+                                <button type="button" id="Search">
+                                    <span class="btn-span"><img src="../STAYS/IMAGES/ICONS/hotel.svg" alt=""></span> Search Hotels
+                                </button>
+                            </div>
+                        </form>
+                    </div> 
                 </div>
                 
                 <!-- Modal Structure -->
@@ -172,22 +204,12 @@
                         <div id="modalResults"></div>
                     </div>
                 </div>
-                
-                
-                    <div id="staysContent" class="content-section" style="display: none;">
-                        <!-- Stays content (hotel search form) -->
-                        <form id="staySearchForm">
-                            <!-- Stays form elements -->
-                        </form>
-                    </div>
-                </div>                        
-                
-                
-
-                
-                
-                
         </header>
+     </div>                        
+       
+        <br>
+        <br>
+        <br>
         <main>
                 <section class="section-one">
                     <h2 class="section-one-heading">Plan your perfect trip</h2>
@@ -485,8 +507,10 @@
 
         <div class="footer-bottom">
             <div class="footer-bottom-child">
-                <div class="footer-bottom-heading">
-                    <h2>TRAVEL</h2>
+                <div>
+                    <a href="" class="footer-logo">
+                        <img src="../Landing-page/favicon/Travel-logo.svg" alt="">
+                        </a>
                 </div>
     
                 <div class="footer-bottom-anchor1">
