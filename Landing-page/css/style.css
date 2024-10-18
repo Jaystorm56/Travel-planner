@@ -208,8 +208,9 @@ header {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    height: 65.8vh;
+    height: 62.3vh;
     background: #00000094;
+    border-radius: 3em;
 }
 
 @keyframes wave {
@@ -763,11 +764,11 @@ main {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: #000000;
+    background-color: #000;
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: #ff8682;
+    background-color: #302f2f;
 }
 
 .main-container{
