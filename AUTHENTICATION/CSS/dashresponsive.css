@@ -1,71 +1,271 @@
-@media screen and (max-width: 576px){
+@media screen and (max-width: 576px) {
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
     }
 
-    :root {
-        --BGCOLOR: #fff;
-        --WHITE: #fff;
-        --GREENBG: #2aab0d50;
-        --BGMARGIN: 0 1em 0 1em;
-        --BLACK: #000000b0;
-    }
-
-    header {
-        height: 61.8vh;
-    }
-
-    :is(.laptop-view, .header-texts, .header-bottom, .section-one, .section-two, .footer-head, .footer-bottom) {
+    :is(.content-page, .footer-head, .footer-bottom) {
         display: none;
     }
 
-    .mobile-view-nav {
+    .mobile-view-header {
         display: flex;
         align-items: center;
         justify-content: space-between;
-        background: #000000c8;
-        backdrop-filter: blur(2px);
-        padding: 1em 1.3em 1em 1.3em;
+        padding: 1em;
+        background: #000;
+        z-index: 200;
     }
 
-    .mobile-view-flight-stay, .mobile-view-login-signup {
+    .navigation {
+        background: #000000f3;
+        color: #fff;
+        height: 100vh;
+        font-size: 1.5em;
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        line-height: 3;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .references-links {
+        text-decoration: none;
+        color: #fff;
+        padding-left: 1em;
+        display: flex;
+        gap: 0.5em;
+    }
+
+    .guest {
+        background: #fff;
+        color: #000;
+    }
+
+    .main-mobile-view {
+        background-image: url(/TRAVEL-PLANNER/img/River-forest.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 60vh;
         display: flex;
         align-items: center;
-        gap: 1.2em;
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1em;
     }
 
-    .mobile-view-login-signup-anchor {
-        text-decoration: none;
-        color: var(--WHITE);
-        font-weight: 900;
+    .second-main-mobile {
+        display: block;
+        background: #011c1d;
+        color: #fff;
+        margin: 2em 0 2em 0;
     }
 
-    .mobile-view-login-signup-anchor2 {
-        color: #000;
-        background-color: var(--BGCOLOR);
-        padding: 0.3em 0.8em 0.3em 0.8em;
-        border-radius: 0.5em;
+    .suscribe-mobile-view {
+        font-size: 2em;
     }
 
-    .mobile-view-header-texts {
+    .mobile-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5em 1em 0.5em 1em;
+    }
+
+    .bell-mobile {
+        position: absolute;
+        left: 1.7em;
+    }
+
+    h3, .mobile-suscribe-parg, input {
+        text-align: center;
+    }
+
+    .mobile-input {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
-        height: 61.8vh;
-        background: #00000094;
+        padding: 1em 0 1em 0;
     }
 
-    h1 {
-        font-size: 2em;
+    input {
+        width: 90%;
+        height: 50px;
+        padding: 0 1em 0 1em;
+        margin: 0.5em 0 0.5em 0;
+        outline: none;
+        border: none;
+        font-size: 1em;
+        color: #000;
+    }
+
+    input::placeholder {
+        color: #000;
+    }
+
+    .footer-mobile-view {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        gap: 1em;
+        background: #68c6c8;
+        margin: 0 0.15em;
+    }
+
+    .mobile-footer-h4 {
+        font-size: 1.3em;
+    }
+
+    .mobile-view-copyright {
+        display: block;
+        text-align: center;
+        line-height: 1.7;
+        color: #fff;
+        background: #011c1d;
+        padding: 0.6em 0;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width: 1024px){
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    :is(.content-page, .footer-head, .footer-bottom) {
+        display: none;
+    }
+
+    .mobile-view-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 1em;
+        background: #000;
+        z-index: 200;
+    }
+
+    .navigation {
+        background: #000000f3;
+        color: #fff;
+        height: 100vh;
+        font-size: 1.5em;
+        position: fixed;
+        z-index: 100;
+        width: 100%;
+        line-height: 3;
+    }
+
+    li {
+        list-style: none;
+    }
+
+    .references-links {
+        text-decoration: none;
+        color: #fff;
+        padding-left: 1em;
+        display: flex;
+        gap: 0.5em;
+    }
+
+    .guest {
+        background: #fff;
+        color: #000;
+    }
+
+    .main-mobile-view {
+        background-image: url(/TRAVEL-PLANNER/img/River-forest.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        height: 70vh;
+        display: flex;
+        align-items: center;
+        text-align: center;
+        justify-content: center;
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .second-main-mobile {
+        display: block;
+        background: #011c1d;
+        color: #fff;
+        margin: 2em 0 2em 0;
+    }
+
+    .suscribe-mobile-view {
+        font-size: 2.3em;
+    }
+
+    .mobile-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5em 5em 0.5em 5em;
+    }
+
+    .bell-mobile {
+        position: absolute;
+        left: 1.7em;
+    }
+
+    h3, .mobile-suscribe-parg, input {
         text-align: center;
     }
-    
-    .mobile-view-header-paragraph {
+
+    .mobile-input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 1em 0 1em 0;
+    }
+
+    input {
+        width: 90%;
+        height: 50px;
+        padding: 0 1em 0 1em;
+        margin: 0.5em 0 0.5em 0;
+        outline: none;
+        border: none;
+        font-size: 1.2em;
+        color: #000;
+    }
+
+    input::placeholder {
+        color: #000;
+    }
+
+    .footer-mobile-view {
+        display: flex;
+        justify-content: space-evenly;
+        padding: 1em;
+        gap: 1em;
+        background: #68c6c8;
+        margin: 0 0.15em;
+    }
+
+    .mobile-footer-h4 {
+        font-size: 1.2em;
+    }
+
+    .mobile-view-copyright {
+        display: block;
         text-align: center;
-        font-size: 1em;
-        color: var(--WHITE);
+        line-height: 1.7;
+        color: #fff;
+        background: #011c1d;
+        padding: 0.6em 0;
+    }
+
+    .mobile-parg {
+        font-size: 1.15em;
     }
 }

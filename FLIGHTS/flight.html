@@ -7,46 +7,71 @@
     <script defer src="https://js.paystack.co/v2/inline.js"></script>
     <title>Flight Search</title>
     <link rel="stylesheet" href="flight.css">
+    <link rel="stylesheet" href="/TRAVEL-PLANNER/FLIGHTS/responsiveflight.css">
     <link rel="stylesheet" href="../PAYMENTRECEIPT/style.css">
     <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
     rel="stylesheet"
-  />
+/>
 </head>
 <body>
-    <h1>Flight Search</h1>
+    <header>
+        <div class="header">
+          <img src="/TRAVEL-PLANNER/STAYS/TRAVEL.svg" class="firstimg" width="70px" alt="">
+          <h3>Guest</h3>
+        </div>
+    </header>
 
-    <form id="flightSearchForm">
+    <h1 class="flight-heading">Flight Search</h1>
+
+    <form id="flightSearchForm" class="form">
         <!-- From-To Select Fields -->
-        <label for="from">From</label>
-        <select id="from" required></select>
-
-        <label for="to">To</label>
-        <select id="to" required></select>
-
-        <!-- Depart-Return Date Fields -->
-        <label for="departDate">Departure Date</label>
-        <input type="date" id="departDate" required>
-
-        <label for="returnDate">Return Date</label>
-        <input type="date" id="returnDate">
-
-        <!-- Passengers and Class -->
-        <label for="passengers">Passengers</label>
-        <select id="passengers" required>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <option value="3">3</option>
-        </select>
-
-        <label for="cabinClass">Cabin Class</label>
-        <select id="cabinClass" required>
-            <option value="economy">Economy</option>
-            <option value="business">Business</option>
-            <option value="first">First Class</option>
-        </select>
-
-        <button type="submit">Search Flights</button>
+         <h3 class="heading">WHERE ARE YOU FLYING?</h3>
+        <div class="form">
+          <p>
+            <label for="from">From:</label>
+            <select id="from" required></select>
+          </p>
+  
+          <p>
+            <label for="to">To:</label>
+            <select id="to" required></select>
+          </p>
+  
+          <!-- Depart-Return Date Fields -->
+          <p>
+            <label for="departDate">Departure Date:</label>
+            <input type="date" id="departDate" required>
+          </p>
+  
+          <p>
+            <label for="returnDate">Return Date:</label>
+            <input type="date" id="returnDate">
+          </p>
+  
+          <!-- Passengers and Class -->
+          <p>
+            <label for="passengers">Passengers:</label>
+            <select id="passengers" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+          </p>
+  
+          <p>
+            <label for="cabinClass">Cabin Class:</label>
+            <select id="cabinClass" required>
+                <option value="economy">Economy</option>
+                <option value="business">Business</option>
+                <option value="first">First Class</option>
+            </select>
+          </p>
+        </div>
+        
+        <div class="submit">
+          <button type="submit"><img src="/TRAVEL-PLANNER/FLIGHTS/message.svg" alt="" class="message"> Search Flights</button>
+        </div>
     </form>
 
     <div class="flightsearchh">

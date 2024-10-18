@@ -1,32 +1,84 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: rgba(220, 220, 220, 0.247);
 }
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5em 2em 0.5em 2em;
+  border: 2px solid #000;
+  border-top-left-radius: 2em;
+  border-top-right-radius: 2em;
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+.flight-heading {
+  background-image: linear-gradient(#000000a8, #000000a8),  url(/TRAVEL-PLANNER/FLIGHTS/airplane.jpeg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+}
+
 form {
   display: flex;
+  gap: 1em;
+  /* align-items: center; */
+  /* justify-content: center; */
+  margin-bottom: 2em;
   flex-direction: column;
-  width: 300px;
-  margin: 50px auto;
+  width: 82%;
+  line-height: 1.5;
+  padding: 30px 50px 30px 50px;
+  margin-top: -8em;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 1em;
+  background-color: #fff;
 }
-label {
-  margin-top: 10px;
+
+.heading {
+  text-align: left;
 }
-select, input {
-  padding: 8px;
-  margin-top: 5px;
+
+.form {
+  display: flex;
+  justify-content: center;
+  /* align-items: center; */
 }
+
+p {
+  display: flex;
+  flex-direction: column;
+}
+
+input, select {
+  width: 180px;
+  padding: 8px 15px 8px 15px;
+}
+
 button {
-  margin-top: 20px;
   padding: 10px;
   background-color: rgba(17, 100, 160, 0.897);
   color: white;
   border: none;
   cursor: pointer;
 }
-button:hover {
-background-color: #000000; 
-transform: scale(1.05); 
-}        
+
 #results {
   margin-top: 20px;
   padding: 10px;
@@ -153,11 +205,12 @@ flex-direction: column;
 }
 
 .flightsearchh{
-height: 49vh;
-width: 85%;
+/* height: 49vh; */
+width: 100%;
 /* padding-left: 50px; */
-margin-left: 90px;
+/* margin-left: 90px; */
 /* border: 2px solid red; */
+text-align: center;
 }
 
 .flightsearchcontainer{
@@ -189,7 +242,3 @@ border-radius: 8px;
 .flight-search-card p {
 margin: 5px 0;
 }
-
-/* .flight-search-card .details {
-
-} */
