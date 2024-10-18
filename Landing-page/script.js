@@ -309,3 +309,8 @@ window.addEventListener('click', (event) => {
     }
 });
 
+document.getElementById('chatButton').addEventListener('click', function() {
+    // Open your chatbot HTML file in a new tab or modal
+    window.open('chatbot/chatbot.html', '_blank');
+});
+

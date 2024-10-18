@@ -24,6 +24,35 @@ header {
     background-repeat: no-repeat;
     border-radius: 20px;
 }
+/* Chat button styling */
+.chat-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #68c6c8;/* Button color */
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 1000; /* Ensure it stays on top */
+}
+
+/* Chat button icon */
+.chat-button img {
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+/* Hover effect for the button */
+.chat-button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
 
 .laptop-view {
     display: flex;
