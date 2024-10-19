@@ -124,3 +124,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 });
+
+document.getElementById('chatButton').addEventListener('click', function() {
+    // Open your chatbot HTML file in a new tab or modal
+    window.open('chatbot.html', '_blank');
+});
+
+

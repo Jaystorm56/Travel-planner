@@ -7,7 +7,7 @@
     <script defer src="https://js.paystack.co/v2/inline.js"></script>
     <title>Flight Search</title>
     <link rel="stylesheet" href="flight.css">
-    <link rel="stylesheet" href="/TRAVEL-PLANNER/FLIGHTS/responsiveflight.css">
+    <link rel="stylesheet" href="/FLIGHTS/responsiveflight.css">
     <link rel="stylesheet" href="../PAYMENTRECEIPT/style.css">
     <link
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
@@ -17,8 +17,18 @@
 <body>
     <header>
         <div class="header">
-          <img src="/TRAVEL-PLANNER/STAYS/TRAVEL.svg" class="firstimg" width="70px" alt="">
-          <h3>Guest</h3>
+          <div class="head2">
+            <img src="/STAYS/TRAVEL.svg" class="firstimg" width="70px" alt="">
+          </div>
+         
+          <div class="head3">
+            <div class="head3-child2" id="profilePicContainer">
+              <!-- User profile picture and first name will be dynamically populated here -->
+              <img id="userProfilePicture" src="" alt="User Profile Picture" class="profile-pic" style="display: none;">
+              <div class="placeholder-pic" style="display: none;"><img src="../AUTHENTICATION/HTML/IMAGES/profile-pic.svg" alt=""></div>
+              <h6 id="userNameDisplay"></h6>
+            </div>
+          </div>
         </div>
     </header>
 
@@ -70,7 +80,7 @@
         </div>
         
         <div class="submit">
-          <button type="submit"><img src="/TRAVEL-PLANNER/FLIGHTS/message.svg" alt="" class="message"> Search Flights</button>
+          <button type="submit"><img src="./message.svg" alt="" class="message"> Search Flights</button>
         </div>
     </form>
 
@@ -175,6 +185,120 @@
           </div>
         </div>
       </div>
+
+      <footer style="margin-top: 80px;">
+        <div class="footer-head">
+            <div class="suscribe-parent">
+                <h2 class="suscribe-heading">Subscribe <br> Newsletter</h2>
+                <p class="suscribe-paragraph">
+                    The Travel
+                    <a href="" class="suscribe-anchor">
+                        Get inspired! Receive travel discounts, tips and behind the scenes stories.
+                    </a>
+                </p>
+                <p class="subscibe-input">
+                    <input type="email" placeholder="Your email address" autocomplete="on" required>
+                    <a href="" class="subcribe-input-anchor">Subscribe</a>
+                </p>
+            </div>
+
+            <div class="bell-message">
+                <img src="/favicon/bell.svg" alt="" class="bell">
+                <img src="/img/email2.png" alt="" style="transform: rotate(10deg); width: calc(395px - 50px); height: calc(295px - 50px);" class="email">
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-child">
+                <div>
+                    <a href="" class="footer-logo">
+                        <img src="../Landing-page/favicon/logo-footer.svg" alt="">
+                        </a>
+                </div>
+    
+                <div class="footer-bottom-anchor1">
+                    <a href="" class="all-footer-img-link footer-facebook">
+                        <img src="/favicon/facebook.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-twitter">
+                        <img src="/favicon/x.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-youtube">
+                        <img src="/favicon/youtube.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-instagram">
+                        <img src="/favicon/instagram.svg" alt="">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom-child2">
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Our Destinations</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Canada</a>
+                        <a href="" class="footer-links">Alaska</a>
+                        <a href="" class="footer-links">France</a>
+                        <a href="" class="footer-links">Iceland</a>
+                    </div>
+                </div>
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Our Activities</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Northern Lights</a>
+                        <a href="" class="footer-links">Cruising & sailing</a>
+                        <a href="" class="footer-links">Multi-activities</a>
+                        <a href="" class="footer-links">Kayaing</a>
+                    </div>
+                </div>
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Travel Blogs</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Bali Travel guide</a>
+                        <a href="" class="footer-links">Sri lanks Travel guide</a>
+                        <a href="" class="footer-links">Peru Travel guide</a>
+                        <a href="" class="footer-links">Eco Travel guide</a>
+                    </div>
+                </div>    
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>About Us</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Our story</a>
+                        <a href="" class="footer-links">Work with us</a>
+                    </div>
+                </div>
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Contact Us</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Our story</a>
+                        <a href="" class="footer-links">Work with us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> 
     <script type="module" src="../firebaseConfig.js"></script>
     <script type="module" src="../PAYMENTRECEIPT/receipt.js"></script>
     <script type="module" src="./script.js"></script>

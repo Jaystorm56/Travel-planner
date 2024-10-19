@@ -1,4 +1,4 @@
-import { auth, onAuthStateChanged,getDocs,query,where,orderBy,limit, getStorage, ref, uploadBytes,addDoc,collection,getFirestore ,db} from '../firebaseConfig.js';
+import { auth, onAuthStateChanged,getDocs,query,where,orderBy,limit, doc,getDoc,getStorage, ref, uploadBytes,addDoc,collection,getFirestore ,db} from '../firebaseConfig.js';
 
 // DOM Elements
 const flightSearchForm = document.getElementById('flightSearchForm');
@@ -11,6 +11,53 @@ const toSelect = document.getElementById('to');
 // Initialize the Firestore database
 // const db = getFirestore();
 // Airports Data 
+
+// DOM Elements
+const profilePicContainer = document.getElementById('profilePicContainer');
+const userProfilePicture = document.getElementById('userProfilePicture');
+const userNameDisplay = document.getElementById('userNameDisplay');
+
+// Function to update the UI based on user authentication status
+async function updateUserUI(user) {
+    if (user) {
+        const db = getFirestore();
+        const userRef = doc(db, 'users', user.uid);
+        
+        try {
+            const userDoc = await getDoc(userRef);
+            if (userDoc.exists()) {
+                const userData = userDoc.data();
+                const profilePicUrl = userData.profilePicture || ''; // Adjust the field name as necessary
+                const firstName = userData.firstName || 'User'; // Adjust the field name as necessary
+
+                // Set the profile picture and name
+                userProfilePicture.src = profilePicUrl;
+                userProfilePicture.style.display = profilePicUrl ? 'block' : 'none'; // Show or hide based on availability
+                userNameDisplay.textContent = firstName;
+            } else {
+                console.error('No such user document!');
+                setGuestUI(); // Set UI for guest if user doc does not exist
+            }
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+            setGuestUI(); // Set UI for guest if there is an error
+        }
+    } else {
+        setGuestUI(); // Set UI for guest if no user is signed in
+    }
+}
+
+// Function to set the UI for guest users
+function setGuestUI() {
+    userProfilePicture.style.display = 'none'; // Hide profile picture
+    userNameDisplay.textContent = 'Guest'; // Display "Guest"
+}
+
+// Check authentication state and update UI
+onAuthStateChanged(auth, async (user) => {
+    await updateUserUI(user);
+});
+
 const airports = [
 
 { name: "London Heathrow (LHR)", skyId: "LOND", entityId: "27544008" },
@@ -93,6 +140,7 @@ function populateAirports(selectElement) {
         option.text = airport.name;
         selectElement.appendChild(option);
     });
+    
 }
 
 // Populating both the From and To select elements
