@@ -19,7 +19,9 @@ document.addEventListener('DOMContentLoaded', () => {
             if (userDoc.exists()) {
                 const userData = userDoc.data();
                 const userFirstName = userData.firstName || "Guest"; 
-                const userProfilePic = userData.profilePicture || null; 
+                const userProfilePic = userData.profilePicture || null;
+                // Save user details to sessionStorage
+sessionStorage.setItem('userData', JSON.stringify(userData)); 
 
                 // Update the #userNameDisplay element to show the user's first name
                 const userNameDisplay = document.getElementById('userNameDisplay');
@@ -129,5 +131,11 @@ document.getElementById('chatButton').addEventListener('click', function() {
     // Open your chatbot HTML file in a new tab or modal
     window.open('chatbot.html', '_blank');
 });
+
+document.getElementById('profileButton').addEventListener('click', function(e) {
+    e.preventDefault();
+    window.location.href = 'profile.html';
+});
+
 
 

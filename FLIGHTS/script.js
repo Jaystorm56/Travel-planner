@@ -431,7 +431,7 @@ function bookFlight(itinerary, amountInUsd, flightLogo, amountInNaira) {
         flightNumber: itinerary.legs[0].segments[0].flightNumber,
        
     };
-
+ 
 
     // Trigger Paystack payment
     processPayment(userFirstName, userEmail, amountInUsd, flightLogo, flightDetails);
@@ -526,6 +526,10 @@ async function saveBookingDetailsToFirebase(user, flightDetails, transactionRefe
 
         // Save the booking data to Firestore
         const docRef = await addDoc(collection(db, 'bookings'), bookingData);
+
+           // Save flight details to sessionStorage
+sessionStorage.setItem('bookingData', JSON.stringify(bookingData));
+ console.log('flightdetails saved to session storage')
 
         console.log('Booking details saved successfully with ID:', docRef.id);
 

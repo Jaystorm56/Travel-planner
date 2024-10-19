@@ -1,0 +1,390 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.header-container {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding-top: 20px;
+  }
+.cover-photo {
+    height: 300px;
+    position: relative;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+  #cover-photo-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .upload-btn {
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    width: 120px;
+    height: 30px;
+    background-color: #68c6c8;
+  }
+
+  .profile-info {
+    position: relative;
+    top: -50px;
+  }
+
+  .profile-picture {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    border: 3px solid  #68c6c8;
+  }
+
+  #profile-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+
+  .edit-btn {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+    background-color: #FF8682;
+    border: none;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .profile-name {
+    margin-top: 10px;
+    font-size: 24px;
+    font-weight: bold;
+  }
+
+  .profile-email {
+    color: #666;
+    font-size: 14px;
+  }
+  
+  input[type="file"] {
+    display: none;
+  }
+
+   /* Email Display */
+   .email-display {
+    text-align: right;
+    padding: 10px 20px;
+    font-size: 14px;
+    color: #666;
+  }
+
+  /* Tabs Section */
+  .tabs-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px;
+    background-color: #FFFFFF;
+  }
+
+  .tab {
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+
+  .tab.active {
+    border-bottom: 2px solid  #68c6c8;
+    font-weight: bold;
+  }
+
+  
+  /* Tickets/Bookings Section */
+  .tickets-bookings-section {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+
+  /* Filter Options */
+  .filter-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .filter {
+    padding: 10px 15px;
+    border-bottom: 2px solid transparent;
+    cursor: pointer;
+    padding-right: 60px;
+  }
+
+  .filter.active {
+    border-bottom: 2px solid  #68c6c8;
+    font-weight: bolder;
+  }
+
+  /* .dropdown {
+    cursor: pointer;
+  } */
+
+  /* * Booking Card * */
+  .booking-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: #FFFFFF;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .booking-details {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+  }
+
+  .airline-logo {
+    width: 50px;
+    height: 50px;
+  }
+
+  .route {
+    font-size: 16px;
+    font-weight: lighter;
+    letter-spacing: 1px;
+  }
+
+  .time-info {
+    font-size: 17px;
+    font-weight: bold;
+    color: black;
+  }
+
+  .flight-info {
+    font-size: 12px;
+    color: #666;
+    text-align: right;
+    font-weight: bold;
+  }
+
+  .actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .download-btn {
+    padding: 8px 12px;
+    background-color:  #68c6c8;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .arrow-btn {
+    font-size: 18px;
+    background-color: transparent;
+    border: 2px solid rgb(156, 154, 154);
+    cursor: pointer;
+    background-color: white;
+  }
+
+
+  /* Base styles for all screen sizes */
+body {
+  font-family: Arial, sans-serif;
+}
+
+/* Small Mobile Styles (320px) */
+@media (max-width: 320px) {
+  .header-container {
+      padding: 5px;
+  }
+
+  .cover-photo {
+      height: 120px;
+  }
+
+  #cover-photo-img {
+      height: 100%;
+  }
+
+  .profile-picture {
+      width: 60px;
+      height: 60px;
+  }
+
+  .profile-name {
+      font-size: 16px;
+  }
+
+  .profile-email {
+      font-size: 12px;
+  }
+
+  .tabs-container {
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .tab {
+      width: 100%;
+      text-align: center;
+      margin: 5px 0;
+  }
+
+  .booking-card {
+      flex-direction: column;
+      align-items: flex-start;
+  }
+
+  .actions {
+      flex-direction: column;
+      width: 100%;
+  }
+}
+
+/* Mobile Styles (375px) */
+@media (max-width: 375px) {
+  .header-container {
+      padding: 10px;
+  }
+
+  .cover-photo {
+      height: 140px;
+  }
+
+  .profile-name {
+      font-size: 18px;
+  }
+
+  .profile-email {
+      font-size: 14px;
+  }
+
+  .tab {
+      padding: 10px;
+  }
+}
+
+/* Mobile Styles (480px) */
+@media (max-width: 480px) {
+  .header-container {
+      padding: 15px;
+  }
+
+  .cover-photo {
+      height: 160px;
+  }
+
+  .profile-picture {
+      width: 80px;
+      height: 80px;
+  }
+
+  .tabs-container {
+      padding: 10px;
+  }
+}
+
+/* Tablet Styles (768px) */
+@media (max-width: 768px) {
+  .cover-photo {
+      height: 180px;
+  }
+
+  .profile-picture {
+      width: 90px;
+      height: 90px;
+  }
+
+  .tabs-container {
+      flex-direction: row;
+      justify-content: space-around;
+  }
+
+  .tab {
+      padding: 15px;
+  }
+
+  .booking-card {
+      flex-direction: row;
+  }
+}
+
+/* Desktop Styles (1024px) */
+@media (max-width: 1024px) {
+  .header-container {
+      padding: 20px;
+  }
+
+  .cover-photo {
+      height: 200px;
+  }
+
+  .profile-name {
+      font-size: 24px;
+  }
+
+  .tabs-container {
+      padding: 15px;
+  }
+
+  .tab {
+      padding: 20px;
+  }
+}
+
+/* Large Desktop Styles (1280px) */
+@media (max-width: 1280px) {
+  .header-container {
+      padding: 25px;
+  }
+
+  .tabs-container {
+      padding: 20px;
+  }
+
+  .booking-card {
+      padding: 15px;
+  }
+}
+
+/* Extra Large Desktop Styles (1440px) */
+@media (max-width: 1440px) {
+  .header-container {
+      padding: 30px;
+  }
+
+  .tabs-container {
+      padding: 25px;
+  }
+
+  .booking-card {
+      padding: 20px;
+  }
+}
