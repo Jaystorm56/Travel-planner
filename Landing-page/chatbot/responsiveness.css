@@ -1,0 +1,343 @@
+@media screen and (min-width:375px) and (max-width:767px){
+    body{
+        /* background-color: red; */
+    }
+    .chat-container {
+        width: 75%;
+        min-height: 500px;
+        border: 1px solid black;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        /* background-color: #fff; */
+        background-image:linear-gradient(rgba(0, 0, 0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(./Graident\ Ai\ Robot.jpg);
+        background-position: cover;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        
+        /* overflow: hidden; */
+    }
+    .bot-message {
+        background-color: gainsboro;
+        align-self: flex-start;
+        border-radius: 7px;
+        width: calc(100% - 20px);
+    }
+    
+    .user-message {
+        background-color: whitesmoke;
+        align-self: flex-end;
+        border-radius: 7px;
+        /* width: 100%; */
+        width: calc(100% - 20px);
+    }
+    
+    #input {
+        border: none;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 6px;
+        border-color: black;
+        margin-left: 2px;
+        position:relative ;
+    }
+    
+    #send-button {
+        border: none;
+        background-color: lightgray;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+        border-top: 1px solid #ccc;
+        width: 60px;
+        border-color: black;
+        right: -4px;
+        bottom: 0px;
+        position: absolute; 
+        /* margin-left: 2px;
+        border-radius: 5px;
+        position: absolute;
+        right: 330px;
+        bottom: 157px; */
+    }
+    
+}
+
+
+
+@media screen and (min-width:768px) and (max-width:1024px){
+    body{
+        /* background-color: red; */
+    }
+    .chat-container {
+        width: 95%;
+        min-height: 800px;
+        border: 1px solid black;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        /* background-color: #fff; */
+        background-image:linear-gradient(rgba(0, 0, 0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(./Graident\ Ai\ Robot.jpg);
+        background-position: cover;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        
+        /* overflow: hidden; */
+    }
+    .bot-message {
+        background-color: gainsboro;
+        align-self: flex-start;
+        border-radius: 7px;
+        width: calc(100% - 20px);
+    }
+    
+    .user-message {
+        background-color: whitesmoke;
+        align-self: flex-end;
+        border-radius: 7px;
+        /* width: 100%; */
+        width: calc(100% - 20px);
+    }
+    
+    #input {
+        border: none;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 6px;
+        border-color: black;
+        margin-left: 2px;
+        position:relative ;
+        /* border: 200px; */
+    }
+    
+    #send-button {
+        border: none;
+        background-color: lightgray;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+        border-top: 1px solid #ccc;
+        width: 60px;
+        border-color: black;
+        right: -4px;
+        bottom: 0px;
+        position: absolute;
+        /* margin-left: 2px;
+        border-radius: 5px;
+        position: absolute;
+        right: 330px;
+        bottom: 157px; */
+    }
+    
+}
+
+@media screen and (min-width:1025px) and (max-width:1280px){
+    body{
+        /* background-color: red; */
+    }
+    .chat-container {
+        width: 95%;
+        min-height: 800px;
+        border: 1px solid black;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        /* background-color: #fff; */
+        background-image:linear-gradient(rgba(0, 0, 0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(./Graident\ Ai\ Robot.jpg);
+        background-position: cover;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        
+        /* overflow: hidden; */
+    }
+    .bot-message {
+        background-color: gainsboro;
+        align-self: flex-start;
+        border-radius: 7px;
+        width: calc(100% - 20px);
+    }
+    
+    .user-message {
+        background-color: whitesmoke;
+        align-self: flex-end;
+        border-radius: 7px;
+        /* width: 100%; */
+        width: calc(100% - 20px);
+    }
+    
+    #input {
+        border: none;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 6px;
+        border-color: black;
+        margin-left: 2px;
+        position:relative ;
+    }
+    
+    #send-button {
+        border: none;
+        background-color: lightgray;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+        border-top: 1px solid #ccc;
+        width: 60px;
+        border-color: black;
+        right: -4px;
+        bottom: 0px;
+        position: absolute;
+        /* margin-left: 2px;
+        border-radius: 5px;
+        position: absolute;
+        right: 330px;
+        bottom: 157px; */
+    }
+    
+}
+
+@media screen and (min-width:1281px) and (max-width:1440px){
+    body{
+        /* background-color: red; */
+    }
+    .chat-container {
+        width: 95%;
+        min-height: 800px;
+        border: 1px solid black;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        /* background-color: #fff; */
+        background-image:linear-gradient(rgba(0, 0, 0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(./Graident\ Ai\ Robot.jpg);
+        background-position: cover;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        
+        /* overflow: hidden; */
+    }
+    .bot-message {
+        background-color: gainsboro;
+        align-self: flex-start;
+        border-radius: 7px;
+        width: calc(100% - 20px);
+    }
+    
+    .user-message {
+        background-color: whitesmoke;
+        align-self: flex-end;
+        border-radius: 7px;
+        /* width: 100%; */
+        width: calc(100% - 20px);
+    }
+    
+    #input {
+        border: none;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 6px;
+        border-color: black;
+        margin-left: 2px;
+        position:relative ;
+    }
+    
+    #send-button {
+        border: none;
+        background-color: lightgray;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+        border-top: 1px solid #ccc;
+        width: 60px;
+        border-color: black;
+        right: -2px;
+        bottom: 0px;
+        position: absolute;
+        /* margin-left: 2px;
+        border-radius: 5px;
+        position: absolute;
+        right: 330px;
+        bottom: 157px; */
+    }
+    
+}
+
+@media screen and (min-width:1441px) and (max-width:1920px){
+    body{
+        /* background-color: red; */
+    }
+    .chat-container {
+        width: 95%;
+        min-height: 800px;
+        border: 1px solid black;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        display: flex;
+        flex-direction: column;
+        /* background-color: #fff; */
+        background-image:linear-gradient(rgba(0, 0, 0,0.5),rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(./Graident\ Ai\ Robot.jpg);
+        background-position: cover;
+        background-size: 100%;
+        background-repeat: no-repeat;
+        
+        /* overflow: hidden; */
+    }
+    .bot-message {
+        background-color: gainsboro;
+        align-self: flex-start;
+        border-radius: 7px;
+        width: calc(100% - 20px);
+    }
+    
+    .user-message {
+        background-color: whitesmoke;
+        align-self: flex-end;
+        border-radius: 7px;
+        /* width: 100%; */
+        width: calc(100% - 20px);
+    }
+    
+    #input {
+        border: none;
+        padding: 10px;
+        border-top: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+        border-radius: 6px;
+        border-color: black;
+        margin-left: 2px;
+        position:relative ;
+    }
+    
+    #send-button {
+        border: none;
+        background-color: lightgray;
+        color: white;
+        padding: 10px;
+        cursor: pointer;
+        border-top: 1px solid #ccc;
+        width: 60px;
+        border-color: black;
+        right: -2px;
+        bottom: 0px;
+        position: absolute;
+        /* margin-left: 2px;
+        border-radius: 5px;
+        position: absolute;
+        right: 330px;
+        bottom: 157px; */
+    }
+    
+}
+
