@@ -1,0 +1,205 @@
+@media screen and (max-width: 320px) {
+    body {
+        text-align: center;
+    }
+    
+    .flight-heading {
+        background-image: linear-gradient(180deg, #000000c1, #ffffff37),  url(/TRAVEL-PLANNER/FLIGHTS/newplane.jpeg);
+        height: 50vh;
+    }
+
+    .heading {
+        display: none;
+    }
+
+    form {
+        margin-top: -4em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1em;
+        border-radius: 2em;
+        padding: 1.4em;
+        width: 400px;
+        line-height: 2;
+        background-color: #fff;
+        gap: 0.6em;
+        display: flex;
+        flex-direction: column;
+        align-items: normal;
+    }
+
+    .form {
+        display: block;
+    }
+
+    p {
+        display: flex;
+        flex-direction: column;
+    }
+      
+    label {
+       margin-top: 10px;
+       text-align: left;
+    }
+
+    select, input {
+       padding: 8px;
+       margin-top: 5px;
+       width: auto;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 15px 100px 15px 100px;
+        background-color: rgba(17, 100, 160, 0.897);
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .message {
+        display: none;
+    }
+
+    button:hover {
+        background-color: #000000; 
+        transform: scale(1.05); 
+    }  
+}
+
+@media screen and (min-width: 321px) and (max-width: 576px) {
+    body {
+        text-align: center;
+    }
+
+    .flight-heading {
+        background-image: linear-gradient(180deg, #000000c1, #ffffff37),  url(/TRAVEL-PLANNER/FLIGHTS/newplane.jpeg);
+        height: 50vh;
+    }
+
+    .heading {
+        display: none;
+    }
+
+    form {
+        margin-top: -8em;
+        border-radius: 2em;
+        padding: 1em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1em;
+        width: 400px;
+        line-height: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: normal;
+        background-color: #fff;
+    }
+
+    .form {
+        display: block;
+    }
+
+    p {
+        display: flex;
+        flex-direction: column;
+    }
+      
+    label {
+       margin-top: 10px;
+       text-align: left;
+    }
+
+    select, input {
+       padding: 8px;
+       margin-top: 1px;
+       width: auto;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 15px 100px 15px 100px;
+        background-color: rgba(17, 100, 160, 0.897);
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .message {
+        display: none;
+    }
+
+    button:hover {
+        background-color: #000000; 
+        transform: scale(1.05); 
+    }  
+}
+
+@media screen and (min-width: 577px) and (max-width: 1024px) {
+    body {
+        text-align: center;
+    }
+
+    .flight-heading {
+        background-image: linear-gradient(180deg, #000000d7, #ffffff2a),  url(/TRAVEL-PLANNER/FLIGHTS/newplane.jpeg);
+        height: 50vh;
+    }
+
+    form {
+        margin-top: -8em;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 1.5em;
+        border-radius: 2em;
+        padding: 1.5em 3em 1.5em 3em;
+        width: 650px;
+        line-height: 2;
+        gap: 1.3em;
+        display: flex;
+        flex-direction: column;
+        align-items: normal;
+        background: #fff;
+    }
+
+    .heading {
+        display: none;
+    }
+
+    .form {
+        display: block;
+    }
+
+    p {
+        display: flex;
+        flex-direction: column;
+    }
+      
+    label {
+       margin-top: 10px;
+       text-align: left;
+    }
+
+    select, input {
+       padding: 10px;
+       margin-top: 5px;
+       width: auto;
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 18px 180px 18px 180px;
+        background-color: rgba(17, 100, 160, 0.897);
+        color: white;
+        border: none;
+        cursor: pointer;
+    }
+
+    .message {
+        display: none;
+    }
+
+    button:hover {
+        background-color: #000000; 
+        transform: scale(1.05); 
+    }
+}

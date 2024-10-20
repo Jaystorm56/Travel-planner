@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TRAVEL</title>
     <link rel="stylesheet" href="/AUTHENTICATION/CSS/dashboard.css">
-    <link rel="icon" href="/favicon/plane.svg">
-    <link rel="stylesheet" href="/AUTHENTICATION/CSS/dashresponsive.css">
+    <link rel="icon" href="/TRAVEL-PLANNER/favicon/plane.svg">
+    <link rel="stylesheet" href="/TRAVEL-PLANNER/AUTHENTICATION/CSS/dashresponsive.css">
 </head>
 <body>
     <div class="content-page">
@@ -19,13 +19,16 @@
                             <img src="../../Landing-page/favicon/Travel-logo.svg" alt="">
                             </a>
                         </div>
+                        <div class="flight-stay">
+                           
+                       
 
                         <div class="login-signup">
                             <div class="user-info">
                                 <div id="profilePicContainer">
                                     <img id="userProfilePicture" src="" alt="User Profile Picture" class="profile-pic" style="display: none;">
                                     <div class="placeholder-pic" style="display: none;">
-                                        <img src="./IMAGES/profile-pic.svg" alt="">
+                                        <img src="/TRAVEL-PLANNER/AUTHENTICATION/HTML/IMAGES/profile-pic.svg" alt="">
                                     </div>
                                 </div>
                         
@@ -33,11 +36,13 @@
                                     <span id="userNameDisplay" class="user-first-name">Guest</span>
                                     <!-- Dropdown for logout -->
                                     <div id="dropdown" class="dropdown" style="display: none;">
+                                        <a href="#" id="profileButton">Profile</a> 
                                         <a href="#" id="logoutButton">Logout</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
                     </div>
         
                 </nav>
@@ -49,7 +54,65 @@
             </header>
         </div>
     </div>
+
+    <!-- MOBILE VIEW  -->
+    <div id="navigation-lists" class="navigation">
+        <div class="mobile-view-header">
+            <img src="/TRAVEL-PLANNER/AUTHENTICATION/HTML/IMAGES/Union.png" alt="">
+            <img src="/TRAVEL-PLANNER/favicon/more.svg" id="menu" alt="" onclick="document.getElementById('navigation-lists').style.display = 'block'; document.getElementById('menu').style.display = 'none'; document.getElementById('discard').style.display = 'block';">
+            <img src="/TRAVEL-PLANNER/favicon/discard.svg" id="discard" style="display: none;" onclick="document.getElementById('navigation-lists').style.display = 'none'; document.getElementById('discard').style.display = 'none'; document.getElementById('menu').style.display = 'block';" alt="">
+        </div>
+
+        <div class="whole-references">
+            <div class="references">
+                <ul>
+                    <li><a href="/TRAVEL-PLANNER/FLIGHTS/flight.html" class="references-links"><img src="/TRAVEL-PLANNER/favicon/plane4.svg" alt="">Flights</a></li>
+                    <hr>
+                    <li><a href="/TRAVEL-PLANNER/STAYS/hotel.html" class="references-links"><img src="/TRAVEL-PLANNER/favicon/stay4.svg" alt="">Stays</a></li>
+                    <hr>
+                </ul>
+            </div>
     
+            <p class="references-links guest">Guest</p>
+        </div>
+    </div>
+
+    <div class="mobile-view-header">
+        <img src="/TRAVEL-PLANNER/AUTHENTICATION/HTML/IMAGES/Union.png" alt="">
+        <img src="/TRAVEL-PLANNER/favicon/more.svg" id="menu" alt="" onclick="document.getElementById('navigation-lists').style.display = 'block'; document.getElementById('menu').style.display = 'none'; document.getElementById('discard').style.display = 'block';">
+        <img src="/TRAVEL-PLANNER/favicon/discard.svg" id="discard" style="display: none;" onclick="document.getElementById('navigation-lists').style.display = 'none'; document.getElementById('discard').style.display = 'none'; document.getElementById('menu').style.display = 'block';" alt="">
+    </div>
+
+    <div class="whole-main-mobile-view">
+        <div class="main-mobile-view">
+            <img src="/TRAVEL-PLANNER/AUTHENTICATION/HTML/IMAGES/Union.png" style="filter: grayscale(100%);" alt="">
+            <p class="header-paragraph mobile-header-paragraph">Book cheap flights other sites simply can't find.</p>
+        </div>
+    </div>
+
+    <div class="second-main-mobile">
+        <div class="mobile-heading">
+            <h2 class="suscribe-heading suscribe-mobile-view su">Suscribe <br> Newsletter</h2>
+            <p class="mobile-bell-mail" style="position: relative; padding-left: 1em;">
+                <img src="/TRAVEL-PLANNER/img/email2.png" alt="" style="transform: rotate(10deg); width: calc(100px); height: calc(100px -20px);" class="email">
+                <img src="/TRAVEL-PLANNER/favicon/bellcopy.svg" class="bell-mobile" alt="">
+            </p>
+        </div>
+
+        <hr>
+
+        <p class="suscribe-paragraph-mobile" style="margin-top: 1em;">
+            <h3>The Travel</h3>
+            <p href="" class="mobile-suscribe-parg">
+                Get inspired! Receive travel discounts, tips and behind the scenes stories.
+            </p>
+        </p>
+
+        <div class="mobile-input">
+            <input class="first-input" type="email" id="email" placeholder="Your email address*" required>
+            <button type="submit" style="font-size: 1em; padding: 0.5em 2em 0.5em 2em; background: #68c6c8; color: #fff; font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; border-radius: 1em;">Subscribe</button>
+        </div>
+    </div>
     <div class="section-one-child3">
         <div class="flights-hotels">
             <h3 class="flights-hotels-heading">Flights</h3>
@@ -70,10 +133,14 @@
         </div>
     </div>
     <br><br><br><br><br><br><br>
+     <!-- Chat With Us Floating Button -->
+     <div class="chat-button" id="chatButton">
+        <img src="/Landing-page/chatbot/Graident Ai Robot.jpg" alt="Chat with us"> <!-- Path to chat icon image -->
+    </div>
     <footer>
         <div class="footer-head">
             <div class="suscribe-parent">
-                <h2 class="suscribe-heading">Suscribe <br> Newsletter</h2>
+                <h2 class="suscribe-heading">Subscribe <br> Newsletter</h2>
                 <p class="suscribe-paragraph">
                     The Travel
                     <a href="" class="suscribe-anchor">
@@ -82,7 +149,7 @@
                 </p>
                 <p class="subscibe-input">
                     <input type="email" placeholder="Your email address" autocomplete="on" required>
-                    <a href="" class="subcribe-input-anchor">Suscribe</a>
+                    <a href="" class="subcribe-input-anchor">Subscribe</a>
                 </p>
             </div>
 
@@ -96,25 +163,25 @@
             <div class="footer-bottom-child">
                 <div>
                     <a href="" class="footer-logo">
-                        <img src="../../Landing-page/favicon/Travel-logo.svg" alt="">
+                        <img src="../../Landing-page/favicon/logo-footer.svg" alt="">
                         </a>
                 </div>
     
                 <div class="footer-bottom-anchor1">
                     <a href="" class="all-footer-img-link footer-facebook">
-                        <img src="/favicon/facebook.svg" alt="">
+                        <img src="/TRAVEL-PLANNER/favicon/facebook.svg" alt="">
                     </a>
                     
                     <a href="" class="all-footer-img-link footer-twitter">
-                        <img src="/favicon/x.svg" alt="">
+                        <img src="/TRAVEL-PLANNER/favicon/x.svg" alt="">
                     </a>
                     
                     <a href="" class="all-footer-img-link footer-youtube">
-                        <img src="/favicon/youtube.svg" alt="">
+                        <img src="/TRAVEL-PLANNER/favicon/youtube.svg" alt="">
                     </a>
                     
                     <a href="" class="all-footer-img-link footer-instagram">
-                        <img src="/favicon/instagram.svg" alt="">
+                        <img src="/TRAVEL-PLANNER/favicon/instagram.svg" alt="">
                     </a>
                 </div>
             </div>
@@ -179,6 +246,93 @@
                         <a href="" class="footer-links">Our story</a>
                         <a href="" class="footer-links">Work with us</a>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="whole-footer-mobile">
+            <div class="footer-mobile-view">
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4 class="mobile-footer-h4">Our Destinations</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Canada</a>
+                        <a href="" class="footer-links">Alaska</a>
+                        <a href="" class="footer-links">France</a>
+                        <a href="" class="footer-links">Iceland</a>
+                    </div>
+                </div>
+    
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4 class="mobile-footer-h4">Our Activities</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Northern Lights</a>
+                        <a href="" class="footer-links">Cruising & sailing</a>
+                        <a href="" class="footer-links">Multi-activities</a>
+                        <a href="" class="footer-links">Kayaing</a>
+                    </div>
+                </div>
+    
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4 class="mobile-footer-h4">Travel Blogs</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Bali Travel guide</a>
+                        <a href="" class="footer-links">Sri lanka Travel guide</a>
+                        <a href="" class="footer-links">Peru Travel guide</a>
+                        <a href="" class="footer-links">Eco Travel guide</a>
+                    </div>
+                </div>    
+    
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4 class="mobile-footer-h4">About Us</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Our story</a>
+                        <a href="" class="footer-links">Work with us</a>
+                    </div>
+                </div>
+    
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4 class="mobile-footer-h4">Contact Us</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Our story</a>
+                        <a href="" class="footer-links">Work with us</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mobile-view-copyright">
+                <p class="mobile-parg">COPYRIGHT &copy; 2024 TRAVEL. ALL RIGHTS RESERVED.</p>
+
+                <div class="social-media-links" style="word-spacing: 0.8em;">
+                    <a href="" class="all-footer-img-link footer-facebook">
+                        <img src="/TRAVEL-PLANNER/favicon/facebookcopy.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-twitter">
+                        <img src="/TRAVEL-PLANNER/favicon/xcopy.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-youtube">
+                        <img src="/TRAVEL-PLANNER/favicon/youtubecopy.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-instagram">
+                        <img src="/TRAVEL-PLANNER/favicon/instagramcopy.svg" alt="">
+                    </a>
                 </div>
             </div>
         </div>
