@@ -1,0 +1,205 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+  
+}
+
+.sign-up-main{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 80px;
+    height: 96vh;
+    background-color: #011c1d;
+}
+.sign-up-img > img{
+    width: 400px;
+    height: 600px;
+    border-radius: 30px;
+}
+
+.sign-up-form{
+    height: 620px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.travel-logo{
+    margin-right: 100px;
+}
+
+.travel-logo > img{
+    /* width: 100px; */
+    /* height: 50px; */
+    /* border: 1px solid red; */
+    margin-bottom: 20px;
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    margin: 20px 0;
+}
+
+.divider::before, .divider::after {
+    content: "";
+    width: 200px;
+    border-top: 1px solid #ccc;
+    
+}
+
+.divider::before {
+    margin-right: 10px;
+}
+
+.divider::after {
+    margin-left: 10px;
+}
+
+.divider span {
+    white-space: nowrap;
+    font-size: 14px;
+    color: rgb(230, 224, 224);
+}
+
+.first-con{
+    position: relative;
+    margin-top: 25px;
+  
+}
+.conn{
+    margin-top: 30px;
+}
+
+
+.first-input{
+    height:40px ;
+    width: 250px;
+    display: inline;
+    padding-left: 20px;
+    font-size: 15px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid #68C6C8;
+    color: white;
+}
+
+.firstname{
+    color: black ;
+    position: absolute;
+    top: -10px;
+    left: 15px;
+    background-color: #011c1d;
+    padding-left: 9px;
+    padding-right: 9px;
+    color: #68C6C8;
+    font-size: 0.9rem;
+
+}
+
+.form-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 20px;
+}
+.pass{
+    width: 100%;
+}
+
+.button-con{
+    text-align: center;
+}
+.button-con > button{
+    text-align: center;
+    width: 100%;
+    height: 40px;
+    background-color: #68C6C8;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 1rem;
+    font-weight: 600;
+}
+.button-con a{
+    text-decoration: none;
+    color: #ff8682;
+}
+
+.button-con p{
+    text-decoration: none;
+    color: white;
+    font-size: 0.8rem;
+    margin-top: 10px;
+}
+
+.google-btn{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 50px;
+}
+.border{
+    width: 167px;
+    /* height: 30px; */
+    text-align: center;
+    border: 5px solid #68C6C8;
+    background-color: transparent;
+}
+
+.border img {
+    /* background-color: #011c1d; */
+    /* height: 10px; */
+}
+
+.sign-up-txt > h1{
+    margin-bottom: 7px;
+    font-weight: 500;
+}
+.sign-up-txt{
+    
+    color: white;
+}
+
+.sign-up-txt > p{
+    /* margin-bottom: 7px; */
+    font-weight: 500;
+    font-size: 0.8rem;
+}
+
+.chekboxx{
+    display: flex;
+    align-items: center;
+    width: 500px;
+    color: white;
+    font-size: 0.8rem;
+}
+
+.chekboxx a{  
+        text-decoration: none;
+        color: #ff8682;
+        /* font-size: 18px; */
+         
+}
+
+#toggle-password{
+    position: absolute; 
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    /* color: white; */
+}
+#toggle-confirm-password{
+    position: absolute; 
+    right: 13px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+}

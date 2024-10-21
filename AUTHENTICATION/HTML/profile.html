@@ -1,0 +1,148 @@
+  <!DOCTYPE html>
+  <html l ang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="/AUTHENTICATION/profile/takeover/style.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+  </head>
+  <body>
+      <section class="header-container">
+          <div class="cover-photo">
+              <img id="cover-photo-img" src="/AUTHENTICATION/profile/assest/Screenshot 2024-09-02 133957.png" alt="Cover-Photo"> 
+              <button class="upload-btn" id="upload-cover-btn"> <i class="fa-solid fa-cloud"></i>  upload new</button>
+              <input type="file" id="cover-upload-input" accept="image/*">
+            </div>
+          <div class="profile-info">
+              <div class="profile-picture">                                                  
+                <img id="profile-img" src="" alt="Profile Picture">
+                <button class="edit-btn" id="edit-profile-btn">✎</button>
+                <input type="file" id="profile-upload-input" accept="image/*">
+              </div>
+              <h2 class="profile-name"></h2>
+              <p class="profile-email"></p>
+            </div>
+</section>
+        <div class="tabs-container">
+        <div class="tab active" data-target="tickets">Tickets/Bookings</div>
+        <div class="tab" data-target="accounts">Accounts</div>
+        <div class="tab" data-target="payment">Payment methods</div>
+    </div>       
+    <div id="tickets" class="section active">
+        <div class="tickets-bookings-section">
+            <h2>Tickets/Booking</h2>
+            <div class="filter-options">
+                <div class="filter active">  <i class="fa-solid fa-plane"></i>  Flights </div>
+                <div class="filter"><i class="fa-solid fa-hotel"></i>  Stay</div>
+            </div>
+        </div>
+    </div>
+    <script>
+ // Get user and flight details from sessionStorage
+const userData = JSON.parse(sessionStorage.getItem('userData'));
+const bookingData = JSON.parse(sessionStorage.getItem('bookingData'));
+
+// Populate profile information
+if (userData) {
+    document.querySelector('.profile-name').textContent = `${userData.firstName} ${userData.lastName}`;
+    document.querySelector('.profile-email').textContent = userData.email;
+    document.getElementById('profile-img').src = userData.profilePicture || '/default-profile.jpg';
+}
+
+// Populate flight booking details
+if (bookingData) {
+    appendBookings(bookingData); // Pass bookingData to appendBookings function
+}
+
+function createBookingCard(booking) {
+    const card = document.createElement('div');
+    card.className = 'booking-card';
+     // Extract the date and time from departureDate
+     const departureDateTime = booking.departureDate; // Assuming this is in ISO format
+    const date = departureDateTime.split('T')[0]; // Get only the date part
+    const time = departureDateTime.split('T')[1]?.slice(0, 5); // Get only the time part (HH:MM)
+
+    // Update booking object to remove time from departureDate (optional)
+    booking.departureDate = date; // Modify the booking object to keep only the date
+
+    card.innerHTML = `
+        <div class="booking-details">
+            <img src="${booking.flightLogo}" alt="Airline Logo" class="airline-logo">
+            <div class="route">
+                <p>${booking.origin} to ${booking.destination}</p>
+                <div class="time-info">
+                    <p>${time}</p>
+                </div>
+            </div>
+            <div class="flight-info">
+                <p>Date: ${date}</p>
+                <p>Gate: ${booking.gate || 'B12'}</p>
+                <p>Seat no.: ${booking.seat || '23A'}</p>
+            </div>
+        </div>
+        <div class="actions">
+            <button class="download-btn">Download Ticket</button>
+            <button class="arrow-btn">&rarr;</button>
+        </div>
+    `;
+  // Add event listener for the download button
+const downloadButton = card.querySelector('.download-btn');
+downloadButton.onclick = function() {
+    // Fetch the receipt URL and create a Blob
+    fetch(booking.receiptDownloadUrl)
+        .then(response => {
+            // Check if the response is OK (status 200)
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+            return response.blob();  // Convert response to Blob
+        })
+        .then(blob => {
+            // Create a URL for the Blob
+            const url = window.URL.createObjectURL(blob);
+            // Create a temporary anchor element for downloading
+            const anchor = document.createElement('a');
+            anchor.href = url;
+            anchor.download = 'Receipt.pdf';  // Specify default file name
+            document.body.appendChild(anchor);  // Append to the DOM
+            anchor.click();  // Programmatically click to trigger download
+            document.body.removeChild(anchor);  // Remove the anchor after download
+            window.URL.revokeObjectURL(url);  // Clean up the URL object
+        })
+        .catch(error => {
+            console.error('Error downloading receipt:', error);
+            alert('Failed to download receipt. Please try again later.');
+        });
+};
+
+    
+    // Add event listener for the arrow button (for additional actions or details)
+    const arrowButton = card.querySelector('.arrow-btn');
+    arrowButton.onclick = function() {
+        alert(`Viewing details for flight from ${booking.origin} to ${booking.destination}`);
+    };
+    
+    return card;
+}
+
+function appendBookings(bookings) {
+    const ticketsSection = document.querySelector('.tickets-bookings-section');
+    
+    // If bookings is an array, iterate through each booking and append it
+    if (Array.isArray(bookings)) {
+        bookings.forEach(booking => {
+            const bookingCard = createBookingCard(booking);
+            ticketsSection.appendChild(bookingCard);
+        });
+    } else if (bookings) {
+        // If it's a single booking object, just append it directly
+        const bookingCard = createBookingCard(bookings);
+        ticketsSection.appendChild(bookingCard);
+    }
+}
+
+    </script>
+ <script src="/AUTHENTICATION/profile/takeover/script.js"></script>
+  </body>
+  </html>

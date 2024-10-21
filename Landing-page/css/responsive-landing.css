@@ -1,0 +1,593 @@
+@media screen and (max-width: 320px) {
+    :is(.footer-head, .footer-bottom) {
+        display: none;
+    }
+
+    header {
+        background-image: linear-gradient(#0000004e, #0000004e), url(/Landing-page/img/River-forest.jpg);
+        height: 100vh;
+        border-radius: 0px;
+    }
+
+    .main-container{
+        padding: 0px;
+    }
+
+    .logo img {
+        width: 80px; 
+        height: 50px;
+    }
+
+    .laptop-view {
+        border-radius: 0px;
+    }
+
+    .header-texts {
+        height: 50vh;
+        border-radius: 0em;
+        background: none;
+    }
+
+    :is(.login-signup-anchor1, .login-signup-anchor2) {
+        padding: 9px 15px;
+        background: none;
+        color: #fff;
+    }
+
+    .login-signup-anchor2 {
+        border: 2px solid #fff;
+    }
+
+    h1 {
+        font-size: 2em;
+        text-align: center;
+        padding-bottom: 0.3em;
+    }
+    
+    .header-paragraph {
+        font-size: 1.3em;
+        text-align: center;
+    }
+
+    .header-bottom {
+        margin: 0 auto;
+        margin-top: -2em;
+        padding: 1.1em;
+        width: 100%;
+        line-height: 2.5;
+    }
+
+    form {
+        display: block;
+    }
+
+    fieldset {
+        margin-bottom: 0.5em;
+    }
+
+    legend {
+        padding: 0 1em;
+    }
+    
+    .show-btn {
+        margin: 0 auto;
+    }
+
+    #hotel-search-form {
+        display: block;
+    }
+
+    .formbox-btn button {
+        margin: 1.6em auto 0 auto;
+    }
+
+    main {
+        margin: 0 0 0 0;
+        text-align: center;
+    }
+
+    .section-one {
+        margin-top: 16em;
+    }
+
+    .section-one-child {
+        flex-direction: column;
+        gap: 0.6em;
+    }
+
+    .section-one-child2 {
+        margin: 1.5em 0 0.5em 0;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1.5em;
+        font-size: 0.97em;
+    }
+
+    .section-one-child3 {
+        grid-template-columns: repeat(1, 1fr);
+        margin: 2em 0.3em 2em 0.3em;
+    }
+
+    .flights-hotels {
+        background-image: radial-gradient(#000000a6, #00000050), url(/img/airplane.jpg);
+    }
+    
+    .flights-hotels2 {
+        background-image: radial-gradient(#000000a6, #000000c0), url(/img/hotel.jpg);
+    }
+
+    .whole-section-two-descendants {
+        grid-template-columns: repeat(1, 1fr);
+        margin: 0.1em 0.8em 2em 0.3em;
+    }
+    
+    .second-main-mobile {
+        display: block;
+        background: #011c1d;
+        color: #fff;
+        margin: 0em 0 2em 0;
+    }
+
+    .suscribe-mobile-view {
+        font-size: 2em;
+    }
+
+    .mobile-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5em 1em 0.5em 1em;
+    }
+
+    .bell-mobile {
+        position: absolute;
+        left: 1.7em;
+    }
+
+    h3, .mobile-suscribe-parg, input {
+        text-align: center;
+    }
+
+    .mobile-input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 1em 0 1em 0;
+    }
+
+    input {
+        width: 90%;
+        height: 50px;
+        padding: 0 1em 0 1em;
+        margin: 0.5em 0 0.5em 0;
+        outline: none;
+        border: none;
+        font-size: 1em;
+        color: #000;
+    }
+
+    input::placeholder {
+        color: #000;
+    }
+
+    .whole-footer-mobile {
+        display: block;
+    }
+
+    .footer-mobile-view {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        gap: 1em;
+        background: #68c6c8;
+        margin: 0 0.15em;
+    }
+
+    .mobile-footer-h4 {
+        font-size: 1.3em;
+    }
+
+    .mobile-view-copyright {
+        display: block;
+        text-align: center;
+        line-height: 1.7;
+        color: #fff;
+        background: #011c1d;
+        padding: 0.6em 0;
+    }
+}
+
+@media screen and (min-width: 321px) and (max-width: 576px) {
+    :is(.footer-bottom, .footer-head) {
+        display: none;
+    }
+
+    header {
+        background-image: url(/Landing-page/img/River-forest.jpg);
+        height: 100vh;
+        border-radius: 0px;
+    }
+
+    .main-container{
+        padding: 0px;
+    }
+
+    .logo img {
+        width: 120px; 
+        height: 50px;
+    }
+
+    .laptop-view {
+        border-radius: 0px;
+    }
+
+    .header-texts {
+        height: 50vh;
+        border-radius: 0em;
+        background: none;
+    }
+
+    :is(.login-signup-anchor1, .login-signup-anchor2) {
+        padding: 9px 15px;
+        background: none;
+        color: #fff;
+    }
+
+    .login-signup-anchor2 {
+        border: 2px solid #fff;
+    }
+
+    h1 {
+        font-size: 2em;
+        text-align: center;
+        padding-bottom: 0.3em;
+    }
+    
+    .header-paragraph {
+        font-size: 1.3em;
+        text-align: center;
+    }
+
+    .header-bottom {
+        margin: 0 auto;
+        margin-top: -6.5em;
+        padding: 1.2em;
+        width: 100%;
+        line-height: 2.5;
+    }
+
+    form {
+        display: block;
+    }
+
+    fieldset {
+        margin-bottom: 0.8em;
+    }
+
+    legend {
+        padding: 0 1em;
+    }
+
+    .show-btn {
+        margin: 0 auto;
+    }
+
+    #hotel-search-form {
+        display: block;
+    }
+
+    .formbox-btn button {
+        margin: 1.6em auto 0 auto;
+    }
+
+    main {
+        margin: 0 0.4em 0 0.4em;
+        text-align: center;
+    }
+
+    .section-one {
+        margin-top: 5em;
+    }
+
+    .section-one-child {
+        flex-direction: column;
+        gap: 0.6em;
+    }
+
+    .section-one-child2 {
+        margin: 1.5em 0.4em 0.5em 0.4em;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1.5em;
+    }
+
+    .section-one-child3 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .flights-hotels {
+        background-image: radial-gradient(#000000a6, #00000050), url(/img/airplane.jpg);
+    }
+    
+    .flights-hotels2 {
+        background-image: radial-gradient(#000000a6, #000000c0), url(/img/hotel.jpg);
+    }
+
+    .whole-section-two-descendants {
+        grid-template-columns: repeat(1, 1fr);
+        margin: 0.1em 0.2em 2em 0;
+    }
+
+    .second-main-mobile {
+        display: block;
+        background: #011c1d;
+        color: #fff;
+        margin: 0em 0 2em 0;
+    }
+
+    .suscribe-mobile-view {
+        font-size: 2em;
+    }
+
+    .mobile-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5em 1em 0.5em 1em;
+    }
+
+    .bell-mobile {
+        position: absolute;
+        left: 1.7em;
+    }
+
+    h3, .mobile-suscribe-parg, input {
+        text-align: center;
+    }
+
+    .mobile-input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 1em 0 1em 0;
+    }
+
+    input {
+        width: 90%;
+        height: 50px;
+        padding: 0 1em 0 1em;
+        margin: 0.5em 0 0.5em 0;
+        outline: none;
+        border: none;
+        font-size: 1em;
+        color: #000;
+    }
+
+    input::placeholder {
+        color: #000;
+    }
+
+    .whole-footer-mobile {
+        display: block;
+    }
+
+    .footer-mobile-view {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        gap: 1em;
+        background: #68c6c8;
+        margin: 0 0.15em;
+    }
+
+    .mobile-footer-h4 {
+        font-size: 1.3em;
+    }
+
+    .mobile-view-copyright {
+        display: block;
+        text-align: center;
+        line-height: 1.7;
+        color: #fff;
+        background: #011c1d;
+        padding: 0.6em 0;
+    }
+}
+
+@media screen and (min-width: 577px) and (max-width: 992px) {
+    :is(.footer-bottom, .footer-head) {
+        display: none;
+    }
+
+    header {
+        background-image: url(/Landing-page/img/River-forest.jpg);
+        height: 100vh;
+        border-radius: 0px;
+    }
+
+    .main-container{
+        padding: 0px;
+    }
+
+    .logo img {
+        width: 120px; 
+        height: 50px;
+    }
+
+    .laptop-view {
+        border-radius: 0px;
+    }
+
+    .header-texts {
+        height: 50vh;
+        border-radius: 0em;
+        background: none;
+    }
+
+    :is(.login-signup-anchor1, .login-signup-anchor2) {
+        padding: 9px 15px;
+        background: none;
+        color: #fff;
+    }
+
+    .login-signup-anchor2 {
+        border: 2px solid #fff;
+    }
+
+    h1 {
+        font-size: 2em;
+        text-align: center;
+        padding-bottom: 0.3em;
+    }
+    
+    .header-paragraph {
+        font-size: 1.3em;
+        text-align: center;
+    }
+
+    .header-bottom {
+        margin: 0 auto;
+        margin-top: -6.5em;
+        padding: 1.2em;
+        width: 90%;
+        line-height: 2.5;
+    }
+
+    form {
+        display: block;
+        margin: 0 5em;
+    }
+
+    fieldset {
+        margin-bottom: 0.8em;
+    }
+
+    legend {
+        padding: 0 1em;
+    }
+
+    .show-btn {
+        margin: 0 auto;
+    }
+
+    #hotel-search-form {
+        display: block;
+    }
+
+    .formbox-btn button {
+        margin: 1.6em auto 0 auto;
+    }
+
+    main {
+        margin: 0 0.4em 0 0.4em;
+        text-align: center;
+    }
+
+    .section-one {
+        margin-top: 0.5em;
+    }
+
+    .section-one-child {
+        flex-direction: column;
+        gap: 0.6em;
+    }
+
+    .section-one-child2 {
+        margin: 1.5em 0.4em 0.5em 0.4em;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.5em;
+    }
+
+    .section-one-child3 {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+    .flights-hotels {
+        background-image: radial-gradient(#000000a6, #00000050), url(/img/airplane.jpg);
+    }
+    
+    .flights-hotels2 {
+        background-image: radial-gradient(#000000a6, #000000c0), url(/img/hotel.jpg);
+    }
+
+    .whole-section-two-descendants {
+        grid-template-columns: repeat(2, 1fr);
+        margin: 0.1em 0.2em 2em 0;
+    }
+
+    .second-main-mobile {
+        display: block;
+        background: #011c1d;
+        color: #fff;
+        margin: 0em 0 2em 0;
+    }
+
+    .suscribe-mobile-view {
+        font-size: 2em;
+    }
+
+    .mobile-heading {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0.5em 8em 0.5em 8em;
+    }
+
+    .bell-mobile {
+        position: absolute;
+        left: 1.7em;
+    }
+
+    h3, .mobile-suscribe-parg, input {
+        text-align: center;
+    }
+
+    .mobile-input {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 1em 0 1em 0;
+    }
+
+    input {
+        width: 90%;
+        height: 50px;
+        padding: 0 1em 0 1em;
+        margin: 0.5em 0 0.5em 0;
+        outline: none;
+        border: none;
+        font-size: 1em;
+        color: #000;
+    }
+
+    input::placeholder {
+        color: #000;
+    }
+
+    .whole-footer-mobile {
+        display: block;
+    }
+
+    .footer-mobile-view {
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        gap: 1em;
+        background: #68c6c8;
+        margin: 0 0.15em;
+    }
+
+    .mobile-footer-h4 {
+        font-size: 1.3em;
+    }
+
+    .mobile-view-copyright {
+        display: block;
+        text-align: center;
+        line-height: 1.7;
+        color: #fff;
+        background: #011c1d;
+        padding: 0.6em 0;
+    }
+}

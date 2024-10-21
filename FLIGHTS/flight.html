@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js"> -->
+    <script defer src="https://js.paystack.co/v2/inline.js"></script>
+    <title>Flight Search</title>
+    <link rel="stylesheet" href="flight.css">
+    <link rel="stylesheet" href="/FLIGHTS/responsiveflight.css">
+    <link rel="stylesheet" href="../PAYMENTRECEIPT/style.css">
+    <link
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    rel="stylesheet"
+/>
+</head>
+<body>
+    <header>
+        <div class="header">
+          <div class="head2">
+            <img src="/STAYS/TRAVEL.svg" class="firstimg" width="70px" alt="">
+          </div>
+         
+          <div class="head3">
+            <div class="head3-child2" id="profilePicContainer">
+              <!-- User profile picture and first name will be dynamically populated here -->
+              <img id="userProfilePicture" src="" alt="User Profile Picture" class="profile-pic" style="display: none;">
+              <div class="placeholder-pic" style="display: none;"><img src="../AUTHENTICATION/HTML/IMAGES/profile-pic.svg" alt=""></div>
+              <h6 id="userNameDisplay"></h6>
+            </div>
+          </div>
+        </div>
+    </header>
+
+    <h1 class="flight-heading">Flight Search</h1>
+
+    <form id="flightSearchForm" class="form">
+        <!-- From-To Select Fields -->
+         <h3 class="heading">WHERE ARE YOU FLYING?</h3>
+        <div class="form">
+          <p>
+            <label for="from">From:</label>
+            <select id="from" required></select>
+          </p>
+  
+          <p>
+            <label for="to">To:</label>
+            <select id="to" required></select>
+          </p>
+  
+          <!-- Depart-Return Date Fields -->
+          <p>
+            <label for="departDate">Departure Date:</label>
+            <input type="date" id="departDate" required>
+          </p>
+  
+          <p>
+            <label for="returnDate">Return Date:</label>
+            <input type="date" id="returnDate">
+          </p>
+  
+          <!-- Passengers and Class -->
+          <p>
+            <label for="passengers">Passengers:</label>
+            <select id="passengers" required>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+            </select>
+          </p>
+  
+          <p>
+            <label for="cabinClass">Cabin Class:</label>
+            <select id="cabinClass" required>
+                <option value="economy">Economy</option>
+                <option value="business">Business</option>
+                <option value="first">First Class</option>
+            </select>
+          </p>
+        </div>
+        
+        <div class="submit">
+          <button type="submit"><img src="./message.svg" alt="" class="message"> Search Flights</button>
+        </div>
+    </form>
+
+    <div class="flightsearchh">
+        <h1>Your recent search</h1>
+
+        <div class="flightsearchcontainer"></div>
+    </div>
+
+    <!-- flight Results -->
+    <div id="results">
+
+    </div>
+
+    
+
+    <div id="signInModal" class="modal">
+        <div class="modal-content">
+            <span id="closeModalButton" class="close">&times;</span>
+            <h2>Sign In</h2>
+            <p>Please sign in to continue booking your flight.</p>
+            <button id="signInButton">Sign In</button>
+        </div>
+    </div>
+
+    <div class="container" id="cont" >
+        <div class="ticket" id="ticket-container" style="display: none;">
+          <div class="ticket-header">
+            <div class="left-section">
+              <h2 id="flight-name"></h2>
+              <p>
+                <i class="fas fa-map-marker-alt"></i> <span id="airport"></span>,
+                Terminal <span id="terminal"></span>
+              </p>
+            </div>
+            <div class="right-section">
+              <span class="price" id="price"></span>
+              <div class="sharee">
+                <button class="share-btn" id="shareBtn">
+                    <i class="fas fa-share-alt"></i>
+                  </button>
+                  <button class="download-btn" id="downloadBtn">Download</button>
+              </div>
+              
+            </div>
+          </div>
+  
+          <div class="ticket-body">
+            <div class="flight-time">
+              <div class="departure">
+                <p class="time" id="departure-time"></p>
+                <p class="location" id="departure-location"></p>
+              </div>
+              <div class="plane-icon">
+                <i class="fas fa-plane"></i>
+              </div>
+              <div class="arrival">
+                <p class="time" id="arrival-time"></p>
+                <p class="location" id="arrival-location"></p>
+              </div>
+            </div>
+            <div class="flight-con">
+              <div class="passenger-details">
+                <div class="profile">
+                  <img src="https://via.placeholder.com/50" alt="Profile Image" id="profile-img" />
+                  <div class="passenger-info">
+                    <p class="name" id="passenger-name"></p>
+                    <p id="boarding-pass-number"></p>
+                  </div>
+                </div>
+                <p class="class" id="class"></p>
+              </div>
+  
+              <div class="flight-detailss">
+                <div class="detail">
+                  <p><i class="fa-regular fa-calendar-days" style="color: #68c6c8;"></i>Date</p>
+                  <p id="flight-date"></p>
+                </div>
+                <div class="detail">
+                  <p><i class="fa-solid fa-clock" style="color: #68c6c8;"></i>Flight Time</p>
+                  <p id="flight-time"></p>
+                </div>
+                <div class="detail">
+                  <p><i class="fa-solid fa-dungeon" style="color: #68c6c8;"></i>Gate</p>
+                  <p id="gate"></p>
+                </div>
+                <div class="detail">
+                  <p><i class="fa-solid fa-chair" style="color: #68c6c8;"></i>Seat</p>
+                  <p id="seat"></p>
+                </div>
+                <div class="barcode">
+                  <div class="codec">
+                    <p id="airline"></p>
+                    <span id="flight-number"></span>
+                  </div>
+                  <div class="barcode-img">
+                    <img src="../PAYMENTRECEIPT/barcode.avif" alt="Barcode" id="barcode-img" />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer style="margin-top: 80px;">
+        <div class="footer-head">
+            <div class="suscribe-parent">
+                <h2 class="suscribe-heading">Subscribe <br> Newsletter</h2>
+                <p class="suscribe-paragraph">
+                    The Travel
+                    <a href="" class="suscribe-anchor">
+                        Get inspired! Receive travel discounts, tips and behind the scenes stories.
+                    </a>
+                </p>
+                <p class="subscibe-input">
+                    <input type="email" placeholder="Your email address" autocomplete="on" required>
+                    <a href="" class="subcribe-input-anchor">Subscribe</a>
+                </p>
+            </div>
+
+            <div class="bell-message">
+                <img src="/favicon/bell.svg" alt="" class="bell">
+                <img src="/img/email2.png" alt="" style="transform: rotate(10deg); width: calc(395px - 50px); height: calc(295px - 50px);" class="email">
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="footer-bottom-child">
+                <div>
+                    <a href="" class="footer-logo">
+                        <img src="../Landing-page/favicon/logo-footer.svg" alt="">
+                        </a>
+                </div>
+    
+                <div class="footer-bottom-anchor1">
+                    <a href="" class="all-footer-img-link footer-facebook">
+                        <img src="/favicon/facebook.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-twitter">
+                        <img src="/favicon/x.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-youtube">
+                        <img src="/favicon/youtube.svg" alt="">
+                    </a>
+                    
+                    <a href="" class="all-footer-img-link footer-instagram">
+                        <img src="/favicon/instagram.svg" alt="">
+                    </a>
+                </div>
+            </div>
+
+            <div class="footer-bottom-child2">
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Our Destinations</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Canada</a>
+                        <a href="" class="footer-links">Alaska</a>
+                        <a href="" class="footer-links">France</a>
+                        <a href="" class="footer-links">Iceland</a>
+                    </div>
+                </div>
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Our Activities</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Northern Lights</a>
+                        <a href="" class="footer-links">Cruising & sailing</a>
+                        <a href="" class="footer-links">Multi-activities</a>
+                        <a href="" class="footer-links">Kayaing</a>
+                    </div>
+                </div>
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Travel Blogs</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Bali Travel guide</a>
+                        <a href="" class="footer-links">Sri lanks Travel guide</a>
+                        <a href="" class="footer-links">Peru Travel guide</a>
+                        <a href="" class="footer-links">Eco Travel guide</a>
+                    </div>
+                </div>    
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>About Us</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Our story</a>
+                        <a href="" class="footer-links">Work with us</a>
+                    </div>
+                </div>
+
+                <div class="footer-first">
+                    <div class="footer-bottom-heading">
+                        <h4>Contact Us</h4>
+                    </div>
+    
+                    <div class="footer-bottom-anchor">
+                        <a href="" class="footer-links">Our story</a>
+                        <a href="" class="footer-links">Work with us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer> 
+    <script type="module" src="../firebaseConfig.js"></script>
+    <script type="module" src="../PAYMENTRECEIPT/receipt.js"></script>
+    <script type="module" src="./script.js"></script>
+    
+</body>
+</html>

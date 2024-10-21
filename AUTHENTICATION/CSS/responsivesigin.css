@@ -1,0 +1,73 @@
+@media screen and (max-width: 320px) {
+    body {
+        text-align: center;
+        background: #011c1d;
+        padding-bottom: 5em;
+    }
+
+    .sign-up-img, .travel-logo {
+        display: none;
+    }
+
+    .mobile2-travel-logo {
+        display: block;
+    }
+
+    .first-input {
+        width: 100%;
+    }
+
+    .remember-mee {
+        justify-content: center;
+        gap: 8em;
+    }
+
+    .divider::before,
+    .divider::after {
+        width: 100%;
+    }   
+}
+
+@media screen and (min-width: 321px) and (max-width: 430px) {
+    body {
+        text-align: center;
+        background: #011c1d;
+    }
+
+    .sign-up-img, .travel-logo {
+        display: none;
+    }
+
+    .mobile2-travel-logo {
+        display: block;
+    }
+
+    .first-input {
+        width: 100%;
+    }
+
+    .remember-mee {
+        justify-content: center;
+        gap: 11.5em;
+    }
+
+    .divider::before,
+    .divider::after {
+        width: 100%;
+    }
+}
+
+@media screen and (min-width: 431px) and (max-width: 1024px) {
+    body {
+        text-align: center;
+        background: #011c1d;
+    }
+
+    .sign-up-img, .travel-logo {
+        display: none;
+    }
+
+    .mobile-travel-logo {
+        display: block;
+    }
+}
