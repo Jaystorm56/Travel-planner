@@ -114,7 +114,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 let response = await fetch(flightURL, {
                     headers: {
                         "x-rapidapi-host": "tripadvisor16.p.rapidapi.com",
-                        "x-rapidapi-key": "fc319603d2msh239c6e8d8323b58p1f8e91jsn8363451e80e8"
+                        "x-rapidapi-key": "9cca0158aemshf6204827b16c2a3p159952jsn542d52837f5a"
                     }
                 });
 
