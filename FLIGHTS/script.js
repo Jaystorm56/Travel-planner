@@ -155,7 +155,7 @@ closeModalButton.onclick = function() {
 
 // Redirect to sign-in page on button click
 signInButton.addEventListener('click', () => {
-    window.location.href = 'login.html'; 
+    window.location.href = '../AUTHENTICATION/HTML/signin.html'; 
 });
 
 // Function to fetch a random image for the destination
@@ -324,7 +324,7 @@ function displayFlightResults(itineraries) {
             flightDiv.innerHTML = `
                 <div class="main-style">
                     <div class="style">
-                        <img class="img" src="${flightLogo}" alt="${itinerary.legs[0].carriers.marketing[0].name}" width="70" height="70"/>
+                        <img class="img" src="${flightLogo}" alt="${itinerary.legs[0].carriers.marketing[0].name}" />
                         
                         <div class="flight-details" id="details-${index}" style="display:none;">
                             <table>

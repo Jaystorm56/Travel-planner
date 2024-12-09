@@ -75,7 +75,7 @@ sessionStorage.setItem('userData', JSON.stringify(userData));
                 //  Logout logic
                 document.getElementById('userNameDisplay').addEventListener('click', function() {
                     const dropdown = document.getElementById('dropdown');
-                    dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
+                    dropdown.style.display = dropdown.style.display === 'none' ? 'flex' : 'none';
                 });
                 
                 document.getElementById('logoutButton').addEventListener('click', function(e) {
