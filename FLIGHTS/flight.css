@@ -147,6 +147,11 @@ p{
   height: 50vh;
   border-radius: 7px;
 }
+.style > img {
+  width: 150px;
+  height: 120px;
+  border-radius: 15px;
+}
 .red{
   color:rgba(217, 24, 24, 0.523); ;
 }
