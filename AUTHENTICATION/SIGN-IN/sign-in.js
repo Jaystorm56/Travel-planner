@@ -11,11 +11,25 @@ import {
     signInWithPopup
 } from '../../firebaseConfig.js';
 
+// Function to show the loading modal
+const showLoadingModal = () => {
+    const modal = document.getElementById('loading-modal');
+    modal.style.display = 'flex';
+};
+
+// Function to hide the loading modal
+const hideLoadingModal = () => {
+    const modal = document.getElementById('loading-modal');
+    modal.style.display = 'none';
+};
+
 let currentUser;
 const signInUser = async (email, password, rememberMe) => {
     // console.log('Current user first name:', currentUser.displayName);
 
     try {
+
+        showLoadingModal(); // Show loading modal
         // Set persistence based on "Remember me" checkbox
         const persistence = rememberMe ? browserLocalPersistence : browserSessionPersistence;
         await setPersistence(auth, persistence);
@@ -43,6 +57,8 @@ const signInUser = async (email, password, rememberMe) => {
         }
     } catch (error) {
         console.error('Error signing in:', error.message);
+    }finally {
+        hideLoadingModal(); // Hide loading modal
     }
 };
 

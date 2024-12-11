@@ -36,7 +36,8 @@ import {
   getStorage,
   ref,
   uploadBytes,
-  getDownloadURL
+  getDownloadURL,
+  uploadBytesResumable
 } from "https://www.gstatic.com/firebasejs/10.13.1/firebase-storage.js";
 
 const firebaseConfig = {
@@ -78,6 +79,7 @@ export {
   updateDoc, 
   ref, 
   uploadBytes, 
+  uploadBytesResumable,
   getDownloadURL,
   getStorage,
   getFirestore ,

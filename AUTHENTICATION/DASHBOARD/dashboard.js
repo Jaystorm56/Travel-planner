@@ -1,4 +1,4 @@
-import { auth, db, doc, getDoc, uploadBytes, ref, getDownloadURL, setDoc, getStorage } from '../../firebaseConfig.js'; // Add getStorage here
+import { auth, db, doc, getDoc, uploadBytesResumable, ref, getDownloadURL, setDoc, getStorage } from '../../firebaseConfig.js'; // Add getStorage here
 
 // Initialize Firebase Storage
 const storage = getStorage(); // Create a storage instance
@@ -98,24 +98,83 @@ sessionStorage.setItem('userData', JSON.stringify(userData));
                 });
 
                 // Upload profile picture
-                uploadButton.addEventListener('click', async () => {
-                    const file = profilePictureInput.files[0];
-                    if (file) {
-                        const storageRef = ref(storage, `profilePictures/${user.uid}/${file.name}`);
-                        await uploadBytes(storageRef, file);
-                        const url = await getDownloadURL(storageRef);
+       // Create a progress bar dynamically
+       const createProgressBar = () => {
+        const progressBarContainer = document.createElement('div');
+        progressBarContainer.classList.add('progress-bar-overlay');
+        progressBarContainer.innerHTML = `
+            <div class="progress-bar">
+                <div class="progress-bar-fill"></div>
+                <span class="progress-bar-text">0%</span> <!-- Percentage text -->
+            </div>
+        `;
+        return progressBarContainer;
+    };
+    
+    
 
-                        // Update Firestore with the new profile picture URL
-                        await setDoc(userDocRef, { profilePicture: url }, { merge: true });
-                        profilePicContainer.innerHTML = `
-                            <img src="${url}" alt="Profile Picture" class="profile-pic">
-                            <span class="user-first-name">${userFirstName}</span>
-                        `;
-                        uploadPopup.style.display = 'none'; // Hide the popup
-                    } else {
-                        alert('Please select a file to upload.');
-                    }
-                });
+// Event listener for the upload button
+uploadButton.addEventListener('click', async () => {
+    const file = profilePictureInput.files[0];
+    if (file) {
+        // Clear any existing progress bar and add a new one
+        let progressBarContainer = uploadPopup.querySelector('.progress-bar-overlay');
+        if (!progressBarContainer) {
+            progressBarContainer = createProgressBar();
+            document.body.appendChild(progressBarContainer); // Append to the body so it overlays on the popup
+        }
+        const progressBarFill = progressBarContainer.querySelector('.progress-bar-fill');
+        const progressBarText = progressBarContainer.querySelector('.progress-bar-text');
+        progressBarContainer.style.display = 'flex'; // Ensure progress bar is visible
+
+        try {
+            const storageRef = ref(storage, `profilePictures/${user.uid}/${file.name}`);
+            const uploadTask = uploadBytesResumable(storageRef, file); // Use resumable upload for progress tracking
+
+            uploadTask.on(
+                'state_changed',
+                (snapshot) => {
+                    // Calculate progress as a percentage
+                    const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                    progressBarFill.style.width = `${progress}%`; // Update progress bar width
+                    progressBarText.textContent = `${Math.round(progress)}%`; // Update text to show percentage
+                },
+                (error) => {
+                    console.error("Error uploading file:", error);
+                    alert("An error occurred during the upload. Please try again.");
+                },
+                async () => {
+                    // Get the download URL after upload completes
+                    const url = await getDownloadURL(storageRef);
+
+                    // Update Firestore with the new profile picture URL
+                    await setDoc(userDocRef, { profilePicture: url }, { merge: true });
+
+                    // Update profile picture display
+                    profilePicContainer.innerHTML = `
+                        <img src="${url}" alt="Profile Picture" class="profile-pic">
+                    `;
+
+                    // Confirm upload success to the user
+                    alert("Profile picture uploaded successfully!");
+
+                    // Close the upload popup after completion
+                    uploadPopup.style.display = 'none';
+
+                    // Hide the progress bar overlay
+                    progressBarContainer.style.display = 'none';
+                }
+            );
+        } catch (error) {
+            console.error("Error uploading file:", error);
+            alert("An error occurred during the upload. Please try again.");
+        }
+    } else {
+        alert('Please select a file to upload.');
+    }
+});
+
+
             } else {
                 console.error('No user data found');
             }

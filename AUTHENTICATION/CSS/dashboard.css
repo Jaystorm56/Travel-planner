@@ -232,6 +232,51 @@ input[type="file"] {
 #uploadButton:hover {
     background-color: #418c8d; /* Darker blue on hover */
 }
+
+/* Progress bar container */
+/* Style the progress bar overlay */
+.progress-bar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000; /* Ensure it is on top of the popup */
+    backdrop-filter: blur(5px); /* Apply blur effect to background */
+    display: none; /* Initially hidden */
+}
+
+.progress-bar {
+    width: 80%;
+    height: 17px; /* Adjust width as needed */
+    max-width: 500px; /* Maximum width for the progress bar */
+    background-color: #ccc;
+    border-radius: 20px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress-bar-fill {
+    width: 0%; /* Start with 0% width */
+    height: 17px;
+    background-color: rgba(7, 172, 7, 0.897); /* Green fill */
+    border-radius: 10px;
+    transition: width 0.2s ease-in-out;
+}
+
+.progress-bar-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-weight: bold;
+}
+
  
 
 /* ......................... */

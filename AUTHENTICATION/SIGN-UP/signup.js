@@ -1,9 +1,9 @@
+// Import statements
 import { 
     auth, 
     googleAuthProvider,
     createUserWithEmailAndPassword, 
     signInWithPopup, 
-   
     storage, 
     ref, 
     uploadBytes, 
@@ -13,9 +13,23 @@ import {
     updateProfile
 } from '../../firebaseConfig.js';
 
+// Function to show the loading modal
+const showLoadingModal = () => {
+    const modal = document.getElementById('loading-modal');
+    modal.style.display = 'flex';
+};
+
+// Function to hide the loading modal
+const hideLoadingModal = () => {
+    const modal = document.getElementById('loading-modal');
+    modal.style.display = 'none';
+};
+
 // Function to sign up the user using email and password
 const signUpUser = async (email, password, firstName, lastName, phone) => {
     try {
+        showLoadingModal(); // Show loading modal
+
         // Sign up the user
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
@@ -25,7 +39,6 @@ const signUpUser = async (email, password, firstName, lastName, phone) => {
             displayName: firstName // Set the display name to the user's first name
         });
         console.log('User profile updated with display name:', firstName);
-
 
         // Example user data to save
         const userData = {
@@ -53,18 +66,19 @@ const signUpUser = async (email, password, firstName, lastName, phone) => {
 
         // Redirect to sign-in page
         window.location.href = 'signin.html';
-
     } catch (error) {
         console.error('Error during sign-up or file upload:', error.message);
+        alert('Error during sign-up: ' + error.message);
+    } finally {
+        hideLoadingModal(); // Hide loading modal
     }
 };
 
 // toggle password
-
 const togglePasswordVisibility = () => {
     const passwordField = document.getElementById('password');
     const eyeIcon = document.getElementById('eye-icon');
-    
+
     if (passwordField.type === 'password') {
         passwordField.type = 'text'; // Show password
         eyeIcon.classList.replace('fa-eye', 'fa-eye-slash'); // Change icon to "eye-slash"
@@ -77,7 +91,7 @@ const togglePasswordVisibility = () => {
 const toggleConfirmPasswordVisibility = () => {
     const confirmPasswordField = document.getElementById('confirm-password');
     const eyeIconConfirm = document.getElementById('eye-icon-confirm-password');
-    
+
     if (confirmPasswordField.type === 'password') {
         confirmPasswordField.type = 'text'; // Show confirm password
         eyeIconConfirm.classList.replace('fa-eye', 'fa-eye-slash'); // Change icon to "eye-slash"
@@ -90,6 +104,8 @@ const toggleConfirmPasswordVisibility = () => {
 // Function to sign up the user using Google authentication
 const signUpWithGoogle = async () => {
     try {
+        showLoadingModal(); // Show loading modal
+
         const userCredential = await signInWithPopup(auth, googleAuthProvider);
         const user = userCredential.user;
 
@@ -109,9 +125,11 @@ const signUpWithGoogle = async () => {
 
         // Redirect to sign-in page
         window.location.href = 'signin.html';
-
     } catch (error) {
         console.error('Error during Google sign-in:', error.message);
+        alert('Error during Google sign-up: ' + error.message);
+    } finally {
+        hideLoadingModal(); // Hide loading modal
     }
 };
 
@@ -149,6 +167,6 @@ signUpForm.addEventListener('submit', async (e) => {
 const googleSignupBtn = document.getElementById('google-signup');
 googleSignupBtn.addEventListener('click', signUpWithGoogle);
 
-// event listener for toggle
+// Event listeners for toggle password visibility
 document.getElementById('eye-icon').addEventListener('click', togglePasswordVisibility);
 document.getElementById('eye-icon-confirm-password').addEventListener('click', toggleConfirmPasswordVisibility);

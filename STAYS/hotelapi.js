@@ -40,7 +40,8 @@ function initAutocomplete() {
                         userProfileImg.src = profilePicture; // Display profile picture
                         userProfileImg.style.display = 'block';
                     } else {
-                        userProfileImg.style.display = 'none'; // Hide profile picture if not available
+                        userProfileImg.src = './IMAGES/profile-pic.svg';
+                        userProfileImg.style.display = 'block'; // Hide profile picture if not available
                     }
                 } else {
                     console.error("User document not found");
@@ -100,14 +101,27 @@ document.addEventListener('DOMContentLoaded', () => {
     
 
         // Show loading indicator while fetching data
-        const resultsContainer = document.getElementById('hotel-results');
-        const loadingIndicator = document.createElement('p');
-        loadingIndicator.textContent = "Loading results...";
-        resultsContainer.innerHTML = '';  // Clear previous results
-        resultsContainer.appendChild(loadingIndicator);
+       // Function to show the loading modal
+const showLoadingModal = () => {
+    const modal = document.getElementById('loading-modal');
+    modal.style.display = 'flex';
+};
+
+// Function to hide the loading modal
+const hideLoadingModal = () => {
+    const modal = document.getElementById('loading-modal');
+    modal.style.display = 'none';
+};
+
+// Use these functions in your existing code
+ // Call this before a loading action
+ // Call this after the loading completes
+
 
         async function checkResult() {
             try {
+
+                showLoadingModal();
                 // Fetch hotel data from TripAdvisor API
                 let flightURL = `https://tripadvisor16.p.rapidapi.com/api/v1/hotels/searchHotelsByLocation?latitude=${lat}&longitude=${lon}&checkIn=${checkIN.value}&checkOut=${checkOut.value}&pageNumber=1&currencyCode=USD`;
                 
@@ -156,7 +170,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         const hotelSearchData = {
                             userId: user.uid,
                             hotelName: hotel.title,
-                            city: hotel.location ? hotel.location.name : 'Unknown City',
+                            city: hotel.secondaryInfo,
                             imageUrl: hotel.cardPhotos[0]?.sizes?.urlTemplate.replace('{width}', '400').replace('{height}', '300') || 'placeholder.jpg',
                             searchDate: new Date().toISOString(), // Date of the search
                         };
@@ -243,8 +257,8 @@ async function limitHotelSearches() {
             } catch (error) {
                 console.error("Fetch error:", error);
                 alert("There was a problem fetching hotel data. Please try again later.");
-            } finally {
-                loadingIndicator.remove();
+            }finally {
+                hideLoadingModal(); // Hide loading modal
             }
         }
     
