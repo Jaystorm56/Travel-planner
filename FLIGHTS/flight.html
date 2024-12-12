@@ -6,7 +6,7 @@
     <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/iconify/2.0.0/iconify.min.js"> -->
     <script defer src="https://js.paystack.co/v2/inline.js"></script>
     <title>Flight Search</title>
-    <link rel="stylesheet" href="flight.css">
+    <link rel="stylesheet" href="./flight.css">
     <link rel="stylesheet" href="/FLIGHTS/responsiveflight.css">
     <link rel="stylesheet" href="../PAYMENTRECEIPT/style.css">
     <link
@@ -37,65 +37,71 @@
     <h1 class="flight-heading">Flight Search</h1>
 
     <form id="flightSearchForm" class="form">
-        <!-- From-To Select Fields -->
-         <h3 class="heading">WHERE ARE YOU FLYING?</h3>
-        <div class="form">
+      <!-- From-To Select Fields -->
+      <h3 class="heading">WHERE ARE YOU FLYING?</h3>
+      <div class="form">
           <p>
-            <label for="from">From:</label>
-            <select id="from" required></select>
+              <label for="from">From:</label>
+              <select id="from" required></select>
           </p>
   
           <p>
-            <label for="to">To:</label>
-            <select id="to" required></select>
+              <label for="to">To:</label>
+              <select id="to" required></select>
           </p>
   
           <!-- Depart-Return Date Fields -->
           <p>
-            <label for="departDate">Departure Date:</label>
-            <input type="date" id="departDate" required>
+              <label for="departDate">Departure Date:</label>
+              <input type="date" id="departDate" required>
           </p>
   
           <p>
-            <label for="returnDate">Return Date:</label>
-            <input type="date" id="returnDate">
+              <label for="returnDate">Return Date:</label>
+              <input type="date" id="returnDate">
           </p>
   
           <!-- Passengers and Class -->
           <p>
-            <label for="passengers">Passengers:</label>
-            <select id="passengers" required>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-            </select>
+              <label for="passengers">Passengers:</label>
+              <select id="passengers" required>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+              </select>
           </p>
   
           <p>
-            <label for="cabinClass">Cabin Class:</label>
-            <select id="cabinClass" required>
-                <option value="economy">Economy</option>
-                <option value="business">Business</option>
-                <option value="first">First Class</option>
-            </select>
+              <label for="cabinClass">Cabin Class:</label>
+              <select id="cabinClass" required>
+                  <option value="economy">Economy</option>
+                  <option value="business">Business</option>
+                  <option value="first">First Class</option>
+              </select>
           </p>
-        </div>
-        
-        <div class="submit">
+      </div>
+      
+      <div class="submit">
           <button type="submit"><img src="./message.svg" alt="" class="message"> Search Flights</button>
-        </div>
-    </form>
+      </div>
+  </form>
+  
+  <div id="loader" class="loader" style="display:none;">
+    <div class="spinner"></div>
+</div>
 
-    <div class="flightsearchh">
-        <h1>Your recent search</h1>
+  <div class="flightsearchh">
+      <h1>Your recent search</h1>
 
-        <div class="flightsearchcontainer"></div>
-    </div>
+      <div class="flightsearchcontainer"></div>
+  </div>
+  
+  <!-- Flight Results Section -->
+  <div id="results">
+      <div id="flightResultsContainer"></div>
+  </div>
+  
 
-    <!-- flight Results -->
-    <div id="results">
-
-    </div>
 
     
 

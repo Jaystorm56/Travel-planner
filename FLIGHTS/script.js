@@ -158,6 +158,8 @@ signInButton.addEventListener('click', () => {
     window.location.href = 'login.html'; 
 });
 
+
+
 // Function to fetch a random image for the destination
 async function getRandomImage(destination) {
     const imageUrl = `https://api.unsplash.com/search/photos?query=${destination}&client_id=VbrZbEwWE6Jkcy8HlYhTpU0vFHNDmY72JXUeFuXGVmU`;
@@ -193,6 +195,7 @@ async function saveFlightSearch(userId, searchDetails) {
     }
     return null;
 }
+
 
 
 // Function to display recent searches
@@ -231,9 +234,11 @@ async function displayRecentSearches(userId) {
 }
 
 
+
 // Flight Search Form Submission
+// Handle flight search form submission
 flightSearchForm.addEventListener('submit', async (e) => {
-    e.preventDefault(); 
+    e.preventDefault();
 
     // flight search parameters
     const from = document.getElementById('from').value.split('-');
@@ -243,36 +248,37 @@ flightSearchForm.addEventListener('submit', async (e) => {
     const passengers = document.getElementById('passengers').value;
     const cabinClass = document.getElementById('cabinClass').value;
 
+    // Show loader when the search starts
+    const loader = document.getElementById('loader');
+    loader.style.display = 'block';
+
     // Check if user is authenticated
     onAuthStateChanged(auth, async (user) => {
         if (user) {
             // Fetch a random image of the destination
             const destinationImage = await getRandomImage(to[0]);
 
-             // Prepare the search details
-        const searchDetails = {
-            from: from[0],  // Use the correct values from the split
-            to: to[0],
-            departDate,
-            returnDate,
-            passengers,
-            cabinClass,
-        };
+            // Prepare the search details
+            const searchDetails = {
+                from: from[0],  // Use the correct values from the split
+                to: to[0],
+                departDate,
+                returnDate,
+                passengers,
+                cabinClass,
+            };
 
             // Save flight search details to Firestore
-            // const searchDetails = { from, to, departDate, returnDate, passengers, cabinClass };
             const docId = await saveFlightSearch(user.uid, searchDetails);
 
-           // Display recent searches after saving
-           await displayRecentSearches(user.uid);
+            // Display recent searches after saving
+            await displayRecentSearches(user.uid);
         } else {
             resultsDiv.innerHTML = '<p>Please sign in to save your flight search.</p>';
         }
     });
 
-    
-
-    //API URL
+    // API URL for flight search
     const flightUrl = `https://sky-scrapper.p.rapidapi.com/api/v2/flights/searchFlightsWebComplete?originSkyId=${from[0]}&destinationSkyId=${to[0]}&originEntityId=${from[1]}&destinationEntityId=${to[1]}&date=${departDate}&returnDate=${returnDate}&cabinClass=${cabinClass}&adults=${passengers}&sortBy=best&currency=USD&market=en-US&countryCode=US`;
 
     const flightOptions = {
@@ -283,12 +289,12 @@ flightSearchForm.addEventListener('submit', async (e) => {
         }
     };
 
-    // flight data
-    async function GetResults(){
+    // Flight data fetch function
+    async function GetResults() {
         try {
             let response = await fetch(flightUrl, flightOptions);
             if (!response.ok) {
-                const errorText = await response.text(); 
+                const errorText = await response.text();
                 console.error('Response status:', response.status);
                 console.error('Response body:', errorText);
                 throw new Error('Network response was not ok');
@@ -301,11 +307,19 @@ flightSearchForm.addEventListener('submit', async (e) => {
         } catch (error) {
             console.error('Error fetching flight data:', error);
             resultsDiv.innerHTML = '<p>Error fetching flight data. Please try again later.</p>';
+        } finally {
+            // Hide the loader after fetching results
+            loader.style.display = 'none';
         }
     }
+
+    // Call the flight search function
     GetResults();
 });
+
 // console.log(itineraries);
+
+
 
 // Function to display flight results
 function displayFlightResults(itineraries) {
