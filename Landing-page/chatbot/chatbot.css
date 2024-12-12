@@ -1,3 +1,4 @@
+/* styles.css */
 body {
     font-family: Arial, sans-serif;
     display: flex;
@@ -5,8 +6,6 @@ body {
     align-items: center;
     height: 100vh;
     margin: 0;
-    padding: 0;
-    box-sizing: border-box;
     /* background-color: #f5f5f5; */
     background:linear-gradient(rgba(0, 0, 0,0.2),rgba(0,0,0,0.2),rgba(0,0,0,0.2));
    
@@ -64,7 +63,7 @@ body {
         rgba(0, 0, 0, 0.3), 
         rgba(0, 0, 0, 0.3)
     ), 
-    url(/img/Travel\ Planner\ Logo.png);
+    url(/Travel-planner/img/Travel\ Planner\ Logo.png);
     
     background-position: center;
     background-size: 100%;
@@ -75,10 +74,13 @@ body {
     text-align: center;
     color: whitesmoke ;
     margin-bottom: 20px;
-    /* margin-top: 0px; */
-    background-color: black;
+    background-color:rgb(57, 55, 55) ;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
+    margin-top: 0px;
+    height: 80px;
+    font-size: 3rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .chat-box {
@@ -96,7 +98,7 @@ body {
     border-radius:7px;
     /* max-width: 80%; */
     width: calc(100% - 80px);
-    
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 
 .bot-message {
@@ -115,6 +117,7 @@ body {
     width: 100%;
     /* width: calc(100% - 80px); */
     height: 4rem;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
 }
 .contain{
     display: flex;
@@ -195,3 +198,5 @@ button {
   button:hover svg {
     transform: rotate(45deg);
   }
+  
+  
